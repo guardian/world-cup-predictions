@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 
-
 var vistorID = 1;
 
 // Discussion API get visitor number and ID
