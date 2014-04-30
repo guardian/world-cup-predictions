@@ -7,8 +7,7 @@ var vistorID = 1;
 var discussionIdentity = vistorID;
 
 app.get('/', function(req, res){
-  res.send('worldcup predication machine');
-  console.log('LOAD index page now');
+  res.send('world cup prediction api here');
 });
 
 app.listen(3000);
