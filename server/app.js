@@ -6,7 +6,7 @@ var vistorID = 1;
 // Discussion API get visitor number and ID
 var discussionIdentity = vistorID;
 
-app.get('/', function(req, res){
+app.get('/', function(req, res) {
   res.send('world cup prediction api here');
 });
 

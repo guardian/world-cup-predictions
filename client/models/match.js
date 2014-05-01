@@ -4,8 +4,8 @@ define(['backbone'], function (Backbone) {
         	alphaTeam: 'Denmark',
         	betaTeam: 'England'
         },
+
         initialize: function() {
-        	console.log('new match');
         }
     });
 });
