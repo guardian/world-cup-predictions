@@ -2,3 +2,10 @@
 	background-color: #EDEDED;
 	padding: 20px;
 }
+
+.wcp .warning {
+	display: block;
+	background-color: #c34655;
+	color: white;
+	font-family: 'AgateSans';
+}
