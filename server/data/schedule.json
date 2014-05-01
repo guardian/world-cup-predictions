@@ -6,11 +6,285 @@
 		"matchTime": "1700"
 	},
 	{
+		"alphaTeam": "Mexico",
+		"betaTeam": "Cameroon",
+		"matchDate": "13062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Spain",
+		"betaTeam": "Netherlands",
+		"matchDate": "13062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Chile",
+		"betaTeam": "Australia",
+		"matchDate": "13062014",
+		"matchTime": "1800"
+	},
+	{
+		"alphaTeam": "Colombia",
+		"betaTeam": "Greece",
+		"matchDate": "14062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Uruguay",
+		"betaTeam": "Costa Rica",
+		"matchDate": "14062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "England",
+		"betaTeam": "Italy",
+		"matchDate": "14062014",
+		"matchTime": "1800"
+	},
+	{
+		"alphaTeam": "Côte D'Ivoire",
+		"betaTeam": "Japan",
+		"matchDate": "14062014",
+		"matchTime": "2200"
+	},
+	{
+		"alphaTeam": "Switzerland",
+		"betaTeam": "Ecuador",
+		"matchDate": "15062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "France",
+		"betaTeam": "Honduras",
+		"matchDate": "15062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "Argentina",
+		"betaTeam": "Bosnia and Herzegovina",
+		"matchDate": "15062014",
+		"matchTime": "1900"
+	},
+	{
+		"alphaTeam": "Germany",
+		"betaTeam": "Portugal",
+		"matchDate": "16062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Iran",
+		"betaTeam": "Nigeria",
+		"matchDate": "16062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "Ghana",
+		"betaTeam": "USA",
+		"matchDate": "16062014",
+		"matchTime": "1900"
+	},
+	{
+		"alphaTeam": "Belgium",
+		"betaTeam": "Algeria",
+		"matchDate": "17062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Brazil",
+		"betaTeam": "Mexico",
+		"matchDate": "17062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "Russia",
+		"betaTeam": "Korea Republic",
+		"matchDate": "17062014",
+		"matchTime": "1800"
+	},
+	{
+		"alphaTeam": "Australia",
+		"betaTeam": "Netherlands",
+		"matchDate": "18062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Spain",
+		"betaTeam": "Chile",
+		"matchDate": "18062014",
+		"matchTime": "1600"
+	},
+	{
 		"alphaTeam": "Cameroon",
-		"betaTeam": "Scotland"
+		"betaTeam": "Croatia",
+		"matchDate": "18062014",
+		"matchTime": "1800"
+	},
+	{
+		"alphaTeam": "Colombia",
+		"betaTeam": "Côte D'Ivoire",
+		"matchDate": "19062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Uruguay",
+		"betaTeam": "England",
+		"matchDate": "19062014",
+		"matchTime": "1600"
 	},
 	{
 		"alphaTeam": "Japan",
-		"betaTeam": "Wales"
+		"betaTeam": "Greece",
+		"matchDate": "19062014",
+		"matchTime": "1900"
+	},
+	{
+		"alphaTeam": "Italy",
+		"betaTeam": "Costa Rica",
+		"matchDate": "20062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Switzerland",
+		"betaTeam": "France",
+		"matchDate": "20062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "Honduras",
+		"betaTeam": "Ecuador",
+		"matchDate": "20062014",
+		"matchTime": "1900"
+	},
+	{
+		"alphaTeam": "Argentina",
+		"betaTeam": "Iran",
+		"matchDate": "21062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Germany",
+		"betaTeam": "Ghana",
+		"matchDate": "21062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "Nigeria",
+		"betaTeam": "Bosnia and Herzegovina",
+		"matchDate": "21062014",
+		"matchTime": "1800"
+	},
+	{
+		"alphaTeam": "Belgium",
+		"betaTeam": "Russia",
+		"matchDate": "22062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Korea Republic",
+		"betaTeam": "Algeria",
+		"matchDate": "22062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "USA",
+		"betaTeam": "Portugal",
+		"matchDate": "22062014",
+		"matchTime": "1800"
+	},
+	{
+		"alphaTeam": "Netherlands",
+		"betaTeam": "Chile",
+		"matchDate": "23062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Australia",
+		"betaTeam": "Spain",
+		"matchDate": "23062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Cameroon",
+		"betaTeam": "Brazil",
+		"matchDate": "23062014",
+		"matchTime": "1700"
+	},
+	{
+		"alphaTeam": "Croatia",
+		"betaTeam": "Mexico",
+		"matchDate": "23062014",
+		"matchTime": "1700"
+	},
+	{
+		"alphaTeam": "Italy",
+		"betaTeam": "Uruguay",
+		"matchDate": "24062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Costa Rica",
+		"betaTeam": "England",
+		"matchDate": "24062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Japan",
+		"betaTeam": "Colombia",
+		"matchDate": "24062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "Greece",
+		"betaTeam": "Côte D'Ivoire",
+		"matchDate": "24062014",
+		"matchTime": "1700"
+	},
+	{
+		"alphaTeam": "Nigeria",
+		"betaTeam": "Argentina",
+		"matchDate": "25062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Bosnia and Herzegovina",
+		"betaTeam": "Iran",
+		"matchDate": "25062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Honduras",
+		"betaTeam": "Switzerland",
+		"matchDate": "25062014",
+		"matchTime": "1600"
+	},
+	{
+		"alphaTeam": "Ecuador",
+		"betaTeam": "France",
+		"matchDate": "25062014",
+		"matchTime": "1700"
+	},
+	{
+		"alphaTeam": "Portugal",
+		"betaTeam": "Ghana",
+		"matchDate": "26062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "USA",
+		"betaTeam": "Germany",
+		"matchDate": "26062014",
+		"matchTime": "1300"
+	},
+	{
+		"alphaTeam": "Korea Republic",
+		"betaTeam": "Belgium",
+		"matchDate": "26062014",
+		"matchTime": "1700"
+	},
+	{
+		"alphaTeam": "Algeria",
+		"betaTeam": "Russia",
+		"matchDate": "26062014",
+		"matchTime": "1700"
 	}
 ]
