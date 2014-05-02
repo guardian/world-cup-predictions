@@ -1,5 +1,6 @@
 define([], function() {
 	'use strict';
+	
 	var amdConfiguration = {
 		context: 'worldcup',
 		baseUrl: 'http://localhost/world-cup-predictions/client/',

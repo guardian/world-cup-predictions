@@ -9,3 +9,13 @@
 	color: white;
 	font-family: 'AgateSans';
 }
+
+.wcp ul {
+	margin: 0;
+	list-style-type: none;
+}
+
+.wcp li {
+	background-color: #f4f4ef;
+	padding: 10px;
+}
