@@ -1,6 +1,7 @@
 .wcp header {
 	background-color: #EDEDED;
 	padding: 20px;
+	margin: 0 0 2em 0;
 }
 
 .wcp .warning {
@@ -18,4 +19,9 @@
 .wcp li {
 	background-color: #f4f4ef;
 	padding: 10px;
+	margin: 0 0 1em 0;
+}
+
+.wcp input {
+	width: 50px;
 }
