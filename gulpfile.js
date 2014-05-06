@@ -22,6 +22,10 @@ function startExpress() {
 	app.listen(4000);
 }
 
-gulp.task('default', function() {
+gulp.task('server', function() {
 	startExpress();
-});
+})
+
+gulp.task('client', function() {
+	console.info('start client');
+})
