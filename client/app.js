@@ -3,9 +3,10 @@ define([
 		'jquery',
 		'views/statusView',
 		'views/scheduleView',
+		'views/timeView',
 		'collections/scheduleCollection',
 		'link!css/styles.css'
-	], function(backbone, $, StatusView, ScheduleView, ScheduleCollection) {
+	], function(backbone, $, StatusView, ScheduleView, TimeView, ScheduleCollection) {
 
 	'use strict';
 
@@ -18,6 +19,9 @@ define([
 
 			var statusView = new StatusView();
 			$(this.el).append(statusView.render().el);
+
+			var timeView = new TimeView();
+			$(this.el).append(timeView.render().el);
 
 			var that = this;
 			scheduleCollection.fetch({success: function () {

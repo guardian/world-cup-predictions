@@ -14,14 +14,29 @@
 .wcp ul {
 	margin: 0;
 	list-style-type: none;
+	display: flex;
 }
 
 .wcp li {
 	background-color: #f4f4ef;
 	padding: 10px;
 	margin: 0 0 1em 0;
+	min-width: 200px;
 }
 
 .wcp input {
 	width: 50px;
+}
+
+.wcp time {
+	font-family: 'AgateSans';
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+.wcp-divider {
+	background-color: #296bad;
+	text-align: center;
+	color: white;
+	padding: 1em;
 }
