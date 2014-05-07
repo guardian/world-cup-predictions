@@ -1,4 +1,7 @@
-define(['backbone', 'text!../templates/matchViewTemplate.html'], function (Backbone, MatchViewTemplate) {
+define([
+    'backbone',
+    'text!../templates/matchViewTemplate.html'
+    ], function (Backbone, MatchViewTemplate) {
     return Backbone.View.extend({
         tagName: 'li',
         template: _.template(MatchViewTemplate),
