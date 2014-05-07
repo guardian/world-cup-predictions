@@ -27,5 +27,4 @@ gulp.task('server', function() {
 })
 
 gulp.task('client', function() {
-	console.info('start client');
 })
