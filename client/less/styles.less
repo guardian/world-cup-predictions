@@ -1,0 +1,68 @@
+@import './flexbox.less';
+
+.wcp header {
+	background-color: #EDEDED;
+	margin: 0 0 2em 0;
+	.flex-display;
+}
+
+.wcp .warning {
+	display: block;
+	background-color: #c34655;
+	color: white;
+	padding: 10px;
+	font-family: 'AgateSans';
+	width: 400px;
+}
+
+.wcp ul {
+	margin: 0;
+	list-style-type: none;
+}
+
+.wcp li {
+	background-color: #f4f4ef;
+	padding: 10px;
+	margin: 0 0 1em 0;
+	min-width: 200px;
+}
+
+.wcp input {
+	width: 50px;
+}
+
+.wcp-divider {
+	background-color: #296bad;
+	text-align: center;
+	color: white;
+	padding: 1em;
+}
+
+.wcp-row {
+	.flex-display;
+	.flex-flow(row wrap);
+	.justify-content(space-between);
+}
+
+.wcp-team-name {
+	width: 10%;
+	display: inline-block;
+}
+
+.wcp-align-right {
+	text-align: right;
+}
+
+.wcp-match-date {
+	display: block;
+	text-align: center;
+	font-family: 'AgateSans';
+	font-size: 0.8em;
+}
+
+.wcp-match-time {
+	display: block;
+	text-align: center;
+	font-family: 'AgateSans';
+	font-size: 0.6em;
+}
