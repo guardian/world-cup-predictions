@@ -1,6 +1,9 @@
-define(['backbone'], function (Backbone) {
+define([
+		'backbone',
+		'text!../templates/statusViewTemplate.html'
+	], function (Backbone, StatusViewTemplate) {
     return Backbone.View.extend({
-        template: _.template('<header>Highlight my favourite team. Your prediction score<div class=warning>2 matches today without predictions. Your username </div></header>'),
+        template: _.template(StatusViewTemplate),
 
         initialize: function () {
         	_.bindAll(this, 'render');
@@ -9,7 +12,7 @@ define(['backbone'], function (Backbone) {
         },
 
         render: function() {
-        	$(this.el).html(this.template());
+        	$(this.el).html(this.template({username: this.model.get('username')}));
         	return this;
         }
 
