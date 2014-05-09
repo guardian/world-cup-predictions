@@ -1,13 +1,22 @@
-<div>
-	<img src="../client/images/<%= alphaCode %>.png">
-	<input type="number" pattern="\d*">
+<div class="wcp-row">
+	<div class="wcp-row-left">
+		<img src="../client/images/<%= alphaCode %>.png">
+	</div>
 
-	<%= alphaTeam %> vs <%= betaTeam %>
+	<input type="number" pattern="\d*" min="0" max="9" />
 
-	<time><%= matchTime %></time>
+	<span class="wcp-team-name"><%= alphaTeam %></span>
 
-	<%= matchDate %>
+	<time>
+		<span class="wcp-match-date"><%= matchDate %></span>
+		<span class="wcp-match-time"><%= matchTime %></span>
+	</time>
 
-	<input type="number" pattern="\d*">
-	<img src="../client/images/<%= betaCode %>.png">
+	<span class="wcp-team-name wcp-align-right"><%= betaTeam %></span>
+
+	<input type="number" pattern="\d*" min="0" max="9" />
+
+	<div class="wcp-row-right">
+		<img src="../client/images/<%= betaCode %>.png">
+	</div>
 </div>
