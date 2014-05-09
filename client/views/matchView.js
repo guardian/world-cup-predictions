@@ -1,7 +1,8 @@
 define([
     'backbone',
+    'moment',
     'text!../templates/matchViewTemplate.html'
-    ], function (Backbone, MatchViewTemplate) {
+    ], function (Backbone, Moment, MatchViewTemplate) {
     return Backbone.View.extend({
         tagName: 'li',
         template: _.template(MatchViewTemplate),
