@@ -7,7 +7,8 @@ define([], function() {
 		paths: {
 			backbone: 'lib/backbone',
 			underscore: 'lib/underscore',
-			jquery: 'lib/jquery'
+			jquery: 'lib/jquery',
+			moment: 'lib/moment'
 		},
 		pluginPath: 'lib/'
 	};
