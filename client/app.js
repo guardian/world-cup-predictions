@@ -22,15 +22,10 @@ define([
 			$(this.el).addClass('wcp');
 
 			var scheduleCollection = new ScheduleCollection();
-
 			var user = new UserModel();
 			user.setToolKitObject();
 
-			console.log(user);
-
-			var statusView = new StatusView();
-			statusView.model = user;
-			
+			var statusView = new StatusView({model: user});
 			$(this.el).append(statusView.render().el);
 
 			var timeView = new TimeView();
