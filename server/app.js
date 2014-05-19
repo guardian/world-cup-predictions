@@ -1,10 +1,14 @@
 var express = require('express');
+var monk = require('monk');
+
+var db = monk('localhost:27017/wcp');
+
 var app = express();
 
-var vistorID = 1;
-
-// Discussion API get visitor number and ID
-var discussionIdentity = vistorID;
+app.use(function(req, res, next) {
+	req.db = db;
+	next();
+})
 
 app.get('/', function(req, res) {
   res.send('world cup prediction api here');
