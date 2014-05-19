@@ -10,7 +10,7 @@ function startExpress() {
 	var express = require('express');
 	var app = express();
 
-	var whitelist = ['http://chronos.theguardian.com'];
+	var whitelist = ['http://chronos.theguardian.com','http://daan'];
 
 	 var corsOptions = {
 	     origin: function (origin, callback) {
@@ -39,4 +39,5 @@ gulp.task('server', function() {
 
 gulp.task('client', function() {
 	gulp.watch('./client/less/styles.less', ['styles']);
+	gulp.watch('./client/', ['templates']);
 })

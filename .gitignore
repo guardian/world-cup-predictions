@@ -2,3 +2,4 @@
 node_modules/
 host/
 design/
+client/boot.js
