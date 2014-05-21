@@ -5,8 +5,11 @@ define([
         ], function (Backbone, ScheduleCollection, MatchView) {
 
         return Backbone.View.extend({
-            // template: _.template('<div></div>'),
             tagName: 'ul',
+
+            initialize: function () {
+
+            },
 
             render: function() {
                 this.collection.each(function(match) {
@@ -14,7 +17,16 @@ define([
                     this.$el.append(matchView.render().el);
                 }, this);
 
-            	return this;
+            return this;
+
+            },
+
+            save: function() {
+                Bsckbone.sync('create', this, {
+                    success: function() {
+                        console.log('saved');
+                    }
+                });
             }
         });
 });
