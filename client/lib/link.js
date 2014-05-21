@@ -60,7 +60,7 @@
 		var link = doc[createElement]('link');
 		link.rel = "stylesheet";
 		link.type = "text/css";
-		link.href = href;
+		link.href = href + '?' + (Math.random() * 1000000000000000000);
 		return link;
 	}
 
