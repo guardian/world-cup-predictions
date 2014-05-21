@@ -33,7 +33,7 @@ define(/*=='curl/plugin/_fetchText',==*/ [], function () {
 
 	function fetchText (url, callback, errback) {
 		var x = xhr();
-		x.open('GET', url, true);
+		x.open('GET', url + '?' + (Math.random() * 1000000000000000000), true);
 		x.onreadystatechange = function (e) {
 			if (x.readyState === 4) {
 				if (x.status < 400) {
