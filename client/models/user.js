@@ -1,6 +1,7 @@
 define([
-        'backbone'
-        ], function (Backbone) {
+        'backbone',
+        'common/modules/identity/api'
+        ], function (Backbone, Identity) {
         return Backbone.Model.extend({
             defaults: {
                 userID: 0,
@@ -9,21 +10,13 @@ define([
             },
 
             initialize: function() {
-            },
+                this.set('isUserLoggedIn', Identity.isUserLoggedIn());
 
-            isUserLoggedIn: function() {
-                var isLoggedIn = false;
-            },
-
-            setToolKitObject: function() {
-                var that = this;
-                require(['common/modules/identity/api']).then(function(toolkit) {
-                    that.set('isUserLoggedIn', toolkit.isUserLoggedIn());
-                    that.set('username', toolkit.getUserFromCookie().displayName);
-                    that.set('userID', toolkit.getUserFromCookie().id);
-
-                    Backbone.trigger('toolkitReady');
-                });
+                if (Identity.isUserLoggedIn()) {
+                    this.set('username', Identity.getUserFromCookie().displayName);
+                    this.set('userId', Identity.getUserFromCookie().id);
+                }
             }
+
         });
 });
