@@ -8,29 +8,54 @@ define([
         template: _.template(MatchViewTemplate),
 
         events: {
-            'change input.wcp-alpha-score': 'scoreChanged',
-            'change input.wcp-beta-score': 'scoreChanged'
+            'change .wcp-alpha-score' : 'scoreChanged',
+            'change .wcp-beta-score'  : 'scoreChanged'
         },
 
-        initialize: function() {
-            // _.bindAll(this, 'contentChanged');
-            this.alphaScore = this.$('input.wcp-alpha-score');
-            this.betaScore = this.$('input.wcp-beta-score');
+        initialize: function(options) {
+
+            this.prediction = options.prediction;
+
+            var matchPrediction = this.prediction.get(this.model.get('matchId'));
+
+            if (matchPrediction) {
+                if (matchPrediction.hasOwnProperty('alphaScore')) {
+                    this.alphaScore = matchPrediction.alphaScore;
+                }
+
+                if (matchPrediction.hasOwnProperty('betaScore')) {
+                    this.betaScore = matchPrediction.betaScore;
+                }
+
+            }
+
         },
 
         scoreChanged: function(e) {
-            this.model.set('alphaScore', this.$('input.wcp-alpha-score').val());
-            this.model.set('betaScore', this.$('input.wcp-beta-score').val());
+            if (e.target.value > 2)
+                e.target.value = e.target.value.slice(0, 2);
+
+            this.prediction.set(this.model.get('matchId'), {});
+
+            var match = this.prediction.get(this.model.get('matchId'));
+
+            match.alphaScore = parseInt(this.$('input.wcp-alpha-score').val(), 10);
+            match.betaScore = parseInt(this.$('input.wcp-beta-score').val(), 10);
+
+            Backbone.trigger('scoreChange');
         },
 
         render: function() {
+
             var matchDate = moment(this.model.get('matchDate')).format('dddd D MMMM');
 
             $(this.el).html(this.template({
                 alphaTeam: this.model.get('alphaTeam'),
                 alphaCode: this.model.get('alphaCode'),
+                alphaScore: this.alphaScore,
                 betaCode: this.model.get('betaCode'),
                 betaTeam: this.model.get('betaTeam'),
+                betaScore: this.betaScore,
                 matchDate: matchDate,
                 matchTime: this.model.get('matchTime')
             }));
