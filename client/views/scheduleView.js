@@ -1,32 +1,28 @@
 define([
         'backbone',
         '../collections/scheduleCollection',
+        'models/prediction',
         'views/matchView'
-        ], function (Backbone, ScheduleCollection, MatchView) {
+        ], function (Backbone, ScheduleCollection, PredictionModel, MatchView) {
 
         return Backbone.View.extend({
             tagName: 'ul',
 
             initialize: function () {
-
             },
 
             render: function() {
                 this.collection.each(function(match) {
-                    var matchView = new MatchView({model: match});
+
+                    var userScores = this.model.get(match.get('matchId'));
+                    var matchView = new MatchView({model: match, prediction: this.model});
+
                     this.$el.append(matchView.render().el);
+
                 }, this);
 
-            return this;
-
-            },
-
-            save: function() {
-                Bsckbone.sync('create', this, {
-                    success: function() {
-                        console.log('saved');
-                    }
-                });
+                return this;
             }
+
         });
 });
