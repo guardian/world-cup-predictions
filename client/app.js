@@ -5,37 +5,52 @@ define([
 		'views/scheduleView',
 		'views/timeView',
 		'collections/scheduleCollection',
+		'collections/predictionCollection',
+		'models/prediction',
 		'models/user',
 		'link!css/styles.css'
-	], function(backbone, $, StatusView, ScheduleView, TimeView, ScheduleCollection, UserModel) {
+	], function(backbone, $, StatusView, ScheduleView, TimeView, ScheduleCollection, PredictionCollection, PredictionModel, UserModel) {
 
-	'use strict';
+		'use strict';
 
-	var app = {};
+		var app = {};
 
-	Backbone.on('toolkitReady', function () {
+		return {
+			initialise: function () {
+				$(this.el).addClass('wcp');
 
-	});
+				var appLoaded = false;
 
-	return {
-		initialise: function () {
-			$(this.el).addClass('wcp');
+				var scheduleCollection = new ScheduleCollection();
+				var predictionCollection = new PredictionCollection();
+				var user = new UserModel();
 
-			var scheduleCollection = new ScheduleCollection();
-			var user = new UserModel();
-			user.setToolKitObject();
+				var usersPredictions = new PredictionModel({id: user.get('userId')});
+				usersPredictions.fetch();
 
-			var statusView = new StatusView({model: user});
-			$(this.el).append(statusView.render().el);
+				Backbone.on('scoreChange', function() {
+					if (appLoaded)
+						usersPredictions.save({});
+				});
 
-			var timeView = new TimeView();
-			$(this.el).append(timeView.render().el);
+				var statusView = new StatusView({model: user});
+				$(this.el).append(statusView.render().el);
 
-			var that = this;
-			scheduleCollection.fetch({success: function () {
-				var scheduleView = new ScheduleView({collection: scheduleCollection});
-				$(that.el).append(scheduleView.render().el);
-			}});
-		}
-	};
+				var timeView = new TimeView();
+				$(this.el).append(timeView.render().el);
+
+				var that = this;
+				scheduleCollection.fetch({success: function () {
+					var scheduleView = new ScheduleView({
+						collection: scheduleCollection,
+						model: usersPredictions
+					});
+
+					$(that.el).append(scheduleView.render().el);
+
+					appLoaded = true;
+				}});
+
+			}
+		};
 });
