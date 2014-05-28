@@ -4,13 +4,13 @@
 			<span class="wcp-team-name"><%= alphaTeam %></span>
 			<span class="wcp-team-code"><%= alphaCode %></span>
 			<img class="wcp-team-flag" src="../client/images/<%= alphaCode %>.png">
-			<input class="wcp-alpha-score" type="number" pattern="\d*" min="0" max="9" />
+			<input class="wcp-alpha-score" type="text" pattern="\d*" min="0" max="99" value="<%= alphaScore %>" />
 		</div>
 
 		<div class="wcp-match-divider">vs</div>
 
 		<div class="wcp-row-right">
-			<input class="wcp-beta-score" type="number" pattern="\d*" min="0" max="9" />
+			<input class="wcp-beta-score" type="text" pattern="\d*" min="0" max="99" value="<%= betaScore %>" />
 			<img class="wcp-team-flag" src="../client/images/<%= betaCode %>.png">
 			<span class="wcp-team-name"><%= betaTeam %></span>
 			<span class="wcp-team-code"><%= betaCode %></span>
