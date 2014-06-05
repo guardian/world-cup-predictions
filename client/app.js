@@ -1,15 +1,16 @@
 define([
 		'backbone',
 		'jquery',
+		'modal',
 		'views/statusView',
 		'views/scheduleView',
 		'views/timeView',
+		'views/modalView',
 		'collections/scheduleCollection',
-		'collections/predictionCollection',
 		'models/prediction',
 		'models/user',
 		'link!css/styles.css'
-	], function(backbone, $, StatusView, ScheduleView, TimeView, ScheduleCollection, PredictionCollection, PredictionModel, UserModel) {
+	], function(backbone, $, Modal, StatusView, ScheduleView, TimeView, ModalView, ScheduleCollection, PredictionModel, UserModel) {
 
 		'use strict';
 
@@ -18,22 +19,28 @@ define([
 		return {
 			initialise: function () {
 				$(this.el).addClass('wcp');
-
 				var appLoaded = false;
 
 				var scheduleCollection = new ScheduleCollection();
-				var predictionCollection = new PredictionCollection();
 				var user = new UserModel();
 
 				var usersPredictions = new PredictionModel({id: user.get('userId')});
 				usersPredictions.fetch();
 
+				var modalView = new ModalView();
+				$(this.el).append(modalView.render().el);
+				$('.wcp-modal').modal();
+
 				Backbone.on('scoreChange', function() {
+					if (user.get('isUserLoggedIn') === false) {
+						$('.wcp-modal').trigger('openModal');
+					}
+
 					if (appLoaded)
 						usersPredictions.save({});
 				});
 
-				var statusView = new StatusView({model: user});
+				var statusView = new StatusView({user: user});
 				$(this.el).append(statusView.render().el);
 
 				var timeView = new TimeView();
