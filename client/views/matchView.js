@@ -9,13 +9,13 @@ define([
 
         events: {
             'change .wcp-alpha-score' : 'scoreChanged',
-            'change .wcp-beta-score'  : 'scoreChanged'
+            'change .wcp-beta-score'  : 'scoreChanged',
+            'input .wcp-alpha-score' : 'validateNumber',
+            'input .wcp-beta-score'  : 'validateNumber'
         },
 
         initialize: function(options) {
-
             this.prediction = options.prediction;
-
             var matchPrediction = this.prediction.get(this.model.get('matchId'));
 
             if (matchPrediction) {
@@ -26,9 +26,12 @@ define([
                 if (matchPrediction.hasOwnProperty('betaScore')) {
                     this.betaScore = matchPrediction.betaScore;
                 }
-
             }
+        },
 
+        validateNumber: function(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            e.target.value = parseInt(e.target.value, 10);
         },
 
         scoreChanged: function(e) {
@@ -47,7 +50,12 @@ define([
 
         render: function() {
 
-            var matchDate = moment(this.model.get('matchDate')).format('dddd D MMMM');
+            var correctPrediction = false;
+            if (this.model.get('expiredMatch')) {
+                if (this.alphaScore === this.model.get('alphaScore') && this.betaScore === this.model.get('betaScore')) {
+                    correctPrediction = true;
+                }
+            }
 
             $(this.el).html(this.template({
                 alphaTeam: this.model.get('alphaTeam'),
@@ -56,8 +64,11 @@ define([
                 betaCode: this.model.get('betaCode'),
                 betaTeam: this.model.get('betaTeam'),
                 betaScore: this.betaScore,
-                matchDate: matchDate,
-                matchTime: this.model.get('matchTime')
+                timestamp: moment.unix(this.model.get('timestamp')).format('dddd D MMMM HHmm'),
+                expiredMatch: this.model.get('expiredMatch'),
+                realAlphaScore: this.model.get('alphaScore'),
+                realBetaScore: this.model.get('betaScore'),
+                correctPrediction: correctPrediction
             }));
 
             return this;
