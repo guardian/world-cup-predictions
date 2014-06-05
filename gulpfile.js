@@ -18,7 +18,6 @@ gulp.task('server', function() {
 		ignore: ['node_modules/'],
 		watch: 'server/'
 	}).on('restart', function () {
-		console.log('restarted');
 	});
 });
 
