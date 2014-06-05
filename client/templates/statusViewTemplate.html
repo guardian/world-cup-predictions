@@ -1,16 +1,22 @@
 <header>
-	<div class="wcp-intro">
-		<h2>Hey <%= username %></h2>
-		<h3>You did pretty well yesterday. You got 2 perfect scores; better than I did. There are 3 other games tonight.</h3>
-	</div>
-
-	<div class="wcp-status">
-		<div class="wcp-yesterday-results">
-			<h4>Yesterday's results</h4>
+	<% if (loggedInUser) { %>
+		<div class="wcp-intro">
+			<h2>Hey <%= username %></h2>
+			<h3>Your current score is <%= score %>.</h3>
 		</div>
-		<div class="wcp-your-score">
-			<h4>Your Score</h4>
-		</div>
-	</div>
 
+		<div class="wcp-status">
+			<div class="wcp-yesterday-results">
+				<h4>Yesterday's results</h4>
+			</div>
+			<div class="wcp-your-score">
+				<h4>Your Score</h4>
+				<p>You have correctly predicted the outcome of <%= score %> matches.</p>
+			</div>
+		</div>
+	<% } else { %>
+		<div class="wcp-intro">
+			<p>Log in to your Guardian account to save your predictions and see how well you can predict the World Cup</p>
+		</div>
+	<% } %>
 </header>
