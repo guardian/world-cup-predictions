@@ -1,0 +1,13 @@
+head
+	title Matches
+
+h1 Matches
+
+each item in match
+	h2=item.alphaTeam + ' vs ' + item.betaTeam + ' (' + item.matchId + ')'
+	form(action='/matches', method='post')
+		input(name='alphaScore', value=item.alphaScore, size=5)
+		input(name='betaScore', value=item.betaScore, size=5)
+		input(type='hidden', name='matchId', value=item.matchId)
+		input(type='submit', value='Submit score')
+	hr
