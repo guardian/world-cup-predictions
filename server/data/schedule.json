@@ -1,434 +1,358 @@
-[
-	{
-		"matchId": 7029,
-		"alphaTeam": "Brazil",
-		"alphaCode": "bra",
-		"betaTeam": "Croatia",
-		"betaCode": "cro",
-		"matchDate": "2014-06-12",
-		"matchTime": "1700"
-	},
-	{
-		"matchId": 1481,
-		"alphaTeam": "Mexico",
-		"alphaCode": "mex",
-		"betaTeam": "Cameroon",
-		"betaCode": "cmr",
-		"matchDate": "2014-06-13",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 6708,
-		"alphaTeam": "Spain",
-		"alphaCode": "esp",
-		"betaTeam": "Netherlands",
-		"betaCode": "ned",
-		"matchDate": "2014-06-13",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 4203,
-		"alphaTeam": "Chile",
-		"alphaCode": "chi",
-		"betaTeam": "Australia",
-		"betaCode": "aus",
-		"matchDate": "2014-06-13",
-		"matchTime": "1800"
-	},
-	{
-		"matchId": 3721,
-		"alphaTeam": "Colombia",
-		"alphaCode": "col",
-		"betaTeam": "Greece",
-		"betaCode": "gre",
-		"matchDate": "2014-06-14",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 1292,
-		"alphaTeam": "Uruguay",
-		"alphaCode": "uru",
-		"betaTeam": "Costa Rica",
-		"betaCode": "crc",
-		"matchDate": "2014-06-14",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 3186,
-		"alphaTeam": "England",
-		"alphaCode": "eng",
-		"betaTeam": "Italy",
-		"betaCode": "ita",
-		"matchDate": "2014-06-14",
-		"matchTime": "1800"
-	},
-	{
-		"matchId": 1106,
-		"alphaTeam": "Côte D'Ivoire",
-		"alphaCode": "civ",
-		"betaTeam": "Japan",
-		"betaCode": "jpn",
-		"matchDate": "2014-06-14",
-		"matchTime": "2200"
-	},
-	{
-		"matchId": 6311,
-		"alphaTeam": "Switzerland",
-		"alphaCode": "sui",
-		"betaTeam": "Ecuador",
-		"betaCode": "ecu",
-		"matchDate": "2014-06-15",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 2094,
-		"alphaTeam": "France",
-		"alphaCode": "fra",
-		"betaTeam": "Honduras",
-		"betaCode": "hon",
-		"matchDate": "2014-06-15",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 1117,
-		"alphaTeam": "Argentina",
-		"alphaCode": "arg",
-		"betaTeam": "Bosnia and Herzegovina",
-		"betaCode": "bih",
-		"matchDate": "2014-06-15",
-		"matchTime": "1900"
-	},
-	{
-		"matchId": 4669,
-		"alphaTeam": "Germany",
-		"alphaCode": "ger",
-		"betaTeam": "Portugal",
-		"betaCode": "por",
-		"matchDate": "2014-06-16",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 3558,
-		"alphaTeam": "Iran",
-		"alphaCode": "irn",
-		"betaTeam": "Nigeria",
-		"betaCode": "nga",
-		"matchDate": "2014-06-16",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 8703,
-		"alphaTeam": "Ghana",
-		"alphaCode": "gha",
-		"betaTeam": "USA",
-		"betaCode": "usa",
-		"matchDate": "2014-06-16",
-		"matchTime": "1900"
-	},
-	{
-		"matchId": 5160,
-		"alphaTeam": "Belgium",
-		"alphaCode": "bel",
-		"betaTeam": "Algeria",
-		"betaCode": "alg",
-		"matchDate": "2014-06-17",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 7713,
-		"alphaTeam": "Brazil",
-		"alphaCode": "bra",
-		"betaTeam": "Mexico",
-		"betaCode": "mex",
-		"matchDate": "2014-06-17",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 5007,
-		"alphaTeam": "Russia",
-		"alphaCode": "rus",
-		"betaTeam": "Korea Republic",
-		"betaCode": "kor",
-		"matchDate": "2014-06-17",
-		"matchTime": "1800"
-	},
-	{
-		"matchId": 1486,
-		"alphaTeam": "Australia",
-		"alphaCode": "aus",
-		"betaTeam": "Netherlands",
-		"betaCode": "ned",
-		"matchDate": "2014-06-18",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 6947,
-		"alphaTeam": "Spain",
-		"alphaCode": "esp",
-		"betaTeam": "Chile",
-		"betaCode": "chi",
-		"matchDate": "2014-06-18",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 8006,
-		"alphaTeam": "Cameroon",
-		"alphaCode": "cmr",
-		"betaTeam": "Croatia",
-		"betaCode": "cro",
-		"matchDate": "2014-06-18",
-		"matchTime": "1800"
-	},
-	{
-		"matchId": 4476,
-		"alphaTeam": "Colombia",
-		"alphaCode": "col",
-		"betaTeam": "Côte D'Ivoire",
-		"betaCode": "civ",
-		"matchDate": "2014-06-19",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 2617,
-		"alphaTeam": "Uruguay",
-		"alphaCode": "uru",
-		"betaTeam": "England",
-		"betaCode": "eng",
-		"matchDate": "2014-06-19",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 1679,
-		"alphaTeam": "Japan",
-		"alphaCode": "jpn",
-		"betaTeam": "Greece",
-		"betaCode": "gre",
-		"matchDate": "2014-06-19",
-		"matchTime": "1900"
-	},
-	{
-		"matchId": 6521,
-		"alphaTeam": "Italy",
-		"alphaCode": "ita",
-		"betaTeam": "Costa Rica",
-		"betaCode": "crc",
-		"matchDate": "2014-06-20",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 6297,
-		"alphaTeam": "Switzerland",
-		"alphaCode": "sui",
-		"betaTeam": "France",
-		"betaCode": "fra",
-		"matchDate": "2014-06-20",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 2996,
-		"alphaTeam": "Honduras",
-		"alphaCode": "hon",
-		"betaTeam": "Ecuador",
-		"betaCode": "ecu",
-		"matchDate": "2014-06-20",
-		"matchTime": "1900"
-	},
-	{
-		"matchId": 1779,
-		"alphaTeam": "Argentina",
-		"alphaCode": "arg",
-		"betaTeam": "Iran",
-		"betaCode": "irn",
-		"matchDate": "2014-06-21",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 2036,
-		"alphaTeam": "Germany",
-		"alphaCode": "ger",
-		"betaTeam": "Ghana",
-		"betaCode": "gha",
-		"matchDate": "2014-06-21",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 1861,
-		"alphaTeam": "Nigeria",
-		"alphaCode": "nga",
-		"betaTeam": "Bosnia and Herzegovina",
-		"betaCode": "bih",
-		"matchDate": "2014-06-21",
-		"matchTime": "1800"
-	},
-	{
-		"matchId": 5256,
-		"alphaTeam": "Belgium",
-		"alphaCode": "bel",
-		"betaTeam": "Russia",
-		"betaCode": "rus",
-		"matchDate": "2014-06-22",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 3498,
-		"alphaTeam": "Korea Republic",
-		"alphaCode": "kor",
-		"betaTeam": "Algeria",
-		"betaCode": "alg",
-		"matchDate": "2014-06-22",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 4458,
-		"alphaTeam": "USA",
-		"alphaCode": "usa",
-		"betaTeam": "Portugal",
-		"betaCode": "por",
-		"matchDate": "2014-06-22",
-		"matchTime": "1800"
-	},
-	{
-		"matchId": 1127,
-		"alphaTeam": "Netherlands",
-		"alphaCode": "ned",
-		"betaTeam": "Chile",
-		"betaCode": "chi",
-		"matchDate": "2014-06-23",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 2811,
-		"alphaTeam": "Australia",
-		"alphaCode": "aus",
-		"betaTeam": "Spain",
-		"betaCode": "esp",
-		"matchDate": "2014-06-23",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 7520,
-		"alphaTeam": "Cameroon",
-		"alphaCode": "cmr",
-		"betaTeam": "Brazil",
-		"betaCode": "bra",
-		"matchDate": "2014-06-23",
-		"matchTime": "1700"
-	},
-	{
-		"matchId": 2806,
-		"alphaTeam": "Croatia",
-		"alphaCode": "cro",
-		"betaTeam": "Mexico",
-		"betaCode": "mex",
-		"matchDate": "2014-06-23",
-		"matchTime": "1700"
-	},
-	{
-		"matchId": 1355,
-		"alphaTeam": "Italy",
-		"alphaCode": "ita",
-		"betaTeam": "Uruguay",
-		"betaCode": "uru",
-		"matchDate": "2014-06-24",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 4373,
-		"alphaTeam": "Costa Rica",
-		"alphaCode": "crc",
-		"betaTeam": "England",
-		"betaCode": "eng",
-		"matchDate": "2014-06-24",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 7560,
-		"alphaTeam": "Japan",
-		"alphaCode": "jpn",
-		"betaTeam": "Colombia",
-		"betaCode": "col",
-		"matchDate": "2014-06-24",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 6647,
-		"alphaTeam": "Greece",
-		"alphaCode": "gre",
-		"betaTeam": "Côte D'Ivoire",
-		"betaCode": "civ",
-		"matchDate": "2014-06-24",
-		"matchTime": "1700"
-	},
-	{
-		"matchId": 2402,
-		"alphaTeam": "Nigeria",
-		"alphaCode": "nga",
-		"betaTeam": "Argentina",
-		"betaCode": "arg",
-		"matchDate": "2014-06-25",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 7169,
-		"alphaTeam": "Bosnia and Herzegovina",
-		"alphaCode": "bih",
-		"betaTeam": "Iran",
-		"betaCode": "irn",
-		"matchDate": "2014-06-25",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 3116,
-		"alphaTeam": "Honduras",
-		"alphaCode": "hon",
-		"betaTeam": "Switzerland",
-		"betaCode": "sui",
-		"matchDate": "2014-06-25",
-		"matchTime": "1600"
-	},
-	{
-		"matchId": 8012,
-		"alphaTeam": "Ecuador",
-		"alphaCode": "ecu",
-		"betaTeam": "France",
-		"betaCode": "fra",
-		"matchDate": "2014-06-25",
-		"matchTime": "1700"
-	},
-	{
-		"matchId": 2828,
-		"alphaTeam": "Portugal",
-		"alphaCode": "por",
-		"betaTeam": "Ghana",
-		"betaCode": "gha",
-		"matchDate": "2014-06-26",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 5381,
-		"alphaTeam": "USA",
-		"alphaCode": "usa",
-		"betaTeam": "Germany",
-		"betaCode": "ger",
-		"matchDate": "2014-06-26",
-		"matchTime": "1300"
-	},
-	{
-		"matchId": 8510,
-		"alphaTeam": "Korea Republic",
-		"alphaCode": "kor",
-		"betaTeam": "Belgium",
-		"betaCode": "bel",
-		"matchDate": "2014-06-26",
-		"matchTime": "1700"
-	},
-	{
-		"matchId": 3172,
-		"alphaTeam": "Algeria",
-		"alphaCode": "alg",
-		"betaTeam": "Russia",
-		"betaCode": "rus",
-		"matchDate": "2014-06-26",
-		"matchTime": "1700"
-	}
-]
+[{
+    "alphaCode": "tmp",
+    "alphaTeam": "Elephants",
+    "betaCode": "tmp",
+    "betaTeam": "Tigers",
+    "matchId": 5348,
+    "timestamp": 1401638400
+}, {
+    "alphaCode": "tmp",
+    "alphaTeam": "Lions",
+    "betaCode": "tmp",
+    "betaTeam": "Frogs",
+    "matchId": 7834,
+    "timestamp": 1401710400
+}, {
+    "alphaCode": "tmp",
+    "alphaTeam": "Robots",
+    "betaCode": "tmp",
+    "betaTeam": "Aliens",
+    "matchId": 9647,
+    "timestamp": 1401811200
+}, {
+    "alphaCode": "bra",
+    "alphaTeam": "Brazil",
+    "betaCode": "cro",
+    "betaTeam": "Croatia",
+    "matchId": 7029,
+    "timestamp": 1402588800
+}, {
+    "alphaCode": "mex",
+    "alphaTeam": "Mexico",
+    "betaCode": "cmr",
+    "betaTeam": "Cameroon",
+    "matchId": 1481,
+    "timestamp": 1402660800
+}, {
+    "alphaCode": "esp",
+    "alphaTeam": "Spain",
+    "betaCode": "ned",
+    "betaTeam": "Netherlands",
+    "matchId": 6708,
+    "timestamp": 1402660800
+}, {
+    "alphaCode": "chi",
+    "alphaTeam": "Chile",
+    "betaCode": "aus",
+    "betaTeam": "Australia",
+    "matchId": 4203,
+    "timestamp": 1402678800
+}, {
+    "alphaCode": "col",
+    "alphaTeam": "Colombia",
+    "betaCode": "gre",
+    "betaTeam": "Greece",
+    "matchId": 3721,
+    "timestamp": 1402747200
+}, {
+    "alphaCode": "uru",
+    "alphaTeam": "Uruguay",
+    "betaCode": "crc",
+    "betaTeam": "Costa Rica",
+    "matchId": 1292,
+    "timestamp": 1402758000
+}, {
+    "alphaCode": "eng",
+    "alphaTeam": "England",
+    "betaCode": "ita",
+    "betaTeam": "Italy",
+    "matchId": 3186,
+    "timestamp": 1402765200
+}, {
+    "alphaCode": "civ",
+    "alphaTeam": "Côte D'Ivoire",
+    "betaCode": "jpn",
+    "betaTeam": "Japan",
+    "matchId": 1106,
+    "timestamp": 1402779600
+}, {
+    "alphaCode": "sui",
+    "alphaTeam": "Switzerland",
+    "betaCode": "ecu",
+    "betaTeam": "Ecuador",
+    "matchId": 6311,
+    "timestamp": 1402833600
+}, {
+    "alphaCode": "fra",
+    "alphaTeam": "France",
+    "betaCode": "hon",
+    "betaTeam": "Honduras",
+    "matchId": 2094,
+    "timestamp": 1402844400
+}, {
+    "alphaCode": "arg",
+    "alphaTeam": "Argentina",
+    "betaCode": "bih",
+    "betaTeam": "Bosnia and Herzegovina",
+    "matchId": 1117,
+    "timestamp": 1402855200
+}, {
+    "alphaCode": "ger",
+    "alphaTeam": "Germany",
+    "betaCode": "por",
+    "betaTeam": "Portugal",
+    "matchId": 4669,
+    "timestamp": 1402920000
+}, {
+    "alphaCode": "irn",
+    "alphaTeam": "Iran",
+    "betaCode": "nga",
+    "betaTeam": "Nigeria",
+    "matchId": 3558,
+    "timestamp": 1402930800
+}, {
+    "alphaCode": "gha",
+    "alphaTeam": "Ghana",
+    "betaCode": "usa",
+    "betaTeam": "USA",
+    "matchId": 8703,
+    "timestamp": 1402941600
+}, {
+    "alphaCode": "bel",
+    "alphaTeam": "Belgium",
+    "betaCode": "alg",
+    "betaTeam": "Algeria",
+    "matchId": 5160,
+    "timestamp": 1403006400
+}, {
+    "alphaCode": "bra",
+    "alphaTeam": "Brazil",
+    "betaCode": "mex",
+    "betaTeam": "Mexico",
+    "matchId": 7713,
+    "timestamp": 1403017200
+}, {
+    "alphaCode": "rus",
+    "alphaTeam": "Russia",
+    "betaCode": "kor",
+    "betaTeam": "Korea Republic",
+    "matchId": 5007,
+    "timestamp": 1403024400
+}, {
+    "alphaCode": "aus",
+    "alphaTeam": "Australia",
+    "betaCode": "ned",
+    "betaTeam": "Netherlands",
+    "matchId": 1486,
+    "timestamp": 1403092800
+}, {
+    "alphaCode": "esp",
+    "alphaTeam": "Spain",
+    "betaCode": "chi",
+    "betaTeam": "Chile",
+    "matchId": 6947,
+    "timestamp": 1403103600
+}, {
+    "alphaCode": "cmr",
+    "alphaTeam": "Cameroon",
+    "betaCode": "cro",
+    "betaTeam": "Croatia",
+    "matchId": 8006,
+    "timestamp": 1403110800
+}, {
+    "alphaCode": "col",
+    "alphaTeam": "Colombia",
+    "betaCode": "civ",
+    "betaTeam": "CÃ´te D'Ivoire",
+    "matchId": 4476,
+    "timestamp": 1403179200
+}, {
+    "alphaCode": "uru",
+    "alphaTeam": "Uruguay",
+    "betaCode": "eng",
+    "betaTeam": "England",
+    "matchId": 2617,
+    "timestamp": 1403190000
+}, {
+    "alphaCode": "jpn",
+    "alphaTeam": "Japan",
+    "betaCode": "gre",
+    "betaTeam": "Greece",
+    "matchId": 1679,
+    "timestamp": 1403200800
+}, {
+    "alphaCode": "ita",
+    "alphaTeam": "Italy",
+    "betaCode": "crc",
+    "betaTeam": "Costa Rica",
+    "matchId": 6521,
+    "timestamp": 1403265600
+}, {
+    "alphaCode": "sui",
+    "alphaTeam": "Switzerland",
+    "betaCode": "fra",
+    "betaTeam": "France",
+    "matchId": 6297,
+    "timestamp": 1403276400
+}, {
+    "alphaCode": "hon",
+    "alphaTeam": "Honduras",
+    "betaCode": "ecu",
+    "betaTeam": "Ecuador",
+    "matchId": 2996,
+    "timestamp": 1403287200
+}, {
+    "alphaCode": "arg",
+    "alphaTeam": "Argentina",
+    "betaCode": "irn",
+    "betaTeam": "Iran",
+    "matchId": 1779,
+    "timestamp": 1403352000
+}, {
+    "alphaCode": "ger",
+    "alphaTeam": "Germany",
+    "betaCode": "gha",
+    "betaTeam": "Ghana",
+    "matchId": 2036,
+    "timestamp": 1403362800
+}, {
+    "alphaCode": "nga",
+    "alphaTeam": "Nigeria",
+    "betaCode": "bih",
+    "betaTeam": "Bosnia and Herzegovina",
+    "matchId": 1861,
+    "timestamp": 1403370000
+}, {
+    "alphaCode": "bel",
+    "alphaTeam": "Belgium",
+    "betaCode": "rus",
+    "betaTeam": "Russia",
+    "matchId": 5256,
+    "timestamp": 1403438400
+}, {
+    "alphaCode": "kor",
+    "alphaTeam": "Korea Republic",
+    "betaCode": "alg",
+    "betaTeam": "Algeria",
+    "matchId": 3498,
+    "timestamp": 1403449200
+}, {
+    "alphaCode": "usa",
+    "alphaTeam": "USA",
+    "betaCode": "por",
+    "betaTeam": "Portugal",
+    "matchId": 4458,
+    "timestamp": 1403456400
+}, {
+    "alphaCode": "ned",
+    "alphaTeam": "Netherlands",
+    "betaCode": "chi",
+    "betaTeam": "Chile",
+    "matchId": 1127,
+    "timestamp": 1403524800
+}, {
+    "alphaCode": "aus",
+    "alphaTeam": "Australia",
+    "betaCode": "esp",
+    "betaTeam": "Spain",
+    "matchId": 2811,
+    "timestamp": 1403524800
+}, {
+    "alphaCode": "cmr",
+    "alphaTeam": "Cameroon",
+    "betaCode": "bra",
+    "betaTeam": "Brazil",
+    "matchId": 7520,
+    "timestamp": 1403539200
+}, {
+    "alphaCode": "cro",
+    "alphaTeam": "Croatia",
+    "betaCode": "mex",
+    "betaTeam": "Mexico",
+    "matchId": 2806,
+    "timestamp": 1403539200
+}, {
+    "alphaCode": "ita",
+    "alphaTeam": "Italy",
+    "betaCode": "uru",
+    "betaTeam": "Uruguay",
+    "matchId": 1355,
+    "timestamp": 1403611200
+}, {
+    "alphaCode": "crc",
+    "alphaTeam": "Costa Rica",
+    "betaCode": "eng",
+    "betaTeam": "England",
+    "matchId": 4373,
+    "timestamp": 1403611200
+}, {
+    "alphaCode": "jpn",
+    "alphaTeam": "Japan",
+    "betaCode": "col",
+    "betaTeam": "Colombia",
+    "matchId": 7560,
+    "timestamp": 1403622000
+}, {
+    "alphaCode": "gre",
+    "alphaTeam": "Greece",
+    "betaCode": "civ",
+    "betaTeam": "CÃ´te D'Ivoire",
+    "matchId": 6647,
+    "timestamp": 1403625600
+}, {
+    "alphaCode": "nga",
+    "alphaTeam": "Nigeria",
+    "betaCode": "arg",
+    "betaTeam": "Argentina",
+    "matchId": 2402,
+    "timestamp": 1403697600
+}, {
+    "alphaCode": "bih",
+    "alphaTeam": "Bosnia and Herzegovina",
+    "betaCode": "irn",
+    "betaTeam": "Iran",
+    "matchId": 7169,
+    "timestamp": 1403697600
+}, {
+    "alphaCode": "hon",
+    "alphaTeam": "Honduras",
+    "betaCode": "sui",
+    "betaTeam": "Switzerland",
+    "matchId": 3116,
+    "timestamp": 1403708400
+}, {
+    "alphaCode": "ecu",
+    "alphaTeam": "Ecuador",
+    "betaCode": "fra",
+    "betaTeam": "France",
+    "matchId": 8012,
+    "timestamp": 1403712000
+}, {
+    "alphaCode": "por",
+    "alphaTeam": "Portugal",
+    "betaCode": "gha",
+    "betaTeam": "Ghana",
+    "matchId": 2828,
+    "timestamp": 1403784000
+}, {
+    "alphaCode": "usa",
+    "alphaTeam": "USA",
+    "betaCode": "ger",
+    "betaTeam": "Germany",
+    "matchId": 5381,
+    "timestamp": 1403784000
+}, {
+    "alphaCode": "kor",
+    "alphaTeam": "Korea Republic",
+    "betaCode": "bel",
+    "betaTeam": "Belgium",
+    "matchId": 8510,
+    "timestamp": 1403798400
+}, {
+    "alphaCode": "alg",
+    "alphaTeam": "Algeria",
+    "betaCode": "rus",
+    "betaTeam": "Russia",
+    "matchId": 3172,
+    "timestamp": 1403798400
+}]
