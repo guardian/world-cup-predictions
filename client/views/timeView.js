@@ -6,8 +6,8 @@ define([
         tagName: 'div',
         template: _.template(TimeViewTemplate),
         render: function() {
-        	$(this.el).html(this.template({ nextDate: 'Someday soon'}));
-        	return this;
+            $(this.el).html(this.template({ nextDate: ''}));
+            return this;
         }
     });
 });
