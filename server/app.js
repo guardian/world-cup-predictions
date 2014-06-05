@@ -119,6 +119,12 @@ app.get('/matches', function(req, res) {
 	});
 });
 
+// E-mail to the user (nightly based on )
+// E-mail can be sent IF matches played earlier and user made a prediction
+app.get('/email/:id', function(req, res) {
+
+});
+
 // Mark completed matches and update predictions
 app.post('/matches', function(req, res) {
 	var matches = db.get('schedule');
@@ -128,6 +134,13 @@ app.post('/matches', function(req, res) {
 
 	matches.update({matchId: matchId}, {$set: {alphaScore: alphaScore, betaScore: betaScore}}, {upsert: false});
 	markUserScoresByMatch(matchId, alphaScore, betaScore);
+
+	// Now get the hive mind prediction for this match and store in another collection
+
+	var hivePredictions = predictions.group(selectionObject,{},{count: 0},function(cur, result){result.count++;},function(e, docs) {
+		var hivePrediction = docs[0][matchId];
+		res.render('hive', {alphaScore: modalPrediction.alphaScore, betaScore: modalPrediction.betaScore});
+	});
 
 	res.send({redirect: '/matches'});
 });
