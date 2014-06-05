@@ -6,9 +6,9 @@ define([], function() {
 		baseUrl: 'http://chronos.theguardian.com/world-cup-predictions/client/',
 		paths: {
 			backbone: 'lib/backbone',
-			deepmodel: 'lib/backbone.deepmodel',
 			underscore: 'lib/underscore',
 			jquery: 'lib/jquery',
+			modal: 'lib/jquery.modal',
 			moment: 'lib/moment'
 		},
 		pluginPath: 'lib/'
