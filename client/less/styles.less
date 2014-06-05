@@ -14,6 +14,39 @@
 	padding: 10px;
 }
 
+.wcp-modal {
+	display: none;
+	background-color: white;
+	border: 1px solid #aaa;
+	min-height: 100px;
+	padding: 25px;
+}
+
+.wcp-modal .wcp-modal-proceed {
+	background: #005689;
+	border: 0 none;
+	color: #ffffff;
+	display: inline-block;
+	font-size: 1.4rem;
+	padding: 1.1rem 0.8rem;
+	margin-left: 0.5em;
+	float: right;
+}
+
+.wcp-modal .wcp-modal-cancel {
+	background: #aaaaaa;
+	border: 0 none;
+	color: #ffffff;
+	display: inline-block;
+	font-size: 1.4rem;
+	padding: 1.1rem 0.8rem;
+	float: right;
+}
+
+.wcp-modal p {
+	color: #333;
+}
+
 .wcp-status{
 	.flex-display;
 	.flex-flow(row wrap);
@@ -80,6 +113,26 @@
 	position: relative;
 }
 
+.wcp-row.disabled {
+	color: #aaa;
+}
+
+.wcp-row.disabled .wcp-alpha-score {
+	color: #aaa;
+}
+
+.wcp-row.disabled .wcp-beta-score {
+	color: #aaa;
+}
+
+.wcp-row.disabled .wcp-team-name {
+	color: #aaa;
+}
+
+.wcp-row.disabled .wcp-match-date {
+	color: #aaa;
+}
+
 .wcp-row-left, .wcp-row-right{
 	width: 50%;
 }
@@ -100,6 +153,11 @@
 	font-family: 'AgateSans';
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
+}
+
+.wcp-real-score {
+	display: block;
+	width: 100%;
 }
 
 .wcp-team-name {
