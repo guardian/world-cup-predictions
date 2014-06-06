@@ -24,7 +24,7 @@
 	<% if (correctPrediction) { %>
 		✓
 	<% } %>
-	<% if (expiredMatch && !correctPrediction) { %>
+	<% if (expiredMatch && correctPrediction === false) { %>
 		✗
 	<% } %>
 </time>

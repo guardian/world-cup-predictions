@@ -27,6 +27,16 @@ app.use(function(req, res, next) {
 	next();
 });
 
+// Does a map reduce to determine the hive mind prediction for any match Id
+var hiveMindPrediction = function(matchId) {
+	var predictions = db.get('predictions');
+
+
+
+
+	return {alphaScore: alphaScore, betaScore: betaScore};
+};
+
 // Find all the predictions for this completed match and mark the outcome
 var markUserScoresByMatch = function(matchId, alphaScore, betaScore) {
 	var predictionsForMatch = db.get('predictions');
@@ -36,20 +46,13 @@ var markUserScoresByMatch = function(matchId, alphaScore, betaScore) {
 			for (var m in docs[d]) {
 				var currentPrediction = docs[d][m];
 				if (parseInt(m, 10) === parseInt(matchId, 10)) {
+					var setObject = {};
+					setObject[matchId + '.predictedScore'] = true;
 					if (currentPrediction.alphaScore === alphaScore && currentPrediction.betaScore === betaScore) {
 						var updateStatement = matchId + '.predictedScore';
-
-						var setObject = {}; // Dynamic dot notation
-						setObject[matchId + '.predictedScore'] = true;
-
 						predictionsForMatch.update({id: userId}, {$set: setObject});
-
-					// } else if (currentPrediction.alphaScore === currentPrediction.betaScore && alphaScore === betaScore) {
-					// 	console.log('predicted draw');
-					// } else if (currentPrediction.alphaScore > currentPrediction.betaScore && alphaScore > betaScore) {
-					// 	console.log('predicted A win');
-					// } else if (currentPrediction.betaScore > currentPrediction.alphaScore && betaScore > alphaScore) {
-					// 	console.log('predicted B win');
+					} else {
+						predictionsForMatch.update({id: userId}, {$unset: setObject});
 					}
 				}
 			}
@@ -114,7 +117,7 @@ app.get('/matches', function(req, res) {
 	var matches = db.get('schedule');
 	var timestamp = Math.floor(Date.now() / 1000);
 
-	var matchList = matches.find({timestamp: {$lt: timestamp}}, function(e, docs) {
+	var matchList = matches.find({timestamp: {$lt: timestamp}}, {sort: {timestamp: 1}}, function(e, docs) {
 		res.render('match', {match: docs});
 	});
 });
@@ -126,8 +129,10 @@ app.get('/email/:id', function(req, res) {
 });
 
 // Mark completed matches and update predictions
+// Match is closed for predictions, calculate hive mind score and save in a collection
 app.post('/matches', function(req, res) {
 	var matches = db.get('schedule');
+	var predictions = db.get('predictions');
 	var matchId = parseInt(req.body.matchId, 10);
 	var alphaScore = parseInt(req.body.alphaScore, 10);
 	var betaScore = parseInt(req.body.betaScore, 10);
@@ -135,11 +140,13 @@ app.post('/matches', function(req, res) {
 	matches.update({matchId: matchId}, {$set: {alphaScore: alphaScore, betaScore: betaScore}}, {upsert: false});
 	markUserScoresByMatch(matchId, alphaScore, betaScore);
 
-	// Now get the hive mind prediction for this match and store in another collection
+	var selectionObject = {};
+	selectionObject[matchId] = 1;
 
 	var hivePredictions = predictions.group(selectionObject,{},{count: 0},function(cur, result){result.count++;},function(e, docs) {
 		var hivePrediction = docs[0][matchId];
-		res.render('hive', {alphaScore: modalPrediction.alphaScore, betaScore: modalPrediction.betaScore});
+		console.log(docs);
+		// console.log({alphaScore: hivePrediction.alphaScore, betaScore: hivePrediction.betaScore});
 	});
 
 	res.send({redirect: '/matches'});
@@ -152,11 +159,47 @@ app.get('/hive/:id', function(req, res) {
 
 	var selectionObject = {};
 	selectionObject[matchId] = 1;
+	selectionObject['_id'] = 0;
 
-	var predictionsReduce = predictions.group(selectionObject,{},{count: 0},function(cur, result){result.count++;},function(e, docs) {
-		var modalPrediction = docs[0][matchId];
-		res.render('hive', {alphaScore: modalPrediction.alphaScore, betaScore: modalPrediction.betaScore});
+	var predictionSet = predictions.find({}, {fields: selectionObject}, function(e, docs) {
+
+		var predictionArray = [];
+		var predictionFrequency = {};
+
+		for (var p in docs) {
+			predictionArray.push(docs[p][matchId]);
+		}
+
+		predictionArray.filter(function(value) {
+			console.log(value);
+		});
+
+		// console.log(predictionArray);
+
+		predictionArray.forEach(function(value) {
+			value['count'] = 0;
+			predictionFrequency[value] = 0;
+		});
+
+		console.log(predictionFrequency);
+
+		var uniques = predictionArray.filter(function(value) {
+			return ++predictionFrequency[value] == 1;
+		});
+
+
+		var result = uniques.sort(function(a, b) {
+			return frequency[b] - frequency[a];
+		});
+
+		res.end();
 	});
+
+
+	// var predictionsReduce = predictions.group(selectionObject,{}, {count: 0}, function(cur, result){result.count++;},function(e, docs) {
+	// 	var modalPrediction = docs[0][matchId];
+	// 	res.render('hive', {alphaScore: modalPrediction.alphaScore, betaScore: modalPrediction.betaScore});
+	// });
 
 });
 
@@ -169,7 +212,7 @@ app.put('/prediction/:id', function(req, res) {
 	var predictions = db.get('predictions');
 	predictions.update({id: userId}, prediction, {upsert: true});
 
-	res.send({'status': 'prediction updated'});
+	res.end();
 });
 
 // Insert a new prediction. Check for valid submission date
@@ -180,5 +223,5 @@ app.post('/prediction', function(req, res) {
 
 	predictions.update({id: userId}, prediction, {upsert: true});
 
-	res.send({'status': 'prediction inserted'});
+	res.end();
 });

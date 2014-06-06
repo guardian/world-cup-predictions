@@ -49,11 +49,16 @@ define([
         },
 
         render: function() {
+            function isInteger(i) {
+                return i % 1 === 0;
+            }
 
-            var correctPrediction = false;
+            var correctPrediction;
             if (this.model.get('expiredMatch')) {
-                if (this.alphaScore === this.model.get('alphaScore') && this.betaScore === this.model.get('betaScore')) {
-                    correctPrediction = true;
+                if (isInteger(this.alphaScore) && isInteger(this.betaScore) && isInteger(this.model.get('alphaScore')) && isInteger(this.model.get('betaScore'))) {
+                    if (this.alphaScore === this.model.get('alphaScore') && this.betaScore === this.model.get('betaScore')) {
+                        correctPrediction = true;
+                    }
                 }
             }
 
