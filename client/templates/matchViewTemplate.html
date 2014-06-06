@@ -1,25 +1,28 @@
 <div class="wcp-row <% if (expiredMatch) {print('disabled')} %>">
 	<div class="wcp-row-left">
-		<span class="wcp-team-name"><%= alphaTeam %></span>
-		<span class="wcp-team-code"><%= alphaCode %></span>
-		<img class="wcp-team-flag" src="../client/images/<%= alphaCode %>.png">
+		<img class="wcp-team-flag" src="../client/images/<%= alphaCode %>.png" />
+		<div class="wcp-team-name"><%= alphaTeam %></div>
+		<div class="wcp-team-code"><%= alphaCode %></div>
 		<input class="wcp-alpha-score" type="text" pattern="\d*" min="0" max="99" value="<%= alphaScore %>" <% if (expiredMatch) {print('disabled')} %> />
 	</div>
 
 	<div class="wcp-match-divider">vs</div>
 
 	<div class="wcp-row-right">
-		<input class="wcp-beta-score" type="text" pattern="\d*" min="0" max="99" value="<%= betaScore %>" <% if (expiredMatch) {print('disabled')} %> />
 		<img class="wcp-team-flag" src="../client/images/<%= betaCode %>.png">
-		<span class="wcp-team-name"><%= betaTeam %></span>
-		<span class="wcp-team-code"><%= betaCode %></span>
+		<div class="wcp-team-name"><%= betaTeam %></div>
+		<div class="wcp-team-code"><%= betaCode %></div>
+		<input class="wcp-beta-score" type="text" pattern="\d*" min="0" max="99" value="<%= betaScore %>" <% if (expiredMatch) {print('disabled')} %> />
+		
+		
 	</div>
 </div>
 
 <time class="wcp-match-datetime">
-	<span class="wcp-match-date"><%= timestamp %></span>
+	<div class="wcp-match-group"><strong>Group A</strong></div>
+	<div class="wcp-match-date"><%= timestamp %></div>
 	<% if (realAlphaScore) { %>
-		<span class="wcp-real-score"><%= realAlphaScore %> vs <%= realBetaScore %></span>
+		<div class="wcp-real-score"><%= realAlphaScore %> vs <%= realBetaScore %></div>
 	<% } %>
 	<% if (correctPrediction) { %>
 		✓

@@ -3,7 +3,7 @@ define([], function() {
 
 	var amdConfiguration = {
 		context: 'worldcup',
-		baseUrl: 'http://chronos.theguardian.com/world-cup-predictions/client/',
+		baseUrl: 'http://localhost:8000/client/',
 		paths: {
 			backbone: 'lib/backbone',
 			underscore: 'lib/underscore',

@@ -86,19 +86,28 @@
 .wcp ul {
 	margin: 0;
 	list-style-type: none;
+	.flex-display;
+	.flex-flow(row wrap);
+	.justify-content(space-between);
 }
 
 .wcp li {
-	background-color: #F6F6F6;
-	padding: 5px;
+	background-color: #fff;
+	border: 1px solid #DFDFDF;
+	border-top: 3px solid #4BC6DF;
+	border-radius:0 0 3px 3px;
+	padding: 15px 0 5px;
 	margin: 0 0 1em 0;
+	width:48%;
 }
 
 .wcp input {
-	width: 35px;
-	height: 25px;
+	width: 40px;
+	height: 50px;
 	font-family: 'AgateSans';
 	text-align: center;
+	display:block;
+	margin:0 auto 15px;
 }
 
 .wcp-divider {
@@ -143,11 +152,11 @@
 
 .wcp-row-left{
 	text-align: right;
-	padding-right: 20px;
+	padding-right: 0;
 }
 
 .wcp-row-right{
-	padding-left: 20px;
+	padding-left: 0;
 }
 
 .wcp-match-divider{
@@ -171,30 +180,36 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	max-width: 52%;
-	vertical-align: middle;
+	max-width: 95%;
+	margin:0 auto 10px;
+	text-align: center;
+	line-height:1em;
+	font-size:18px;
 }
 
 .wcp-team-code {
-	display: inline;
+	display: block;
 	font-family: 'AgateSans';
 	color: #333;
 	text-transform: uppercase;
+	margin:0 auto 10px;
+	text-align:center;
+	line-height:1em;
+	font-size:18px;
 }
 
 .wcp-team-flag {
-	display: inline-block;
-	width: 20px;
-	vertical-align: middle;
-	margin-bottom: 3px;
+	display: block;
+	width: 30px;
+	margin:0 auto 10px;
 }
 
 .wcp-row-left .wcp-team-flag{
-	margin-right: 5px;
+
 }
 
 .wcp-row-right .wcp-team-flag{
-	margin-left: 5px;
+
 }
 
 .wcp-align-right {
@@ -204,8 +219,8 @@
 .wcp-match-datetime{
 	display: block;
 	text-align: center;
-	margin-top: 5px;
-	border-top: 1px solid #BDBDBD;
+	margin-top: 0;
+	border-top: 1px solid #dfdfdf;
 	font-family: 'AgateSans';
 	font-size: 0.8em;
 	padding-top: 5px;
@@ -221,7 +236,7 @@
 
 @media (min-width:33.75em){
 	.wcp-team-name {
-		display: inline-block;
+		display:block;
 	}
 	.wcp-team-code {
 		display: none;
@@ -262,8 +277,7 @@
 		.justify-content(space-between);
 
 		li {
-			width: 100%;
-			min-width: 370px;
+			width: 33%;
 		}
 	}
 }
@@ -272,7 +286,7 @@
 	.wcp ul{
 
 		li{
-			width: 48%;
+			width: 32%;
 		}
 	}
 }

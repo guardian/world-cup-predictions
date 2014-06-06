@@ -4,7 +4,7 @@ var monk = require('monk');
 var cors = require('cors');
 var db = monk('localhost:27017/wcp');
 var app = express();
-var whitelist = ['http://chronos.theguardian.com'];
+var whitelist = ['http://chronos.theguardian.com','http://localhost:8000'];
 
 var corsOptions = {
 	origin: function (origin, callback) {
