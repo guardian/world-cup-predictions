@@ -30,12 +30,14 @@ define([
         },
 
         validateNumber: function(e) {
-            e.target.value = e.target.value.replace(/[^0-9]/g, '');
-            e.target.value = parseInt(e.target.value, 10);
+            if (e.target.value !== '') {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                e.target.value = parseInt(e.target.value, 10);
+            }
         },
 
         scoreChanged: function(e) {
-            if (e.target.value > 2)
+            if (e.target.value > 2 && (e.target.value !== ''))
                 e.target.value = e.target.value.slice(0, 2);
 
             this.prediction.set(this.model.get('matchId'), {});

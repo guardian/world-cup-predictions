@@ -4,7 +4,6 @@ define(['backbone', 'models/prediction'], function (Backbone, Prediction) {
 		model: Prediction,
 
 		getChanged: function () {
-			console.log('changed models');
 		}
     });
 });

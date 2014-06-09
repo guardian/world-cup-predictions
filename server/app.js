@@ -4,7 +4,15 @@ var monk = require('monk');
 var cors = require('cors');
 var db = monk('localhost:27017/wcp');
 var app = express();
-var whitelist = ['http://chronos.theguardian.com','http://daan.theguardian.com'];
+var whitelist = [
+'http://chronos.theguardian.com',
+'http://daan.theguardian.com',
+'http://localhost:8000',
+'http://interactive.guim.co.uk',
+'http://54.220.127.152:9000',
+'http://preview.gutools.co.uk'
+];
+
 
 var corsOptions = {
 	origin: function (origin, callback) {
@@ -30,10 +38,6 @@ app.use(function(req, res, next) {
 // Does a map reduce to determine the hive mind prediction for any match Id
 var hiveMindPrediction = function(matchId) {
 	var predictions = db.get('predictions');
-
-
-
-
 	return {alphaScore: alphaScore, betaScore: betaScore};
 };
 
@@ -145,7 +149,7 @@ app.post('/matches', function(req, res) {
 
 	var hivePredictions = predictions.group(selectionObject,{},{count: 0},function(cur, result){result.count++;},function(e, docs) {
 		var hivePrediction = docs[0][matchId];
-		console.log(docs);
+		// console.log(docs);
 		// console.log({alphaScore: hivePrediction.alphaScore, betaScore: hivePrediction.betaScore});
 	});
 
@@ -181,7 +185,7 @@ app.get('/hive/:id', function(req, res) {
 			predictionFrequency[value] = 0;
 		});
 
-		console.log(predictionFrequency);
+		// console.log(predictionFrequency);
 
 		var uniques = predictionArray.filter(function(value) {
 			return ++predictionFrequency[value] == 1;
