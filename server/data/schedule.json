@@ -1,25 +1,4 @@
 [{
-    "alphaCode": "tmp",
-    "alphaTeam": "Elephants",
-    "betaCode": "tmp",
-    "betaTeam": "Tigers",
-    "matchId": 5348,
-    "timestamp": 1401638400
-}, {
-    "alphaCode": "tmp",
-    "alphaTeam": "Lions",
-    "betaCode": "tmp",
-    "betaTeam": "Frogs",
-    "matchId": 7834,
-    "timestamp": 1401710400
-}, {
-    "alphaCode": "tmp",
-    "alphaTeam": "Robots",
-    "betaCode": "tmp",
-    "betaTeam": "Aliens",
-    "matchId": 9647,
-    "timestamp": 1401811200
-}, {
     "alphaCode": "bra",
     "alphaTeam": "Brazil",
     "betaCode": "cro",
