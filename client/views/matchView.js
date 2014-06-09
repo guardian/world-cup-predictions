@@ -47,6 +47,14 @@ define([
 
             Backbone.trigger('scoreChange');
         },
+        itemStatus:function(correctPrediction){
+            if(this.model.get('expiredMatch')){
+                this.el.className = 'disabled';
+                if(correctPrediction){
+                    this.el.className = 'correct-prediction'
+                }
+            }
+        },
 
         render: function() {
             function isInteger(i) {
@@ -61,7 +69,8 @@ define([
                     }
                 }
             }
-
+            console.log(correctPrediction);
+            this.itemStatus(correctPrediction);
             $(this.el).html(this.template({
                 alphaTeam: this.model.get('alphaTeam'),
                 alphaCode: this.model.get('alphaCode'),

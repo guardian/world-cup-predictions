@@ -1,4 +1,5 @@
-<div class="wcp-row <% if (expiredMatch) {print('disabled')} %>">
+<% fakeAlphaScore = true %>
+<div class="wcp-row">
 	<div class="wcp-row-left">
 		<img class="wcp-team-flag" src="../client/images/<%= alphaCode %>.png" />
 		<div class="wcp-team-name"><%= alphaTeam %></div>
@@ -18,16 +19,30 @@
 	</div>
 </div>
 
-<time class="wcp-match-datetime">
-	<div class="wcp-match-group"><strong>Group A</strong></div>
-	<div class="wcp-match-date"><%= timestamp %></div>
+<div class="wcp-match-meta">
+	
 	<% if (realAlphaScore) { %>
-		<div class="wcp-real-score"><%= realAlphaScore %> vs <%= realBetaScore %></div>
+		<div class="wcp-match-results">
+			<div class="wcp-real-score-container wcp-match-result">
+				<p>Actual Score</p>
+				<div class="wcp-real-score "><%= realAlphaScore %>2 - 2<%= realBetaScore %></div>
+			</div>
+			<div class="wcp-hivemind-container wcp-match-result">
+				<p>Hive Mind</p>
+				<div class="wcp-hivemind-score"><%= realAlphaScore %>2 - 2<%= realBetaScore %></div>
+			</div>
+			<div class="wcp-points-container wcp-match-result">
+				<p>Points</p>
+				<div class="wcp-points">1</div>
+			</div>
+		</div>
+		
+		<% if (expiredMatch && correctPrediction === false) { %>incorrect<% } %>
+	<% }else{ %>
+		<time class="wcp-match-datetime">
+			<div class="wcp-match-group"><strong>Group A</strong></div>
+			<div class="wcp-match-date"><%= timestamp %></div>
+		</time>
 	<% } %>
-	<% if (correctPrediction) { %>
-		✓
-	<% } %>
-	<% if (expiredMatch && correctPrediction === false) { %>
-		✗
-	<% } %>
-</time>
+	
+</div>

@@ -3,7 +3,7 @@ define([], function() {
 
 	var amdConfiguration = {
 		context: 'worldcup',
-		baseUrl: 'http://localhost:8000/client/',
+		baseUrl: 'http://daan.theguardian.com/client/',
 		paths: {
 			backbone: 'lib/backbone',
 			underscore: 'lib/underscore',

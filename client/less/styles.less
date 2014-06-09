@@ -1,11 +1,17 @@
 @import './flexbox.less';
-
+@wcp-red: #D23E55;
 .wcp{
 	-webkit-font-smoothing: antialiased;
 }
 
 .wcp *{
 	box-sizing: border-box;
+}
+
+.wcp{
+	h1,h2,h3,h4,h5{
+		font-family:EgyptianHeadline,EgyptianText,serif;
+	}
 }
 
 .wcp header {
@@ -96,7 +102,7 @@
 	border: 1px solid #DFDFDF;
 	border-top: 3px solid #4BC6DF;
 	border-radius:0 0 3px 3px;
-	padding: 15px 0 5px;
+	padding: 15px 0 0;
 	margin: 0 0 1em 0;
 	width:48%;
 }
@@ -104,10 +110,15 @@
 .wcp input {
 	width: 40px;
 	height: 50px;
-	font-family: 'AgateSans';
+	font-family: 'EgyptianHeadline';
 	text-align: center;
 	display:block;
-	margin:0 auto 15px;
+	font-weight:900;
+	color:#333;
+	margin:0 auto 12px;
+	font-size:18px;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.6);
+	border:none;
 }
 
 .wcp-divider {
@@ -117,6 +128,7 @@
 	border-top: 1px dotted #CFCFCD;
 	font-weight: bold;
 	font-size: 1.125em;
+	font-family:EgyptianHeadline,EgyptianText,serif;
 }
 
 .wcp-row {
@@ -126,23 +138,29 @@
 	position: relative;
 }
 
-.wcp-row.disabled {
+li.disabled {
+	color: #aaa;
+	border-top-color:@wcp-red;
+		.wcp-points-container.wcp-match-result{
+			p,div{
+			color: @wcp-red;
+			}
+		}
+}
+
+li.disabled .wcp-alpha-score {
 	color: #aaa;
 }
 
-.wcp-row.disabled .wcp-alpha-score {
+li.disabled .wcp-beta-score {
 	color: #aaa;
 }
 
-.wcp-row.disabled .wcp-beta-score {
+li.disabled .wcp-team-name {
 	color: #aaa;
 }
 
-.wcp-row.disabled .wcp-team-name {
-	color: #aaa;
-}
-
-.wcp-row.disabled .wcp-match-date {
+li.disabled .wcp-match-date {
 	color: #aaa;
 }
 
@@ -175,7 +193,7 @@
 
 .wcp-team-name {
 	display: none;
-	font-family: 'AgateSans';
+	font-family: 'EgyptianHeadline';
 	color: #333;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -184,7 +202,8 @@
 	margin:0 auto 10px;
 	text-align: center;
 	line-height:1em;
-	font-size:18px;
+	font-size:16px;
+	font-weight:200;
 }
 
 .wcp-team-code {
@@ -215,19 +234,45 @@
 .wcp-align-right {
 	text-align: right;
 }
-
-.wcp-match-datetime{
+.wcp-match-meta{
 	display: block;
-	text-align: center;
 	margin-top: 0;
 	border-top: 1px solid #dfdfdf;
-	font-family: 'AgateSans';
-	font-size: 0.8em;
-	padding-top: 5px;
+	font-family: 'TextSans';
+	font-size: 12px;
+	padding:8px 3px;
+	line-height:1.3em;
+	color:#767676;
+	strong{
+		color:#333;
+	}
+}
+
+.wcp-match-results{
+	.flex-display;
+	.flex-flow(row wrap);
+	.justify-content(center);
+
+	.wcp-match-result{
+		width:33%;
+		text-align:center;
+		p{
+			font-weight:700;
+			color:#333;
+			margin-bottom:0;
+		}
+		div{
+			color:#333;
+		}
+	}
+}
+
+.wcp-match-datetime{
+	text-align: center;
 }
 
 .wcp-match-date {
-	display: inline-block;
+	display: block;
 }
 
 .wcp-match-time {
