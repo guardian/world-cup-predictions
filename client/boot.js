@@ -3,7 +3,7 @@ define([], function() {
 
 	var amdConfiguration = {
 		context: 'worldcup',
-		baseUrl: 'http://localhost:8000/client/',
+		baseUrl: 'http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/',
 		paths: {
 			backbone: 'lib/backbone',
 			underscore: 'lib/underscore',

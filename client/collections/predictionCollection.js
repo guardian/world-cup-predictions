@@ -1,10 +1,9 @@
 define(['backbone', 'models/prediction'], function (Backbone, Prediction) {
     return Backbone.Collection.extend({
-		url: 'http://localhost:3000/prediction/',
+		url: 'http://54.195.89.236:3000/prediction/',
 		model: Prediction,
 
 		getChanged: function () {
-			console.log('changed models');
 		}
     });
 });

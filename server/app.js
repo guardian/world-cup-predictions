@@ -30,10 +30,6 @@ app.use(function(req, res, next) {
 // Does a map reduce to determine the hive mind prediction for any match Id
 var hiveMindPrediction = function(matchId) {
 	var predictions = db.get('predictions');
-
-
-
-
 	return {alphaScore: alphaScore, betaScore: betaScore};
 };
 
@@ -145,7 +141,7 @@ app.post('/matches', function(req, res) {
 
 	var hivePredictions = predictions.group(selectionObject,{},{count: 0},function(cur, result){result.count++;},function(e, docs) {
 		var hivePrediction = docs[0][matchId];
-		console.log(docs);
+		// console.log(docs);
 		// console.log({alphaScore: hivePrediction.alphaScore, betaScore: hivePrediction.betaScore});
 	});
 
@@ -181,7 +177,7 @@ app.get('/hive/:id', function(req, res) {
 			predictionFrequency[value] = 0;
 		});
 
-		console.log(predictionFrequency);
+		// console.log(predictionFrequency);
 
 		var uniques = predictionArray.filter(function(value) {
 			return ++predictionFrequency[value] == 1;
