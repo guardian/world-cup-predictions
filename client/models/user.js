@@ -15,6 +15,7 @@ define([
                 if (Identity.isUserLoggedIn()) {
                     this.set('username', Identity.getUserFromCookie().displayName);
                     this.set('userId', parseInt(Identity.getUserFromCookie().id, 10));
+                    this.set('rawResponse', Identity.getUserFromCookie().rawResponse);
                 }
             }
 
