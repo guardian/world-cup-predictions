@@ -4,7 +4,6 @@ define(['backbone', 'models/match'], function (Backbone, Match) {
 		model: Match,
 
 		getChanged: function () {
-			console.log('changed models');
 		}
     });
 });
