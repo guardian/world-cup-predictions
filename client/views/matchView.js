@@ -86,7 +86,7 @@ define([
                 realBetaScore: this.model.get('betaScore'),
                 correctPrediction: correctPrediction
             }));
-
+            
             return this;
         }
     });
