@@ -7,10 +7,10 @@
     "body-parser": "*",
     "monk": "*",
     "cors": "*",
-    "jade": "*",
-    "body-parser": "*"
+    "jade": "*"
   },
   "devDependencies": {
-    "gulp": "^3.6.2"
+    "gulp": "^3.6.2",
+    "google-spreadsheet": "~0.2.8"
   }
 }
