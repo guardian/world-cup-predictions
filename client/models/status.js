@@ -1,6 +1,6 @@
 define(['backbone'], function (Backbone) {
     return Backbone.Model.extend({
-		urlRoot: 'http://localhost:3000/score',
+		urlRoot: 'http://54.195.89.236:3000/score',
         initialize: function() {
 			this.fetch();
         }
