@@ -14,6 +14,7 @@
     "gulp": "^3.6.2",
     "gulp-less": "^1.2.3",
     "gulp-minify-css": "*",
-    "gulp-nodemon": "^1.0.4"
+    "gulp-nodemon": "^1.0.4",
+	"google-spreadsheet": "~0.2.8"
   }
 }

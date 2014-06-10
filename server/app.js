@@ -6,12 +6,12 @@ var db = monk('localhost:27017/wcp');
 var verifyGUCookie = require('./verifyGuardianCookie');
 var app = express();
 var whitelist = [
-'http://chronos.theguardian.com',
-'http://daan.theguardian.com',
-'http://localhost:8000',
-'http://interactive.guim.co.uk',
-'http://54.220.127.152:9000',
-'http://preview.gutools.co.uk'
+	'http://chronos.theguardian.com',
+	'http://daan.theguardian.com',
+	'http://localhost:8000',
+	'http://interactive.guim.co.uk',
+	'http://54.220.127.152:9000',
+	'http://preview.gutools.co.uk'
 ];
 
 
@@ -140,7 +140,6 @@ app.get('/matches', function(req, res) {
 	});
 });
 
-// E-mail to the user (nightly based on )
 // E-mail can be sent IF matches played earlier and user made a prediction
 app.get('/email/:id', function(req, res) {
 
@@ -219,6 +218,14 @@ app.get('/hive/:id', function(req, res) {
 	// 	res.render('hive', {alphaScore: modalPrediction.alphaScore, betaScore: modalPrediction.betaScore});
 	// });
 
+});
+
+// Initialise the user in the db, with their email address
+app.post('/user', function(req, res) {
+	var userId = parseInt(req.body.userId, 10);
+	var users = db.get('users');
+	users.update({id: userId}, {id: userId, email: req.body.userEmail, username: req.body.username}, {upsert: true});
+	res.end();
 });
 
 // Update an existing preediction. Check for valid submission date
