@@ -1,28 +1,29 @@
 <header>
 	<% if (loggedInUser) { %>
-		<div class="wcp-intro">
+		<div class='wcp-sharing'>
+			<a href='http://facebook.com' class='wcp-facebook'><img class="wcp-share-icon" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/icons/facebook.svg"></a>
+			<a href='http://twitter.com' class='wcp-twitter'><img class="wcp-share-icon" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/icons/twitter.svg"></a>
+		</div>
+
+		<div class='wcp-intro'>
 			<h2>Hey <%= username %></h2>
 			<h3>Your current score is <%= score %>.</h3>
 		</div>
 
-		<div class="wcp-status">
-			<div class="wcp-yesterday-results">
+		<div class='wcp-status'>
+			<div class='wcp-yesterday-results'>
 				<h4>Yesterday's results</h4>
 				<p>No matches were played yesterday</p>
 			</div>
-			<div class="wcp-your-score">
+			<div class='wcp-your-score'>
 				<h4>Your Score</h4>
 				<p>You have correctly predicted the outcome of <%= score %> matches.</p>
 			</div>
-<!-- 			<div class="wcp-hive-status">
-				<h4>Hive Mind</h4>
-				<p>So far the hive mind has correctly predicted 2 matches. Can you do better?</p>
-			</div> -->
 		</div>
 
 	<% } else { %>
 		<div class="wcp-intro">
-			<p><a href='https://profile.theguardian.com/signin'>Log in to your Guardian account</a> to save your predictions and see how well you can predict the World Cup</p>
+			<p><a href='https://profile.theguardian.com/signin'>Sign in to your Guardian account</a> or create one to get started. Then simply type your predicted final score into the boxes beneath all matches listed below. Your predictions will be saved but you can change them until a game kicks off. Matching an exact score bags you X points but correctly predicting the winning team or calling a draw still gets you X point(s). As the tournament unfolds we'll email you your updated score and you can compare your predictive prowess with the combined performance of all those playing the game by signing back in at any time.</p>
 		</div>
 	<% } %>
 </header>
