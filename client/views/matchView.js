@@ -49,11 +49,12 @@ define([
 
             Backbone.trigger('scoreChange');
         },
+
         itemStatus:function(correctPrediction){
             if(this.model.get('expiredMatch')){
                 this.el.className = 'disabled';
                 if(correctPrediction){
-                    this.el.className = 'correct-prediction'
+                    this.el.className = 'correct-prediction';
                 }
             }
         },
