@@ -42,8 +42,8 @@ function isValidUser(req) {
 	return true;
 
 	/*
-    var GU_U = req.body.auth;
-    var guardianID = req.body.id;
+    var GU_U = req.body.rawResponse;
+    var guardianID = req.body.userId;
     return (GU_U && guardianID && verifyGUCookie(GU_U, guardianID.toString()));
     */
 }
