@@ -3,16 +3,16 @@ var bodyParser = require('body-parser');
 var monk = require('monk');
 var cors = require('cors');
 var db = monk('localhost:27017/wcp');
+var verifyGUCookie = require('./verifyGuardianCookie');
 var app = express();
 var whitelist = [
-'http://chronos.theguardian.com',
-'http://daan.theguardian.com',
-'http://localhost:8000',
-'http://interactive.guim.co.uk',
-'http://54.220.127.152:9000',
-'http://preview.gutools.co.uk'
+	'http://chronos.theguardian.com',
+	'http://daan.theguardian.com',
+	'http://localhost:8000',
+	'http://interactive.guim.co.uk',
+	'http://54.220.127.152:9000',
+	'http://preview.gutools.co.uk'
 ];
-
 
 var corsOptions = {
 	origin: function (origin, callback) {
@@ -34,6 +34,19 @@ app.use(function(req, res, next) {
 	req.db = db;
 	next();
 });
+
+// Validate Guardian user cookie
+function isValidUser(req) {
+	// DEBUG. DISABLES PROD COOKIE CHECK
+	return true;
+
+	/*
+    var GU_U = req.body.rawResponse;
+    var guardianID = req.body.userId;
+    return (GU_U && guardianID && verifyGUCookie(GU_U, guardianID.toString()));
+    */
+}
+
 
 // Does a map reduce to determine the hive mind prediction for any match Id
 var hiveMindPrediction = function(matchId) {
@@ -101,7 +114,7 @@ app.get('/score/:id', function(req, res) {
 	var predictions = db.get('predictions');
 	var userScore = 0;
 	var userPredictions = predictions.find({id: userId}, {sort: {timestamp: 1}}, function(e, docs) {
-		
+
 		for (var p in docs[0]) {
 			var prediction = docs[0][p];
 			if (prediction.hasOwnProperty('predictedScore')) {
@@ -126,7 +139,6 @@ app.get('/matches', function(req, res) {
 	});
 });
 
-// E-mail to the user (nightly based on )
 // E-mail can be sent IF matches played earlier and user made a prediction
 app.get('/email/:id', function(req, res) {
 
@@ -207,8 +219,21 @@ app.get('/hive/:id', function(req, res) {
 
 });
 
+// Initialise the user in the db, with their email address
+app.post('/user', function(req, res) {
+	var userId = parseInt(req.body.userId, 10);
+	var users = db.get('users');
+	users.update({id: userId}, {id: userId, email: req.body.userEmail, username: req.body.username}, {upsert: true});
+	res.end();
+});
+
 // Update an existing preediction. Check for valid submission date
 app.put('/prediction/:id', function(req, res) {
+	if (!isValidUser(req)) {
+		res.json('401', {'msg': 'Problem with authentication.'});
+		return;
+	}
+
 	var prediction = req.body;
 	var predictionMatchId = parseInt(req.body.id, 10);
 	var userId = parseInt(req.params.id, 10);
@@ -221,6 +246,11 @@ app.put('/prediction/:id', function(req, res) {
 
 // Insert a new prediction. Check for valid submission date
 app.post('/prediction', function(req, res) {
+	if (!isValidUser(req)) {
+		res.json('401', {'msg': 'Problem with authentication.'});
+		return;
+	}
+
 	var prediction = req.body;
 	var predictions = db.get('predictions');
 	var userId = parseInt(prediction.userId, 10);

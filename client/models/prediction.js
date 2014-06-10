@@ -1,6 +1,6 @@
-define(['backbone'], function (Backbone) {
+define(['backbone', '../config'], function (Backbone, config) {
     return Backbone.Model.extend({
-		urlRoot: 'http://54.220.127.152:3000/prediction',
+		urlRoot: config.apiUrl + '/prediction',
         initialize: function() {
         }
     });
