@@ -16,6 +16,8 @@
     "gulp-minify-css": "*",
     "gulp-nodemon": "^1.0.4",
     "google-spreadsheet": "~0.2.8",
-    "base64url": "0.0.6"
+    "base64url": "0.0.6",
+    "gulp-strip-debug": "~0.3.0",
+    "gulp-requirejs": "~0.1.3"
   }
 }
