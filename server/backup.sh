@@ -1,7 +1,7 @@
 #!/bin/bash
 backupFileName="world-cup-predictions-backup-$(date '+%d-%m-%Y').tar.gz"
 
-if ! mongodump -o backup --quiet; then
+if ! mongodump -o backup; then
     status="mongodump failed"
 elif ! tar -czf "$backupFileName" backup; then
     status="tar backup failed"
