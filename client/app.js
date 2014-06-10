@@ -15,9 +15,8 @@ define([
 
 		'use strict';
 
-		var app = {};
-
 		return {
+
 			initialise: function () {
 				$(this.el).addClass('wcp');
 				var appLoaded = false;

@@ -3,14 +3,11 @@ var db = monk('localhost:27017/wcp');
 var Spreadsheet = require('google-spreadsheets');
 
 (function() {
-
 	// var scheduleSheet = new Spreadsheet('1Ynv8BPmp-T6VsIDODDJydzwqjJrEtN-Q1AdSQ9v6Tbk');
 
 	console.info('Checking match schedule');
 
-	Spreadsheet({
-		key: "1nl-OIfuieE4YaGkqPRBFwrITzBQnmWuoH0qDEqKdmks"
-	}, function(err, spreadsheet) {
+	Spreadsheet({key: "1nl-OIfuieE4YaGkqPRBFwrITzBQnmWuoH0qDEqKdmks"}, function(err, spreadsheet) {
 
 		console.info(spreadsheet);
 
@@ -21,6 +18,7 @@ var Spreadsheet = require('google-spreadsheets');
 			// range requested.
 			console.log(cells);
 		});
+
 	});
 
 

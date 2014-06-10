@@ -4,8 +4,6 @@ define(['backbone'], function (Backbone) {
 			alphaTeam: 'Home Team',
 			betaTeam: 'Away Team'
         },
-
-        initialize: function() {
-        }
+        initialize: function() {}
     });
 });

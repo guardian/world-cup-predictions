@@ -14,7 +14,6 @@ var whitelist = [
 	'http://preview.gutools.co.uk'
 ];
 
-
 var corsOptions = {
 	origin: function (origin, callback) {
 		var originIsWhitelisted = whitelist.indexOf(origin) !== -1;

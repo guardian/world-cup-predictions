@@ -1,9 +1,10 @@
 define([
         'backbone',
-        'common/modules/identity/api'
-        ], function (Backbone, Identity) {
+        'common/modules/identity/api',
+        '../config'
+        ], function (Backbone, Identity, config) {
         return Backbone.Model.extend({
-            urlRoot: 'http://54.195.89.236:3000/user',
+            urlRoot: config.apiUrl + '/user',
             defaults: {
                 userID: 0,
                 isUserLoggedIn: false,

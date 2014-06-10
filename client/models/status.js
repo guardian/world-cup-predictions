@@ -1,6 +1,6 @@
-define(['backbone'], function (Backbone) {
+define(['backbone', '../config'], function (Backbone, config) {
     return Backbone.Model.extend({
-		urlRoot: 'http://54.195.89.236:3000/score',
+		urlRoot: config.apiUrl + '/score',
         initialize: function() {
 			this.fetch();
         }
