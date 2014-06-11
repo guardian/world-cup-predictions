@@ -230,6 +230,7 @@ app.put('/prediction/:id', function(req, res) {
 		return;
 	}
 
+	delete req.body.rawResponse;
 	var prediction = req.body;
 	var predictionMatchId = parseInt(req.body.id, 10);
 	var userId = parseInt(req.params.id, 10);
@@ -247,6 +248,7 @@ app.post('/prediction', function(req, res) {
 		return;
 	}
 
+	delete req.body.rawResponse;
 	var prediction = req.body;
 	var predictions = db.get('predictions');
 	var userId = parseInt(prediction.userId, 10);
