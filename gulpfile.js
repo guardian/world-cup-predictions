@@ -6,6 +6,7 @@ var stripDebug = require('gulp-strip-debug');
 var rjs = require('gulp-requirejs');
 
 gulp.task('styles', function() {
+	console.log('rebuild styles');
 	return gulp.src('./client/less/styles.less')
 		.pipe(less({
 			paths: ['./client/less/']
@@ -25,7 +26,7 @@ gulp.task('server', function() {
 
 gulp.task('client', function() {
 	gulp.watch('./client/less/styles.less', ['styles']);
-	gulp.watch('./client/', ['templates']);
+	// gulp.watch('./client/', ['templates']);
 });
 
 gulp.task('build', function() {

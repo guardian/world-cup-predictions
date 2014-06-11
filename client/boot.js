@@ -3,8 +3,8 @@ define([], function() {
 
 	var amdConfiguration = {
 		context: 'worldcup',
-		// baseUrl: 'http://chronos.theguardian.com/world-cup-predictions/client/',
-		baseUrl: 'http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/',
+		baseUrl: 'http://chronos.theguardian.com/world-cup-predictions/client/',
+		// baseUrl: 'http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/',
 		paths: {
 			backbone: 'lib/backbone',
 			underscore: 'lib/underscore',
@@ -14,6 +14,7 @@ define([], function() {
 		},
 		pluginPath: 'lib/'
 	};
+
 
 	return {
 		boot : function(el, context, config, mediator) {
