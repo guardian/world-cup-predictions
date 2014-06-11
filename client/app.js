@@ -23,7 +23,7 @@ define([
 			var newHeader = $('<div class="interactive_header"></div>');
 			var stepOneText = 'Fill in your predictions';
 			var stepTwoText = 'We crunch everyone\'s data overnight';
-			var stepThreeText = 'Sign in the morning after to see your performance visualised and compared with other users';
+			var stepThreeText = 'Sign in the next morning to see your performance visualised and compared with other users';
 
 
 			headline.removeAttr('class');
