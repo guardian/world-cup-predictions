@@ -50,28 +50,6 @@ var hiveMindPrediction = function(matchId) {
 	return {alphaScore: alphaScore, betaScore: betaScore};
 };
 
-// Find all the predictions for this completed match and mark the outcome
-var markUserScoresByMatch = function(matchId, alphaScore, betaScore) {
-	var predictionsForMatch = db.get('predictions');
-	var predictions = predictionsForMatch.find({}, function(e, docs) {
-		for (var d in docs) {
-			var userId = docs[d].id;
-			for (var m in docs[d]) {
-				var currentPrediction = docs[d][m];
-				if (parseInt(m, 10) === parseInt(matchId, 10)) {
-					var setObject = {};
-					setObject[matchId + '.predictedScore'] = true;
-					if (currentPrediction.alphaScore === alphaScore && currentPrediction.betaScore === betaScore) {
-						var updateStatement = matchId + '.predictedScore';
-						predictionsForMatch.update({id: userId}, {$set: setObject});
-					} else {
-						predictionsForMatch.update({id: userId}, {$unset: setObject});
-					}
-				}
-			}
-		}
-	});
-};
 
 // Server returns trusted timestamp
 app.get('/timestamp', function(req, res) {
