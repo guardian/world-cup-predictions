@@ -82,66 +82,6 @@ app.get('/prediction/:id', function(req, res) {
 	});
 });
 
-// Retrieve a user's total score so far from the database
-app.get('/score/:id', function(req, res) {
-	var userId = parseInt(req.params.id, 10);
-	var predictions = db.get('predictions');
-	var userScore = 0;
-	var userPredictions = predictions.find({id: userId}, {sort: {timestamp: 1}}, function(e, docs) {
-
-		for (var p in docs[0]) {
-			var prediction = docs[0][p];
-			if (prediction.hasOwnProperty('predictedScore')) {
-				userScore++;
-			}
-		}
-
-		res.send({
-			'id': userId,
-			'score': userScore
-		});
-	});
-});
-
-// Submit scores for matches that have been completed
-app.get('/matches', function(req, res) {
-	var matches = db.get('schedule');
-	var timestamp = Math.floor(Date.now() / 1000);
-
-	var matchList = matches.find({timestamp: {$lt: timestamp}}, {sort: {timestamp: 1}}, function(e, docs) {
-		res.render('match', {match: docs});
-	});
-});
-
-// E-mail can be sent IF matches played earlier and user made a prediction
-app.get('/email/:id', function(req, res) {
-
-});
-
-// Mark completed matches and update predictions
-// Match is closed for predictions, calculate hive mind score and save in a collection
-app.post('/matches', function(req, res) {
-	var matches = db.get('schedule');
-	var predictions = db.get('predictions');
-	var matchId = parseInt(req.body.matchId, 10);
-	var alphaScore = parseInt(req.body.alphaScore, 10);
-	var betaScore = parseInt(req.body.betaScore, 10);
-
-	matches.update({matchId: matchId}, {$set: {alphaScore: alphaScore, betaScore: betaScore}}, {upsert: false});
-	markUserScoresByMatch(matchId, alphaScore, betaScore);
-
-	var selectionObject = {};
-	selectionObject[matchId] = 1;
-
-	var hivePredictions = predictions.group(selectionObject,{},{count: 0},function(cur, result){result.count++;},function(e, docs) {
-		var hivePrediction = docs[0][matchId];
-		// console.log(docs);
-		// console.log({alphaScore: hivePrediction.alphaScore, betaScore: hivePrediction.betaScore});
-	});
-
-	res.send({redirect: '/matches'});
-});
-
 // What does the hive mind think about this match? Run a map reduce on the predictions database
 app.get('/hive/:id', function(req, res) {
 	var predictions = db.get('predictions');
