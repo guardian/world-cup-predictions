@@ -15,9 +15,32 @@ define([
 
 		'use strict';
 
+		function setupHeader() {
+			var header = $('header.content__head');
+			var contentWrapper = $('article.content--interactive');
+			var headline = $('h1.content__headline');
+			var intro = $('.content__standfirst');
+			var newHeader = $('<div class="interactive_header"></div>');
+
+
+			headline.removeAttr('class');
+			intro.attr('class', 'interactive_header_intro');
+
+			newHeader.append(headline);
+			newHeader.append(intro);
+
+
+			header.hide();
+			contentWrapper.prepend(newHeader);
+			contentWrapper.css('padding-top', '0');
+		}
+
+
 		return {
 
 			initialise: function () {
+				setupHeader();
+
 				$(this.el).addClass('wcp');
 				var appLoaded = false;
 				var querystring = window.location.search;
