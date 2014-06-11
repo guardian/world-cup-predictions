@@ -16,14 +16,14 @@ define([
 		'use strict';
 
 		function setupHeader() {
-			var header = $('header.content__head');
+		var header = $('header.content__head');
 			var contentWrapper = $('article.content--interactive');
 			var headline = $('h1.content__headline');
 			var intro = $('.content__standfirst');
 			var newHeader = $('<div class="interactive_header"></div>');
 			var stepOneText = 'Fill in your predictions';
-			var stepTwoText = 'We will crunch your numbers and of everyone else\'s overnight';
-			var stepThreeText = 'We tell you how well you did with interactive graphics and stats';
+			var stepTwoText = 'We crunch everyone\'s data overnight';
+			var stepThreeText = 'Sign in the morning after to see your performance visualised and compared with other users';
 
 
 			headline.removeAttr('class');
