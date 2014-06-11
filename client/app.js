@@ -18,24 +18,29 @@ define([
 		function setupHeader() {
 			var header = $('header.content__head');
 			var contentWrapper = $('article.content--interactive');
+			var worldCupLogo = $('<div class="interactive_worldcuplogo"></div>');
 			var headline = $('h1.content__headline');
 			var intro = $('.content__standfirst');
 			var newHeader = $('<div class="interactive_header"></div>');
+			var newHeaderContent = $('<div class="interactive_header_content"></div>');
 			var stepOneText = 'Fill in your predictions';
 			var stepTwoText = 'We will crunch your numbers and of everyone else\'s overnight';
 			var stepThreeText = 'We tell you how well you did with interactive graphics and stats';
-
-
+			var interactiveStandfirst = $('<div class="interactive_standfirst"></div>');
+			
 			headline.removeAttr('class');
 			intro.attr('class', 'interactive_header_intro');
 
-			newHeader.append(headline);
-			newHeader.append(intro);
-			newHeader.append('<ol><li>' + stepOneText + '</li><li>' + stepTwoText + '</li><li>' + stepThreeText + '</li></ol>');
+			interactiveStandfirst.append(headline);
+			interactiveStandfirst.append(intro);
+			interactiveStandfirst.append('<ul><li><span class="listNumber">1</span>' + stepOneText + '</li><li><span class="listNumber">2</span>' + stepTwoText + '</li><li><span class="listNumber">3</span>' + stepThreeText + '</li></ul>');
 
 
 			header.hide();
 			contentWrapper.prepend(newHeader);
+			newHeader.prepend(newHeaderContent);
+			newHeaderContent.append(worldCupLogo);
+			newHeaderContent.append(interactiveStandfirst);
 			contentWrapper.css('padding-top', '0');
 		}
 

@@ -2,17 +2,17 @@
 	<% if (loggedInUser) { %>
 		<div class='wcp-intro'>
 			<h2><%= username %>, make your predictions</h2>
-			<h3>We'll show your score once the group matches start and compare it with everyone else playing the game. Your predictions will save as you type and you can change them until 30 minutes before a game kicks off. Good luck!</h3>
+			<h3>We will automatically save your predictions but you can change them until 30 minutes before a match starts</h3>
 		</div>
-		<div class='wcp-sharing'>
+		<!-- <div class='wcp-sharing'>
 			<a href='http://facebook.com' class='wcp-facebook'><img class="wcp-share-icon" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/icons/facebook.svg"></a>
 			<a href='http://twitter.com' class='wcp-twitter'><img class="wcp-share-icon" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/icons/twitter.svg"></a>
-		</div>
+		</div> -->
 
 	<% } else { %>
 		<div class='wcp-intro'>
-			<h2>Sign in to your Guardian account to make your predictions</h2>
-			<h3>We'll show you how you're doing once the group matches start and compare it with everyone else playing the game. <a href='https://profile.theguardian.com/signin'>Sign in or register</a> to get started - good luck!</h3>
+			<h2>Sign in to your Guardian account to start</h2>
+			<h3><a href='https://profile.theguardian.com/signin'>Sign in or register</a></h3>
 		</div>
 	<% } %>
 </header>
