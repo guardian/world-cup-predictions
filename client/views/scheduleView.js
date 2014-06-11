@@ -69,7 +69,12 @@ define([
 
                 }, this);
                 
+
                 var _this = this;
+                $.each(this.$('input'), function(i,j){
+                    _this.checkInputs(j);
+                });
+                
                 this.$("input").change(function(){
                     _this.checkInputs(this);
                 });
