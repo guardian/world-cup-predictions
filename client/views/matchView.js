@@ -72,7 +72,7 @@ define([
                     }
                 }
             }
-            // console.log(correctPrediction);
+
             this.itemStatus(correctPrediction);
             $(this.el).html(this.template({
                 alphaTeam: this.model.get('alphaTeam'),
