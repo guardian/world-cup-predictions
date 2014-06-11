@@ -35,11 +35,13 @@ define([
         },
 
         shareFacebook: function() {
-            this.openWindow(this.getFacebookUrl());
+            // this.openWindow(this.getFacebookUrl());
+            window.location.href = this.getFacebookUrl();
         },
 
         shareTwitter: function() {
-            this.openWindow(this.getTwitterUrl());
+            // this.openWindow(this.getTwitterUrl());
+            window.location.href = this.getTwitterUrl();
         },
 
         getFacebookUrl: function(options) {
