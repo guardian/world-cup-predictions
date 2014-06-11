@@ -11,7 +11,8 @@ var whitelist = [
 	'http://localhost:8000',
 	'http://interactive.guim.co.uk',
 	'http://54.220.127.152:9000',
-	'http://preview.gutools.co.uk'
+	'http://preview.gutools.co.uk',
+	'http://www.theguardian.com'
 ];
 
 var corsOptions = {
