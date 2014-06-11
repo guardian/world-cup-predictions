@@ -39,7 +39,7 @@ app.use(function(req, res, next) {
 // Validate Guardian user cookie
 function isValidUser(req) {
     var GU_U = req.body.rawResponse;
-    var guardianID = req.body.userId;
+    var guardianID = req.body.id;
     return (GU_U && guardianID && verifyGUCookie(GU_U, guardianID.toString()));
 }
 
