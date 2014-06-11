@@ -85,6 +85,7 @@ define([
                 expiredMatch: this.model.get('expiredMatch'),
                 realAlphaScore: this.model.get('alphaScore'),
                 realBetaScore: this.model.get('betaScore'),
+                groupname: this.model.get('groupname'),
                 correctPrediction: correctPrediction
             }));
             

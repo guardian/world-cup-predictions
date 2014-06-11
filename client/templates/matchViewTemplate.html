@@ -42,7 +42,7 @@
 		<% if (expiredMatch && correctPrediction === false) { %>incorrect<% } %>
 	<% }else{ %>
 		<time class="wcp-match-datetime">
-			<div class="wcp-match-group"><strong>Group A</strong></div>
+			<div class="wcp-match-group"><strong><%= groupname %></strong></div>
 			<div class="wcp-match-date"><%= timestamp %></div>
 		</time>
 	<% } %>

@@ -7,6 +7,7 @@ define([
             facebook_id: '180444840287',
             twitter_account: 'guardian',
             url: config.shortUrl,
+            fullUrl: config.fullUrl,
             title: 'World Cup Predictions',
             description: "I've made my World Cup predictions at the Guardian. What do you think will happen?",
             photo: 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/6/5/1401964714817/WorldCupDreamteam.png'
@@ -44,11 +45,11 @@ define([
         getFacebookUrl: function(options) {
             var data = {
                 app_id: this.get('facebook_id') || '',
-                img: this.get('photo') || '',
-                url: this.get('url') || '',
+                img: '',
+                url: this.get('fullUrl') || '',
                 title: this.get('title') || '',
                 description: this.get('description') || '',
-                redirect_url: this.get('url') || ''
+                redirect_url: this.get('fullUrl') || ''
             };
 
             return this.buildURL('facebook', data);
