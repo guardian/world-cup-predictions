@@ -18,7 +18,7 @@
     "alphaCode": "esp",
     "alphaTeam": "Spain",
     "betaCode": "ned",
-    "betaTeam": "Netherlands",
+    "betaTeam": "Holland",
     "matchId": 6708,
     "timestamp": 1402660800,
     "groupname": "Group B"
@@ -56,7 +56,7 @@
     "groupname": "Group D"
 }, {
     "alphaCode": "civ",
-    "alphaTeam": "Côte D'Ivoire",
+    "alphaTeam": "Ivory Coast",
     "betaCode": "jpn",
     "betaTeam": "Japan",
     "matchId": 1106,
@@ -130,7 +130,7 @@
     "alphaCode": "rus",
     "alphaTeam": "Russia",
     "betaCode": "kor",
-    "betaTeam": "Korea Republic",
+    "betaTeam": "South Korea",
     "matchId": 5007,
     "timestamp": 1403024400,
     "groupname": "Group H"
@@ -138,7 +138,7 @@
     "alphaCode": "aus",
     "alphaTeam": "Australia",
     "betaCode": "ned",
-    "betaTeam": "Netherlands",
+    "betaTeam": "Holland",
     "matchId": 1486,
     "timestamp": 1403092800,
     "groupname": "Group B"
@@ -162,7 +162,7 @@
     "alphaCode": "col",
     "alphaTeam": "Colombia",
     "betaCode": "civ",
-    "betaTeam": "Côte D'Ivoire",
+    "betaTeam": "Ivory Coast",
     "matchId": 4476,
     "timestamp": 1403179200,
     "groupname": "Group C"
@@ -240,7 +240,7 @@
     "groupname": "Group H"
 }, {
     "alphaCode": "kor",
-    "alphaTeam": "Korea Republic",
+    "alphaTeam": "South Korea",
     "betaCode": "alg",
     "betaTeam": "Algeria",
     "matchId": 3498,
@@ -256,7 +256,7 @@
     "groupname": "Group G"
 }, {
     "alphaCode": "ned",
-    "alphaTeam": "Netherlands",
+    "alphaTeam": "Holland",
     "betaCode": "chi",
     "betaTeam": "Chile",
     "matchId": 1127,
@@ -314,7 +314,7 @@
     "alphaCode": "gre",
     "alphaTeam": "Greece",
     "betaCode": "civ",
-    "betaTeam": "Côte D'Ivoire",
+    "betaTeam": "Ivory Coast",
     "matchId": 6647,
     "timestamp": 1403625600,
     "groupname": "Group C"
@@ -368,7 +368,7 @@
     "groupname": "Group G"
 }, {
     "alphaCode": "kor",
-    "alphaTeam": "Korea Republic",
+    "alphaTeam": "South Korea",
     "betaCode": "bel",
     "betaTeam": "Belgium",
     "matchId": 8510,
