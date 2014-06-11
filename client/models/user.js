@@ -8,7 +8,8 @@ define([
             defaults: {
                 userID: 0,
                 isUserLoggedIn: false,
-                username: null
+                username: null,
+                userTimezoneOffset: new Date().getTimezoneOffset()
             },
 
             initialize: function() {
