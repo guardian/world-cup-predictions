@@ -16,7 +16,7 @@ define([
 		'use strict';
 
 		function setupHeader() {
-			var header = $('header.content__head');
+		var header = $('header.content__head');
 			var contentWrapper = $('article.content--interactive');
 			var worldCupLogo = $('<div class="interactive_worldcuplogo"></div>');
 			var headline = $('h1.content__headline');
@@ -24,16 +24,16 @@ define([
 			var newHeader = $('<div class="interactive_header"></div>');
 			var newHeaderContent = $('<div class="interactive_header_content"></div>');
 			var stepOneText = 'Fill in your predictions';
-			var stepTwoText = 'We will crunch your numbers and of everyone else\'s overnight';
-			var stepThreeText = 'We tell you how well you did with interactive graphics and stats';
+			var stepTwoText = 'We crunch everyone\'s data overnight';
+			var stepThreeText = 'Sign in the next morning to see your performance visualised and compared with other users';
 			var interactiveStandfirst = $('<div class="interactive_standfirst"></div>');
-			
+
 			headline.removeAttr('class');
 			intro.attr('class', 'interactive_header_intro');
 
 			interactiveStandfirst.append(headline);
 			interactiveStandfirst.append(intro);
-			interactiveStandfirst.append('<ul><li><span class="listNumber">1</span>' + stepOneText + '</li><li><span class="listNumber">2</span>' + stepTwoText + '</li><li><span class="listNumber">3</span>' + stepThreeText + '</li></ul>');
+			interactiveStandfirst.append('<ul><li><span class="listNumber">1</span><span class="listText">' + stepOneText + '</span></li><li><span class="listNumber">2</span><span class="listText">' + stepTwoText + '</span></li><li><span class="listNumber">3</span><span class="listText">' + stepThreeText + '</span></li></ul>');
 
 
 			header.hide();

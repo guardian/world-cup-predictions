@@ -65,6 +65,10 @@
 				font-size:18px;
 				float:left;
 			}
+			.listText{
+				display:block;
+				margin-left:45px;
+			}
 		}
 	}
 }
@@ -108,10 +112,15 @@ figure.interactive{
 		margin-top:30px;
 	}
 	h3{
-		font-family:"TextSans";
+		font-family:"TextSans", "AgateSans", Helvetica, Arial;
 		color:#767676;
 		font-size:16px;
 		margin-bottom:20px;
+		margin-top:5px;
+		a{
+			text-decoration:underline;
+			color:@guardianGreen;
+		}
 	}
 	h4{
 		
@@ -248,7 +257,7 @@ figure.interactive{
 	background-color: #c34655;
 	color: white;
 	padding: 10px;
-	font-family: 'AgateSans';
+	font-family: 'AgateSans', Helvetica, Arial;
 	width: 400px;
 }
 
@@ -270,7 +279,10 @@ figure.interactive{
 	width:48%;
 	margin-right:2%;
 	display:inline-block;
-	transition: 0.5s border;
+	-webkit-transition:0.5s border;
+	-moz-transition:0.5s border;
+	-o-transition:0.5s border;
+	transition:0.5s border;
 
 	&.prediction-complete{
 		border-top: 3px solid @guardianGreen;
@@ -282,7 +294,10 @@ figure.interactive{
 	padding-top:3px;
 	display:block;
 	margin:0 auto 16px;
-	transition: 0.8s background;
+	-webkit-transition:0.8s background;
+	-moz-transition:0.8s background;
+	-o-transition:0.8s background;
+	transition:0.8s background;
 	&.result-win{
 		background:#E7F1B6;
 	}
@@ -294,7 +309,7 @@ figure.interactive{
 	}
 }
 .wcp input {
-	font-family: 'EgyptianHeadline';
+	font-family: 'EgyptianHeadline', EgyptianText, Georgia, serif;
 	text-align: center;
 	width:30px;
 	height:40px;
@@ -319,6 +334,7 @@ figure.interactive{
 	font-size: 16px;
 	font-family:EgyptianHeadline,EgyptianText,serif;
 	position:relative;
+	line-height:1.1em;
 }
 
 .wcp-day-check{
@@ -326,11 +342,19 @@ figure.interactive{
 	top:5px;
 	right:0;
 	width:32px;
-	height: 32px;
-	background-image: url(../images/checkArrow.png);
-	background-size:32px;
+	height:32px;
+	background-image:url(../images/checkArrow.png);
+
+	-webkit-background-size:32px;
+	   -moz-background-size:32px;
+	     -o-background-size:32px;
+	        background-size:32px;
 	background-color:#dfdfdf;
-	transition: 0.5s background;
+
+	-webkit-transition:0.5s background;
+	   -moz-transition:0.5s background;
+	     -o-transition:0.5s background;
+	        transition:0.5s background;
 }
 
 .wcp-row {
@@ -396,10 +420,13 @@ li.disabled .wcp-match-date {
 	width:24px;
 	border: 1px solid #DFDFDF;
 	border-radius:4px;
-	font-family: 'AgateSans';
+	font-family: 'AgateSans', Helvetica, Arial;
 	background:#F1F1F1;
-	transform: translateX(-50%);
-	-webkit-transform: translateX(-50%);
+	-webkit-transform:translateX(-50%);
+	-moz-transform:translateX(-50%);
+	-ms-transform:translateX(-50%);
+	-o-transform:translateX(-50%);
+	transform:translateX(-50%);
 	&.result-alpha .wcp-divider-point{
 		background-color: @guardianGreen;
 		left:-1px;
@@ -420,7 +447,10 @@ li.disabled .wcp-match-date {
 		left:8px;
 		top:-1px;
 		position: absolute;
-		transition: left 0.5s, background 0.5s;
+		-webkit-transition:left 0.5s, background 0.5s;
+		-moz-transition:left 0.5s, background 0.5s;
+		 -o-transition:left 0.5s, background 0.5s;
+		    transition:left 0.5s, background 0.5s;
 	}
 }
 
@@ -431,7 +461,7 @@ li.disabled .wcp-match-date {
 
 .wcp-team-name {
 	display: none;
-	font-family: 'EgyptianHeadline';
+	font-family: 'EgyptianHeadline', EgyptianText, Georgia,serif;
 	color: #333;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -446,7 +476,7 @@ li.disabled .wcp-match-date {
 
 .wcp-team-code {
 	display: block;
-	font-family: 'EgyptianHeadline';
+	font-family: 'EgyptianHeadline', EgyptianText, Georgia,serif;
 	color: #333;
 	text-transform: uppercase;
 	margin:0 auto 10px;
@@ -477,7 +507,7 @@ li.disabled .wcp-match-date {
 	display: block;
 	margin-top: 0;
 	border-top: 1px solid #dfdfdf;
-	font-family: 'TextSans';
+	font-family: 'TextSans', 'AgateSans', Helvetica, Arial;
 	font-size: 12px;
 	padding:8px 3px;
 	line-height:1.3em;
