@@ -21,6 +21,9 @@ define([
 			var headline = $('h1.content__headline');
 			var intro = $('.content__standfirst');
 			var newHeader = $('<div class="interactive_header"></div>');
+			var stepOneText = 'Fill in your predictions';
+			var stepTwoText = 'We will crunch your numbers and of everyone else\'s overnight';
+			var stepThreeText = 'We tell you how well you did with interactive graphics and stats';
 
 
 			headline.removeAttr('class');
@@ -28,6 +31,7 @@ define([
 
 			newHeader.append(headline);
 			newHeader.append(intro);
+			newHeader.append('<ol><li>' + stepOneText + '</li><li>' + stepTwoText + '</li><li>' + stepThreeText + '</li></ol>');
 
 
 			header.hide();
