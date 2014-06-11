@@ -38,14 +38,9 @@ app.use(function(req, res, next) {
 
 // Validate Guardian user cookie
 function isValidUser(req) {
-	// DEBUG. DISABLES PROD COOKIE CHECK
-	return true;
-
-	/*
     var GU_U = req.body.rawResponse;
     var guardianID = req.body.userId;
     return (GU_U && guardianID && verifyGUCookie(GU_U, guardianID.toString()));
-    */
 }
 
 

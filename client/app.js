@@ -28,7 +28,10 @@ define([
 					var scheduleCollection = new ScheduleCollection();
 					var user = new UserModel();
 
-					var usersPredictions = new PredictionModel({id: user.get('userId')});
+					var usersPredictions = new PredictionModel({
+						id: user.get('userId'),
+						rawResponse: user.get('rawResponse')
+					});
 					usersPredictions.fetch();
 
 					var modalView = new ModalView();
