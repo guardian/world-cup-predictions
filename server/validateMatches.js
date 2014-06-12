@@ -95,7 +95,11 @@ var fs = require('fs');
 					result = array[v];
 			}
 		}
-		return result;
+
+		return {
+			topResult: result,
+			frequencyHistogram: frequency
+		};
 	}
 
 	function isInteger(i) {
@@ -133,13 +137,13 @@ var fs = require('fs');
 				}
 			}
 
-			var calculatedModalScore = calculateModalScore(possiblePredictions);
-			var calculatedArray = calculatedModalScore.split(':');
+			var matchStats = calculateModalScore(possiblePredictions);
+
+			console.log(matchStats);
 
 			schedule.update({matchId: matchId}, {
 				$set: {
-					hiveAlphaScore: parseInt(calculatedArray[0], 10),
-					hiveBetaScore: parseInt(calculatedArray[1], 10)
+					stats: matchStats
 				}},
 				{upsert: false}
 			);
