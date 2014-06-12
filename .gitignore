@@ -3,6 +3,7 @@ node_modules/
 host/
 design/
 client/boot.js
+client/css/styles.css
 server/gu_prod_key.pub
 server/gu_code_key.pub
 server/gu_client_drive_key.pem
