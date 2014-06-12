@@ -77,6 +77,9 @@ app.get('/prediction/:id', function(req, res) {
 	var prediction = db.get('predictions');
 	var userId = parseInt(req.params.id, 10);
 
+	console.log(userId);
+
+
 	prediction.find({id: userId}, function(e, docs) {
 		res.json(docs[0]);
 	});

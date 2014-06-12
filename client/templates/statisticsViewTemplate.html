@@ -1,0 +1,14 @@
+<div class='wcp-statistics'>
+	<% _.each(matches, function(m) { %>
+		<div class='wcp-match-stat'>
+			<%= m.alphaTeam %> <%= m.alphaScore %>
+			<%= m.betaTeam %> <%= m.betaScore %>
+
+			<h3>Your predictions</h3>
+			<%= m.userAlphaScore %> <%= m.userBetaScore %>
+
+			<h3>Most predicted</h3>
+			<%= m.hiveAlphaScore %> <%= m.hiveBetaScore %>
+		</div>
+	<% }); %>
+</div>

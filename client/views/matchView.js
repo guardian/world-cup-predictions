@@ -73,6 +73,8 @@ define([
                 }
             }
 
+            var timezoneOffset = new Date().getTimezoneOffset();
+
             this.itemStatus(correctPrediction);
             $(this.el).html(this.template({
                 alphaTeam: this.model.get('alphaTeam'),

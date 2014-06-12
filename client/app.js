@@ -7,11 +7,12 @@ define([
 		'views/timeView',
 		'views/modalView',
 		'views/comingSoonView',
+		'views/statisticsView',
 		'collections/scheduleCollection',
 		'models/prediction',
 		'models/user',
 		'link!css/styles.css'
-	], function(backbone, $, Modal, StatusView, ScheduleView, TimeView, ModalView, ComingSoonView, ScheduleCollection, PredictionModel, UserModel) {
+	], function(backbone, $, Modal, StatusView, ScheduleView, TimeView, ModalView, ComingSoonView, StatisticsView, ScheduleCollection, PredictionModel, UserModel) {
 
 		'use strict';
 
@@ -51,12 +52,23 @@ define([
 		}
 
 		function renderMainView(view) {
+
+			// debugger;
+
 			if (scheduleFetched && predictionsFetched) {
 				var scheduleView = new ScheduleView({
-					collection:scheduleCollection,
+					collection: scheduleCollection,
 					model: usersPredictions
 				});
-				
+
+				var statisticsView = new StatisticsView({
+					collection: scheduleCollection,
+					model: usersPredictions
+				});
+
+				// debugger;
+
+				$(view).append(statisticsView.render().el);
 				$(view).append(scheduleView.render().el);
 				$('.wcp-loading').remove();
 				appLoaded = true;
@@ -80,8 +92,11 @@ define([
 				});
 
                usersPredictions.fetch({success: function() {
-                       predictionsFetched = true;
-                       renderMainView(this.el);
+					predictionsFetched = true;
+					renderMainView(this.el);
+               }.bind(this), error: function(e) {
+					predictionsFetched = true;
+					renderMainView(this.el);
                }.bind(this)});
 
 				var modalView = new ModalView();
@@ -97,6 +112,8 @@ define([
 						usersPredictions.save({});
 				});
 
+				// debugger;
+
 				var statusView = new StatusView({user: user});
 				$(this.el).append(statusView.render().el);
 
@@ -104,6 +121,7 @@ define([
 				$(this.el).append(timeView.render().el);
 
                scheduleCollection.fetch({success: function() {
+               	// debugger;
                        scheduleFetched = true;
                        renderMainView(this.el);
                }.bind(this)});

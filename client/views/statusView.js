@@ -34,6 +34,7 @@ define([
                 score: this.model.get('score'),
                 loggedInUser: this.user.get('isUserLoggedIn')
             }));
+            // debugger;
             return this;
         }
 
