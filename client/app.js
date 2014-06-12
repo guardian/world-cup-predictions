@@ -15,6 +15,12 @@ define([
 
 		'use strict';
 
+               var scheduleFetched = false;
+               var predictionsFetched = false;
+               var scheduleCollection = new ScheduleCollection();
+               var usersPredictions;
+               var appLoaded;
+
 		function setupHeader() {
 		var header = $('header.content__head');
 			var contentWrapper = $('article.content--interactive');
@@ -44,6 +50,19 @@ define([
 			contentWrapper.css('padding-top', '0');
 		}
 
+		function renderMainView(view) {
+			if (scheduleFetched && predictionsFetched) {
+				var scheduleView = new ScheduleView({
+					collection:scheduleCollection,
+					model: usersPredictions
+				});
+				
+				$(view).append(scheduleView.render().el);
+				$('.wcp-loading').remove();
+				appLoaded = true;
+			}
+		}
+
 
 		return {
 
@@ -51,17 +70,19 @@ define([
 				setupHeader();
 
 				$(this.el).addClass('wcp');
-				var appLoaded = false;
-				var querystring = window.location.search;
+				appLoaded = false;
 
-				var scheduleCollection = new ScheduleCollection();
 				var user = new UserModel();
 
-				var usersPredictions = new PredictionModel({
+				usersPredictions = new PredictionModel({
 					id: user.get('userId'),
 					rawResponse: user.get('rawResponse')
 				});
-				usersPredictions.fetch();
+
+               usersPredictions.fetch({success: function() {
+                       predictionsFetched = true;
+                       renderMainView(this.el);
+               }.bind(this)});
 
 				var modalView = new ModalView();
 				$(this.el).append(modalView.render().el);
@@ -82,17 +103,11 @@ define([
 				var timeView = new TimeView();
 				$(this.el).append(timeView.render().el);
 
-				var that = this;
-				scheduleCollection.fetch({success: function () {
-					var scheduleView = new ScheduleView({
-						collection: scheduleCollection,
-						model: usersPredictions
-					});
-
-					$(that.el).append(scheduleView.render().el);
-
-					appLoaded = true;
-				}});
+               scheduleCollection.fetch({success: function() {
+                       scheduleFetched = true;
+                       renderMainView(this.el);
+               }.bind(this)});
+               $(this.el).append('<p class="wcp-loading">Loading</p>');
 
 			}
 		};
