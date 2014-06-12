@@ -52,9 +52,8 @@ define([
 
             }.bind(this));
 
-            // debugger;
 
-            $(this.el).html(this.template({matches: matches}));
+            $('.interactive_header').after(this.template({matches: matches}));
 
             return this;
         }
