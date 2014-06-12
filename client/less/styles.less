@@ -1,6 +1,7 @@
 @import './flexbox.less';
 @guardianGreen : #6BA83F;
 @guardianYellow : #FFEB00;
+@guardianRed : #D23E55;
 
 
 /* HEADER */
@@ -115,7 +116,6 @@ figure.interactive{
 		font-family:"TextSans", "AgateSans", Helvetica, Arial;
 		color:#767676;
 		font-size:16px;
-		margin-bottom:20px;
 		margin-top:5px;
 		a{
 			text-decoration:underline;
@@ -235,9 +235,8 @@ figure.interactive{
 .wcp-sharing {
 	display: block;
 	width: 100px;
-	float: right;
-	padding: 10px;
-
+	float: left;
+	margin-bottom:20px;
 }
 
 .wcp-sharing a {
@@ -370,6 +369,27 @@ figure.interactive{
 }
 .matchDay{
 	margin-bottom:40px;
+	.deadlineMessage{
+		color: @guardianRed;
+		display:none;
+	}
+	&.matchToday.day-complete{
+		.deadlineMessage,.wcp-divider .deadlineMessage{
+			display:none;
+		}
+	}
+	&.matchToday{
+		.deadlineMessage{
+			color: @guardianRed;
+			display:inline;
+		}
+		.wcp-divider .deadlineMessage{
+			font-family:"AgateSans", Helvetica, Arial;
+			font-size: 14px;
+			display:block;
+			font-weight:200;
+		}
+	}
 }
 li.disabled {
 	color: #aaa;
@@ -545,6 +565,8 @@ li.disabled .wcp-match-date {
 .wcp-match-date {
 	display: block;
 }
+
+
 
 .wcp-match-time {
 	display: inline-block;

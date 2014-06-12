@@ -51,7 +51,7 @@ define([
                 var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
                 var months = ["January", "February","March","April","May","June","July","August","September","October","November","December"];
                 
-                this.collection.each(function(match) {
+                this.collection.each(function(match, i) {
                     var currentDay = new Date(match.get('timestamp') *1000);
                     var formattedDate = currentDay.getDate() + "-" + currentDay.getMonth();
 
@@ -59,8 +59,14 @@ define([
                     var matchView = new MatchView({model: match, prediction: this.model});
 
                     if(this.$('.' + formattedDate).length === 0){
-                        this.$el.append('<div class="' + formattedDate + ' matchDay clearfix">');
-                        this.$('.' + formattedDate).append('<div class="wcp-divider"><div class="wcp-day-check"></div>' + days[currentDay.getDay()] + " " + currentDay.getDate() + " " + months[currentDay.getMonth()]);
+                        if(i===0){
+                            this.$el.append('<div class="' + formattedDate + ' matchDay matchToday clearfix">');
+                            this.$('.' + formattedDate).append('<div class="wcp-divider"><div class="wcp-day-check"></div>' + days[currentDay.getDay()] + " " + currentDay.getDate() + " " + months[currentDay.getMonth()] + '<p class="deadlineMessage">Deadline today</p>');
+                        }else{
+                            this.$el.append('<div class="' + formattedDate + ' matchDay clearfix">');
+                            this.$('.' + formattedDate).append('<div class="wcp-divider"><div class="wcp-day-check"></div>' + days[currentDay.getDay()] + " " + currentDay.getDate() + " " + months[currentDay.getMonth()]);
+                        }
+                        
                         this.$('.' + formattedDate).append('<ul class="">');
                         this.$('.' + formattedDate + ' ul').append(matchView.render().el);
                     }else{
