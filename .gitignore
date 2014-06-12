@@ -6,4 +6,5 @@ client/boot.js
 server/gu_prod_key.pub
 server/gu_code_key.pub
 server/gu_client_drive_key.pem
+server/completedMatches.json
 build/
