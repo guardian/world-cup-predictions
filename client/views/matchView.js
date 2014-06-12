@@ -74,6 +74,13 @@ define([
             }
 
             this.itemStatus(correctPrediction);
+
+            var hiveMindScore;
+
+            if (this.model.get('stats')) {
+                hiveMindScore = this.model.get('stats').topResult;
+            }
+
             $(this.el).html(this.template({
                 alphaTeam: this.model.get('alphaTeam'),
                 alphaCode: this.model.get('alphaCode'),
@@ -83,8 +90,9 @@ define([
                 betaScore: this.betaScore,
                 timestamp: moment.unix(this.model.get('timestamp')).format('dddd D MMMM HHmm'),
                 expiredMatch: this.model.get('expiredMatch'),
-                realAlphaScore: this.model.get('alphaScore'),
-                realBetaScore: this.model.get('betaScore'),
+                realAlphaScore: this.model.get('realAlphaScore'),
+                realBetaScore: this.model.get('realBetaScore'),
+                hiveMindScore: hiveMindScore,
                 groupname: this.model.get('groupname'),
                 correctPrediction: correctPrediction
             }));
