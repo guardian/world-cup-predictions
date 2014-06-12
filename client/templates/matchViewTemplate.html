@@ -8,8 +8,8 @@
 			<input class="wcp-alpha-score" type="number" pattern="\d*" min="0" max="12" value="<%= alphaScore %>" <% if (expiredMatch) {print('disabled')} %> />
 		</div>
 	</div>
-
-	<div class="wcp-match-divider"><div class="wcp-divider-point"></div></div>
+	<div class="wcp-day-check-divider"></div>
+	<!-- <div class="wcp-match-divider"><div class="wcp-divider-point"></div></div> -->
 
 	<div class="wcp-row-right">
 		<img class="wcp-team-flag" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= betaCode %>.png">
@@ -44,7 +44,10 @@
 		<time class="wcp-match-datetime">
 			<div class="wcp-match-group"><strong><%= groupname %></strong></div>
 			<!-- <div class="wcp-match-date"><%= timestamp %> (Brazilian local time)</div> -->
-			<div class="wcp-match-date"><span class="deadlineMessage">Deadline is today 30 minutes before the match</span></div>
+			<div class="wcp-match-date">
+				<span class="deadlineMessage">Deadline is today 30 minutes before the match</span>
+				<!-- <span class="savedMessage">Saved! Check out your stats after the match</span> -->
+				</div>
 		</time>
 	<% } %>
 	

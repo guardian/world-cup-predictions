@@ -285,6 +285,9 @@ figure.interactive{
 
 	&.prediction-complete{
 		border-top: 3px solid @guardianGreen;
+		.wcp-day-check-divider{
+			background-color:@guardianGreen;
+		}
 	}
 }
 .wcp .input-container{
@@ -356,6 +359,33 @@ figure.interactive{
 	        transition:0.5s background;
 }
 
+.wcp-day-check-divider{
+	position:absolute;
+	left: 50%;
+	top: 5px;
+	width:14px;
+	height:14px;
+	background-image:url(../images/checkArrow.png);
+
+	-webkit-background-size:14px;
+	   -moz-background-size:14px;
+	     -o-background-size:14px;
+	        background-size:14px;
+	background-color:#fff;
+
+	-webkit-transition:0.5s background;
+	   -moz-transition:0.5s background;
+	     -o-transition:0.5s background;
+	        transition:0.5s background;
+
+
+	-webkit-transform:translateX(-50%);
+	-moz-transform:translateX(-50%);
+	-ms-transform:translateX(-50%);
+	-o-transform:translateX(-50%);
+	transform:translateX(-50%);
+}
+
 .wcp-row {
 	.flex-display;
 	.flex-flow(row wrap);
@@ -373,20 +403,32 @@ figure.interactive{
 		color: @guardianRed;
 		display:none;
 	}
+	.savedMessage{
+		display:none;
+		font-family:"AgateSans", Helvetica, Arial;
+		font-size: 14px;
+		font-weight:200;
+		color:#888;
+	}
+	&.day-complete{
+		.savedMessage{
+			display:block;
+		}
+	}
 	&.matchToday.day-complete{
 		.deadlineMessage,.wcp-divider .deadlineMessage{
 			display:none;
 		}
+		
 	}
 	&.matchToday{
 		.deadlineMessage{
 			color: @guardianRed;
-			display:inline;
+			display:block;
 		}
-		.wcp-divider .deadlineMessage{
+		.wcp-divider p{
 			font-family:"AgateSans", Helvetica, Arial;
 			font-size: 14px;
-			display:block;
 			font-weight:200;
 		}
 	}
@@ -570,6 +612,11 @@ li.disabled .wcp-match-date {
 
 .wcp-match-time {
 	display: inline-block;
+}
+.lastMatch{
+	font-size:28px;
+	font-weight:200;
+	font-family:EgyptianHeadline, EgyptianText;
 }
 
 @media(min-width:30em){
