@@ -9,7 +9,7 @@ define([
             url: config.shortUrl,
             fullUrl: config.fullUrl,
             title: 'World Cup Predictions',
-            description: "I've made my World Cup predictions at the Guardian. What do you think will happen?",
+            description: "I've made my World Cup predictions at the Guardian. Sign up, channel your psychic octopus, make your choices",
             photo: 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/6/5/1401964714817/WorldCupDreamteam.png'
         },
 
