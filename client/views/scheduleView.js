@@ -59,8 +59,7 @@ define([
                     }
 
 
-
-                    var currentDay = new Date(match.get('timestamp') *1000);
+                    var currentDay = new Date((match.get('timestamp')-18000) *1000);
                     var formattedDate = currentDay.getDate() + "-" + currentDay.getMonth();
                     var userScores = this.model.get(match.get('matchId'));
                     var matchView = new MatchView({model: match, prediction: this.model});

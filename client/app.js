@@ -67,8 +67,7 @@ define([
 				});
 
 				// debugger;
-
-				$(view).append(statisticsView.render().el);
+				$('.interactive_header').after(statisticsView.render().el);
 				$(view).append(scheduleView.render().el);
 				$('.wcp-loading').remove();
 				appLoaded = true;

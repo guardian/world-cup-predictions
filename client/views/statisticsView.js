@@ -9,21 +9,53 @@ define([
         template: _.template(StatisticsViewTemplate),
 
         events: {
+            'click .wcp-show-all-previous' : 'showAllPreviousMatches',
         },
 
         initialize: function() {
 
         },
+        showAllPreviousMatches: function(){
+            this.$('.secondary-stat').removeClass('secondary-stat');
+            this.$('.wcp-show-all-previous').hide();
+        },
+        calculateBreakDown: function(breakdownData){
+            var breakdown = {
+                alphaWin:0,
+                draw: 0,
+                betaWin: 0
+            };
+            if (breakdownData) {
+                
+                for(var key in breakdownData){
+                    if(key.split(':')[0] > key.split(':')[1]){
+                        breakdown.alphaWin += breakdownData[key]; 
+                    }else if(key.split(':')[0] < key.split(':')[1]){
+                        breakdown.betaWin += breakdownData[key]; 
+                    }else if(key.split(':')[0] === key.split(':')[1]){
+                        breakdown.draw += breakdownData[key]; 
+                    }
+                }
+                return breakdown;
+            }
+        },
 
-        render: function() {
-            console.log(this.collection);
-            var matches = this.collection.where({matchId: 7029}).map(function(match){
-
+        createMatchTemplateData: function (match) {
                 var userMatchPrediction = this.model.get(match.get('matchId'));
-
                 var userAlphaScore = null;
                 var userBetaScore = null;
+                var totalPredictions = 0;
+                var topResultOccurence;
+                var userResultOccurence;
+                var matchResult;
 
+                if(match.get('alphaScore')>match.get('betaScore')){
+                    matchResult = "wcp-breakdown-alpha-win";
+                } else if(match.get('alphaScore')<match.get('betaScore')){
+                     matchResult = "wcp-breakdown-beta-win";
+                } else if(match.get('alphaScore') === match.get('betaScore')){
+                     matchResult = "wcp-breakdown-draw-result";
+                }
 
                 if (userMatchPrediction) {
                     userAlphaScore = userMatchPrediction.alphaScore;
@@ -31,15 +63,23 @@ define([
                 }
 
                 var matchStats = match.get('stats');
-
                 var hiveAlphaScore = null;
                 var hiveBetaScore = null;
 
                 if (matchStats) {
                     hiveAlphaScore = matchStats.topResult.split(':')[0];
                     hiveBetaScore = matchStats.topResult.split(':')[1];
+                    for(var key in matchStats.frequencyHistogram){
+                        totalPredictions += matchStats.frequencyHistogram[key];
+                    }
+                    var topResultOccurence = matchStats.frequencyHistogram[matchStats.topResult];
+                    var topResultPercentage = Math.round((topResultOccurence/totalPredictions)*1000)/10;
+                    var userResultOccurence = matchStats.frequencyHistogram[userAlphaScore + ":" + userBetaScore];
+                    var userResultPercentage = Math.round((userResultOccurence/totalPredictions)*1000)/10;
+                    var predictionBreakdown = this.calculateBreakDown(matchStats.frequencyHistogram);
                 }
-                
+
+               
                 return {
                     alphaScore: match.get('alphaScore'),
                     alphaTeam: match.get('alphaTeam'),
@@ -50,14 +90,27 @@ define([
                     userAlphaScore: userAlphaScore,
                     userBetaScore: userBetaScore,
                     hiveAlphaScore: hiveAlphaScore,
-                    hiveBetaScore: hiveBetaScore
+                    hiveBetaScore: hiveBetaScore,
+                    hiveScorePercentage : topResultPercentage,
+                    userScorePercentage : userResultPercentage,
+                    totalPredictions : totalPredictions,
+                    predictionBreakdown : predictionBreakdown,
+                    matchResult : matchResult,
                 };
 
-            }.bind(this));
+        },
 
+        render: function() {
+            var finishedMatches = this.collection.where({expiredMatch: true});
+            finishedMatches.reverse();
+            var matchTemplateData = finishedMatches.map(this.createMatchTemplateData.bind(this));
 
-            $('.interactive_header').after(this.template({matches: matches}));
-
+            
+            
+            this.$el.html(this.template({matches: matchTemplateData}));
+            if(this.$('.wcp-match-stat').length <4){
+                this.$('.wcp-show-all-previous').hide();
+            }
             return this;
         }
     });
