@@ -9,3 +9,4 @@ server/gu_code_key.pub
 server/gu_client_drive_key.pem
 server/completedMatches.json
 build/
+aws.json

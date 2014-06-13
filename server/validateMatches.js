@@ -137,13 +137,14 @@ var completedMatches;
 				var predictionAlphaScore;
 				var predictionBetaScore;
 
-				if (docs[p] && docs[p][matchId] && docs[p][matchId].alphaScore && docs[p][matchId].betaScore) {
+				if (docs[p] && docs[p][matchId] && typeof docs[p][matchId].alphaScore === 'number' && typeof docs[p][matchId].betaScore === 'number') {
 					predictionAlphaScore = docs[p][matchId].alphaScore;
 					predictionBetaScore = docs[p][matchId].betaScore;
-				}
 
-				if (isInteger(predictionAlphaScore) && isInteger(predictionBetaScore)) {
-					possiblePredictions.push(predictionAlphaScore + ':' + predictionBetaScore);
+					if (isInteger(predictionAlphaScore) && isInteger(predictionBetaScore)) {
+						possiblePredictions.push(predictionAlphaScore + ':' + predictionBetaScore);
+					}
+					
 				}
 			}
 
