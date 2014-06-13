@@ -52,25 +52,22 @@ define([
                 var months = ["January", "February","March","April","May","June","July","August","September","October","November","December"];
                 
                 this.collection.each(function(match, i) {
-<<<<<<< HEAD
+
 
                     if (match.get('expiredMatch')) {
                         return;
                     }
 
-=======
->>>>>>> 478df59... sharebuttons are in page, and deadline message on matches for today
+
+
                     var currentDay = new Date(match.get('timestamp') *1000);
                     var formattedDate = currentDay.getDate() + "-" + currentDay.getMonth();
 
                     var userScores = this.model.get(match.get('matchId'));
                     var matchView = new MatchView({model: match, prediction: this.model});
 
-<<<<<<< HEAD
-                    if (this.$('.' + formattedDate).length === 0){
-=======
+
                     if(this.$('.' + formattedDate).length === 0){
->>>>>>> 478df59... sharebuttons are in page, and deadline message on matches for today
                         if(i===0){
                             this.$el.append('<div class="' + formattedDate + ' matchDay matchToday clearfix">');
                             this.$('.' + formattedDate).append('<div class="wcp-divider"><div class="wcp-day-check"></div>' + days[currentDay.getDay()] + " " + currentDay.getDate() + " " + months[currentDay.getMonth()] + '<p class="deadlineMessage">Deadline today</p>');

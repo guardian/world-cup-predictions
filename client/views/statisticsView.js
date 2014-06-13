@@ -16,13 +16,14 @@ define([
         },
 
         render: function() {
-
+            console.log(this.collection);
             var matches = this.collection.where({matchId: 7029}).map(function(match){
 
                 var userMatchPrediction = this.model.get(match.get('matchId'));
 
                 var userAlphaScore = null;
                 var userBetaScore = null;
+
 
                 if (userMatchPrediction) {
                     userAlphaScore = userMatchPrediction.alphaScore;
@@ -38,12 +39,14 @@ define([
                     hiveAlphaScore = matchStats.topResult.split(':')[0];
                     hiveBetaScore = matchStats.topResult.split(':')[1];
                 }
-
+                
                 return {
                     alphaScore: match.get('alphaScore'),
                     alphaTeam: match.get('alphaTeam'),
+                    alphaCode: match.get('alphaCode'),
                     betaScore: match.get('betaScore'),
                     betaTeam: match.get('betaTeam'),
+                    betaCode: match.get('betaCode'),
                     userAlphaScore: userAlphaScore,
                     userBetaScore: userBetaScore,
                     hiveAlphaScore: hiveAlphaScore,
