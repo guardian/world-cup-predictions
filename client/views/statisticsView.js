@@ -108,7 +108,7 @@ define([
             
             
             this.$el.html(this.template({matches: matchTemplateData}));
-            if(this.$('.wcp-match-stat').length <4){
+            if(this.$('.wcp-match-stat').length <5){
                 this.$('.wcp-show-all-previous').hide();
             }
             return this;
