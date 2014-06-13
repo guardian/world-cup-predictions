@@ -5,6 +5,9 @@ var nodemon = require('gulp-nodemon');
 var stripDebug = require('gulp-strip-debug');
 var rjs = require('gulp-requirejs');
 var connect = require('gulp-connect');
+var awspublish = require('gulp-awspublish');
+var fs = require('fs');
+var rename = require('gulp-rename');
 
 gulp.task('styles', function() {
 	return gulp.src('./client/less/styles.less')
@@ -55,3 +58,27 @@ gulp.task('build', function() {
 	})
 	.pipe(gulp.dest('./build/'));
 });
+
+// S3 Deploy
+gulp.task('publish', function() {
+    // Load aws credentials from a file. { key: '...',  secret: '...', bucket: '...' }
+    var aws = JSON.parse(fs.readFileSync('aws.json'));
+    var publisher = awspublish.create(aws);
+    var headers = {
+         'Cache-Control': 'max-age=180, public'
+    };
+
+    return gulp.src('./client/**/*.*')
+        .pipe(rename(function (path) {
+            path.dirname = '/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/' + path.dirname;
+        }))
+        // publisher will add Content-Length, Content-Type and  headers specified above
+        // If not specified it will set x-amz-acl to public-read by default
+       .pipe(publisher.publish(headers))
+       .pipe(publisher.cache())
+        // print upload updates to console
+        .pipe(awspublish.reporter());
+});
+
+gulp.task('deploy', ['client', 'publish']);
+
