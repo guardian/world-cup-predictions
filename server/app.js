@@ -52,7 +52,7 @@ var hiveMindPrediction = function(matchId) {
 
 
 // Server returns trusted timestamp
-app.get('/timestamp', function(req, res) {
+app.get('/timestamp/', function(req, res) {
 	res.send({'timestamp': Date.now()});
 });
 
@@ -77,63 +77,9 @@ app.get('/prediction/:id', function(req, res) {
 	var prediction = db.get('predictions');
 	var userId = parseInt(req.params.id, 10);
 
-	console.log(userId);
-
-
 	prediction.find({id: userId}, function(e, docs) {
 		res.json(docs[0]);
 	});
-});
-
-// What does the hive mind think about this match? Run a map reduce on the predictions database
-app.get('/hive/:id', function(req, res) {
-	var predictions = db.get('predictions');
-	var matchId = parseInt(req.params.id, 10);
-
-	var selectionObject = {};
-	selectionObject[matchId] = 1;
-	selectionObject['_id'] = 0;
-
-	var predictionSet = predictions.find({}, {fields: selectionObject}, function(e, docs) {
-
-		var predictionArray = [];
-		var predictionFrequency = {};
-
-		for (var p in docs) {
-			predictionArray.push(docs[p][matchId]);
-		}
-
-		predictionArray.filter(function(value) {
-			console.log(value);
-		});
-
-		// console.log(predictionArray);
-
-		predictionArray.forEach(function(value) {
-			value['count'] = 0;
-			predictionFrequency[value] = 0;
-		});
-
-		// console.log(predictionFrequency);
-
-		var uniques = predictionArray.filter(function(value) {
-			return ++predictionFrequency[value] == 1;
-		});
-
-
-		var result = uniques.sort(function(a, b) {
-			return frequency[b] - frequency[a];
-		});
-
-		res.end();
-	});
-
-
-	// var predictionsReduce = predictions.group(selectionObject,{}, {count: 0}, function(cur, result){result.count++;},function(e, docs) {
-	// 	var modalPrediction = docs[0][matchId];
-	// 	res.render('hive', {alphaScore: modalPrediction.alphaScore, betaScore: modalPrediction.betaScore});
-	// });
-
 });
 
 // Initialise the user in the db, with their email address
