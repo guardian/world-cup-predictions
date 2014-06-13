@@ -4,15 +4,24 @@ var less = require('gulp-less');
 var nodemon = require('gulp-nodemon');
 var stripDebug = require('gulp-strip-debug');
 var rjs = require('gulp-requirejs');
+var connect = require('gulp-connect');
 
 gulp.task('styles', function() {
-	console.log('rebuild styles');
 	return gulp.src('./client/less/styles.less')
 		.pipe(less({
 			paths: ['./client/less/']
 		}))
 		.pipe(minify())
 		.pipe(gulp.dest('./client/css/'));
+});
+
+
+gulp.task('serve', function() {
+	connect.server({
+		root: './',
+		port: 8000,
+		livereload: true
+	});
 });
 
 gulp.task('server', function() {
