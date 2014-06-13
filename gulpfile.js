@@ -19,7 +19,7 @@ gulp.task('styles', function() {
 gulp.task('serve', function() {
 	connect.server({
 		root: './',
-		port: 8000,
+		port: 80,
 		livereload: true
 	});
 });
