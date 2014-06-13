@@ -43,14 +43,6 @@ function isValidUser(req) {
     return (GU_U && guardianID && verifyGUCookie(GU_U, guardianID.toString()));
 }
 
-
-// Does a map reduce to determine the hive mind prediction for any match Id
-var hiveMindPrediction = function(matchId) {
-	var predictions = db.get('predictions');
-	return {alphaScore: alphaScore, betaScore: betaScore};
-};
-
-
 // Server returns trusted timestamp
 app.get('/timestamp/', function(req, res) {
 	res.send({'timestamp': Date.now()});
