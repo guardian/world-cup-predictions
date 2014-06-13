@@ -20,6 +20,9 @@
 					</div>
 				</div>
 				<div class="wcp-predict-result">
+				<% if (m.matchInProgress) {%>
+					<span class="wcp-match-progress">Match in progress</span>
+				<% } else { %>
 					<div class="wcp-predict-user">
 					<% if(m.userAlphaScore){ %>
 						<h3>You said
@@ -45,6 +48,7 @@
 						<div class="wcp-score-percentage"><%= m.hiveScorePercentage %>% of users</div>
 					</div>
 				</div>
+				<% } %>
 				<% if(m.predictionBreakdown){ %>
 				<div class="wcp-predict-breakdown clearfix">
 					<img class="wcp-match-flag wcp-breakdown-flag-alpha" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= m.alphaCode %>.png" width="" height="" />
