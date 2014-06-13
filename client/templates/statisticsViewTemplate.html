@@ -1,0 +1,52 @@
+<div class='previousMatchView'>
+	<div class="previousMatchContent">
+		<h2>Previous matches</h2>
+		<ul>
+		<% _.each(matches, function(m) { %>
+			<li class='wcp-match-stat'>
+				<div class="wcp-real-result">
+					<div class="wcp-team-row">
+						
+						<img class="wcp-match-flag" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= m.alphaCode %>.png" />
+						<p class="wcp-result-team-code"><%= m.alphaCode %></p>
+					</div>
+					<div class="wcp-team-row">
+						<div class="wcp-match-score"><%= m.alphaScore %></div>
+						<div class="wcp-match-score"><%= m.betaScore %></div>
+					</div>
+					<div class="wcp-team-row">
+						<img class="wcp-match-flag" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= m.betaCode %>.png" />
+						<p class="wcp-result-team-code"><%= m.betaCode %></p>
+					</div>
+				</div>
+				<div class="wcp-predict-result">
+					<div class="wcp-predict-user">
+					<% if(m.userAlphaScore){ %>
+						<h3>You said
+							<% if(m.userAlphaScore === m.alphaScore && m.userBetaScore === m.betaScore){ %>
+								<span class="wcp-winner-star"></span>
+							<% } %>
+						</h3>
+						<div class="wcp-match-score"><%= m.userAlphaScore %></div> <div class="wcp-match-score"><%= m.userBetaScore %></div>
+						<div class="wcp-score-percentage">21% of users also predicted this result</div>
+					<% } else{%>
+						<h3>You said </h3>
+						<h3 class="wcp-predict-no-score">Fill in your predictions to see how well you did</h3>
+					<% } %>
+					</div>
+
+					<div class="wcp-predict-user">
+						<h3>Most said
+							<% if(m.hiveAlphaScore === m.alphaScore && m.hiveBetaScore === m.betaScore){ %>
+								<span class="wcp-winner-star"></span>
+							<% } %>
+						</h3>
+						<div class="wcp-match-score"><%= m.hiveAlphaScore %></div> <div class="wcp-match-score"><%= m.hiveBetaScore %></div>
+						<div class="wcp-score-percentage">33% of users predicted this result</div>
+					</div>
+				</div>
+			</li>
+		<% }); %>
+		</ul>
+	</div>
+</div>

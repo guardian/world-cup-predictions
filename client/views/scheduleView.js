@@ -52,10 +52,19 @@ define([
                 var months = ["January", "February","March","April","May","June","July","August","September","October","November","December"];
                 var endText = "Congratulations, you've successfully made your predictions. Don't forget you can change them until 30 minutes before a match. Bookmark this page and check out your stats after each match finishes.";
                 this.collection.each(function(match, i) {
+
+
+                    if (match.get('expiredMatch')) {
+                        return;
+                    }
+
+
+
                     var currentDay = new Date(match.get('timestamp') *1000);
                     var formattedDate = currentDay.getDate() + "-" + currentDay.getMonth();
                     var userScores = this.model.get(match.get('matchId'));
                     var matchView = new MatchView({model: match, prediction: this.model});
+
 
                     if(this.$('.' + formattedDate).length === 0){
                         if(i===0){
@@ -68,7 +77,7 @@ define([
                         
                         this.$('.' + formattedDate).append('<ul class="">');
                         this.$('.' + formattedDate + ' ul').append(matchView.render().el);
-                    }else{
+                    } else {
                         this.$('.' + formattedDate + ' ul').append(matchView.render().el);
                     }
 

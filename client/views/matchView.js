@@ -73,6 +73,8 @@ define([
                 }
             }
 
+            var timezoneOffset = new Date().getTimezoneOffset();
+
             this.itemStatus(correctPrediction);
 
             var hiveMindScore;
