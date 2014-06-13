@@ -90,8 +90,8 @@ define([
                 betaScore: this.betaScore,
                 timestamp: moment.unix(this.model.get('timestamp')).format('dddd D MMMM HHmm'),
                 expiredMatch: this.model.get('expiredMatch'),
-                realAlphaScore: this.model.get('realAlphaScore'),
-                realBetaScore: this.model.get('realBetaScore'),
+                realAlphaScore: this.model.get('alphaScore'),
+                realBetaScore: this.model.get('betaScore'),
                 hiveMindScore: hiveMindScore,
                 groupname: this.model.get('groupname'),
                 correctPrediction: correctPrediction

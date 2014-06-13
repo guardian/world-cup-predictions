@@ -6,6 +6,7 @@ var monk = require('monk');
 var db = monk('localhost:27017/wcp');
 var Spreadsheet = require('edit-google-spreadsheet');
 var fs = require('fs');
+var completedMatches;
 
 (function() {
 	console.info('Checking match schedule');
@@ -17,7 +18,6 @@ var fs = require('fs');
 			throw err;
 		}
 
-		var completedMatches;
 		try {
 			completedMatches = JSON.parse(data);
 		} catch (e) {
@@ -59,7 +59,6 @@ var fs = require('fs');
 						} else {
 							console.info('Match Id ' + matchId + ' being processed: ' + realAlphaScore + ':' + realBetaScore);
 							updateSchedule(matchId, realAlphaScore, realBetaScore);
-							updateHiveMind(matchId, realAlphaScore, realBetaScore);
 
 							// Update completed matches listing
 							completedMatches.push(matchId);
@@ -68,15 +67,6 @@ var fs = require('fs');
 					}
 
 				}
-
-				fs.writeFile('completedMatches.json', JSON.stringify(completedMatches), 'utf8', function(err) {
-					if (err) {
-						throw err;
-					}
-
-					console.info('All done, exiting');
-					process.exit();
-				});
 
 			});
 
@@ -108,7 +98,21 @@ var fs = require('fs');
 
 	function updateSchedule(matchId, realAlphaScore, realBetaScore) {
 		var schedule = db.get('schedule');
-		schedule.update({matchId: matchId}, {$set: {alphaScore: realAlphaScore, betaScore: realBetaScore}}, {upsert: false});
+		var scheduleUpdatePromise = schedule.update({matchId: matchId}, {$set: {alphaScore: realAlphaScore, betaScore: realBetaScore}}, {upsert: false});
+
+		scheduleUpdatePromise.on('complete', function() {
+
+		});
+
+		scheduleUpdatePromise.on('error', function(error) {
+			console.log(error);
+		});
+
+		scheduleUpdatePromise.on('success', function() {
+			console.log('Schedule updated');
+			updateHiveMind(matchId, realAlphaScore, realBetaScore);
+		});
+
 	}
 
 	// Find the hive mind score and update schedule
@@ -126,11 +130,17 @@ var fs = require('fs');
 
 		var possiblePredictions = [];
 
-		predictions.find({}, {fields: selectionObject}, function(e, docs) {
+		var predictionsQuery = predictions.find({}, {fields: selectionObject}, function(e, docs) {
 
 			for (var p in docs) {
-				var predictionAlphaScore = docs[p][matchId].alphaScore;
-				var predictionBetaScore = docs[p][matchId].betaScore;
+
+				var predictionAlphaScore;
+				var predictionBetaScore;
+
+				if (docs[p] && docs[p][matchId] && docs[p][matchId].alphaScore && docs[p][matchId].betaScore) {
+					predictionAlphaScore = docs[p][matchId].alphaScore;
+					predictionBetaScore = docs[p][matchId].betaScore;
+				}
 
 				if (isInteger(predictionAlphaScore) && isInteger(predictionBetaScore)) {
 					possiblePredictions.push(predictionAlphaScore + ':' + predictionBetaScore);
@@ -147,6 +157,23 @@ var fs = require('fs');
 				}},
 				{upsert: false}
 			);
+
+		});
+
+		predictionsQuery.on('error', function(error) {
+			console.log(error);
+		});
+
+		predictionsQuery.on('complete', function() {
+
+			fs.writeFile('completedMatches.json', JSON.stringify(completedMatches), 'utf8', function(err) {
+				if (err) {
+					throw err;
+				}
+
+				console.info('All done, exiting');
+				process.exit();
+			});
 
 		});
 
