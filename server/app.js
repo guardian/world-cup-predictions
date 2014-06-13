@@ -67,6 +67,10 @@ app.get('/schedule/', function(req, res) {
 			if (docs[m].timestamp < (timestamp + 1800)) {
 				docs[m].expiredMatch = true;
 			}
+
+			if (timestamp > docs[m].timestamp && timestamp < (docs[m].timestamp + 7200)) {
+				docs[m].matchInProgress = true;
+			}
 		}
 		res.json(docs);
 	});
