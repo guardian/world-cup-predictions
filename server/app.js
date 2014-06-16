@@ -98,10 +98,20 @@ app.put('/prediction/:id', function(req, res) {
 	var predictionMatchId = parseInt(req.body.id, 10);
 	var userId = parseInt(req.params.id, 10);
 
-	var predictions = db.get('predictions');
-	predictions.update({id: userId}, prediction, {upsert: true});
+	var timestamp = Math.floor(Date.now() / 1000);
 
-	res.end();
+	var schedule = db.get('schedule');
+	schedule.find({matchId: predictionMatchId}, function(e, docs) {
+		if (timestamp < docs[0].timestamp) {
+			var predictions = db.get('predictions');
+			predictions.update({id: userId}, prediction, {upsert: true});
+			predictions.on('success', function() {
+				res.end();
+			});
+		} else {
+			res.json('406', {'msg': 'Match expired.'});
+		}
+	});
 });
 
 // Insert a new prediction. Check for valid submission date
@@ -113,10 +123,21 @@ app.post('/prediction', function(req, res) {
 
 	delete req.body.rawResponse;
 	var prediction = req.body;
-	var predictions = db.get('predictions');
-	var userId = parseInt(prediction.userId, 10);
+	var predictionMatchId = parseInt(req.body.id, 10);
+	var userId = parseInt(req.params.id, 10);
 
-	predictions.update({id: userId}, prediction, {upsert: true});
+	var timestamp = Math.floor(Date.now() / 1000);
 
-	res.end();
+	var schedule = db.get('schedule');
+	schedule.find({matchId: predictionMatchId}, function(e, docs) {
+		if (timestamp < docs[0].timestamp) {
+			var predictions = db.get('predictions');
+			predictions.update({id: userId}, prediction, {upsert: true});
+			predictions.on('success', function() {
+				res.end();
+			});
+		} else {
+			res.json('406', {'msg': 'Match expired.'});
+		}
+	});
 });
