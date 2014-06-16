@@ -34,7 +34,7 @@
 						<div class="wcp-score-percentage"><%= m.userScorePercentage %>% of users</div>
 					<% } else{%>
 						<h3>You said </h3>
-						<h3 class="wcp-predict-no-score">Fill in your predictions</h3>
+						<h3 class="wcp-predict-no-score">No prediction made</h3>
 					<% } %>
 					</div>
 
@@ -55,17 +55,17 @@
 					<div class="wcp-breakdown-bar <%= m.matchResult %>">
 						<div class="wcp-breakdown-block wcp-breakdown-alpha" style="width:<%= (m.predictionBreakdown.alphaWin/m.totalPredictions)*100 %>%">
 							<span class="wcp-tooltip">
-								<%= Math.round((m.predictionBreakdown.alphaWin/m.totalPredictions)*1000)/10 + "% for " + m.alphaTeam %>
+								<%= Math.round((m.predictionBreakdown.alphaWin/m.totalPredictions)*1000)/10 + "% " + m.alphaTeam %> win
 							</span>
 							</div>
 						<div class="wcp-breakdown-block wcp-breakdown-draw" style="width:<%= (m.predictionBreakdown.draw/m.totalPredictions)*100 %>%">
 							<span class="wcp-tooltip">
-								<%= Math.round((m.predictionBreakdown.draw/m.totalPredictions)*1000)/10 + "% for draw" %>
+								<%= Math.round((m.predictionBreakdown.draw/m.totalPredictions)*1000)/10 + "% for a draw" %>
 							</span>
 						</div>
 						<div class="wcp-breakdown-block wcp-breakdown-beta" style="width:<%= (m.predictionBreakdown.betaWin/m.totalPredictions)*100 %>%">
 							<span class="wcp-tooltip">
-								<%= Math.round((m.predictionBreakdown.betaWin/m.totalPredictions)*1000)/10 + "% for " + m.betaTeam %>
+								<%= Math.round((m.predictionBreakdown.betaWin/m.totalPredictions)*1000)/10 + "% " + m.betaTeam %> win
 							</span>
 						</div>
 					</div>
