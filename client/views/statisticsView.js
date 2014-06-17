@@ -26,14 +26,14 @@ define([
                 betaWin: 0
             };
             if (breakdownData) {
-                
+
                 for(var key in breakdownData){
                     if(key.split(':')[0] > key.split(':')[1]){
-                        breakdown.alphaWin += breakdownData[key]; 
+                        breakdown.alphaWin += breakdownData[key];
                     }else if(key.split(':')[0] < key.split(':')[1]){
-                        breakdown.betaWin += breakdownData[key]; 
+                        breakdown.betaWin += breakdownData[key];
                     }else if(key.split(':')[0] === key.split(':')[1]){
-                        breakdown.draw += breakdownData[key]; 
+                        breakdown.draw += breakdownData[key];
                     }
                 }
                 return breakdown;
@@ -79,7 +79,7 @@ define([
                     var predictionBreakdown = this.calculateBreakDown(matchStats.frequencyHistogram);
                 }
 
-               
+
                 return {
                     alphaScore: match.get('alphaScore'),
                     alphaTeam: match.get('alphaTeam'),
@@ -105,8 +105,6 @@ define([
             finishedMatches.reverse();
             var matchTemplateData = finishedMatches.map(this.createMatchTemplateData.bind(this));
 
-            
-            
             this.$el.html(this.template({matches: matchTemplateData}));
             if(this.$('.wcp-match-stat').length <5){
                 this.$('.wcp-show-all-previous').hide();

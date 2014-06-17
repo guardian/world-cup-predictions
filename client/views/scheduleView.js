@@ -66,7 +66,7 @@ define([
                                 this.$el.append('<div class="' + formattedDate + ' matchDay clearfix">');
                                 this.$('.' + formattedDate).append('<div class="wcp-divider"><div class="wcp-day-check"></div>' + days[currentDay.getDay()] + " " + currentDay.getDate() + " " + months[currentDay.getMonth()] + '<p class="savedMessage">Check your stats when the matches finish</p>');
                             }
-                            
+
                             this.$('.' + formattedDate).append('<ul class="">');
                             this.$('.' + formattedDate + ' ul').append(matchView.render().el);
                         } else {
@@ -82,7 +82,7 @@ define([
                 $.each(this.$('input'), function(i,j){
                     _this.checkInputs(j);
                 });
-                
+
                 this.$("input").change(function(){
                     _this.checkInputs(this);
                 });

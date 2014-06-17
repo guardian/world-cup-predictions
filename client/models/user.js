@@ -23,7 +23,7 @@ define([
                 }
 
                 this.syncUserDetails();
-            },  
+            },
 
             calcResults: function(data) {
                var correct = 0;
@@ -36,15 +36,15 @@ define([
                     var userPrediction = data.usersPredictions.get(matchID);
                     var alphaScore = match.get('alphaScore');
                     var betaScore = match.get('betaScore');
-                    
+
                     // Early exit
                     if (typeof betaScore !== 'number' ||
                         typeof alphaScore !== 'number')
                     {
                         return;
                     }
-                    
-                    
+
+
                     // Match outcome
                     var alphaOutcome;
                     var betaOutcome;
@@ -65,11 +65,11 @@ define([
                     });
 
 
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
                     if (!match.get('stats')) {
                         return;
                     }
@@ -79,20 +79,20 @@ define([
                     var bScore = stats.topResult.split(':')[1];
                     var isCorrect = (aScore === alphaScore &&
                                      bScore === betaScore);
-                    
+
                     var hAlphaOutcome;
                     var hBetaOutcome;
                     if (aScore > bScore) {
-                       hAlphaOutcome = 'win'; 
-                       hBetaOutcome = 'lose'; 
+                       hAlphaOutcome = 'win';
+                       hBetaOutcome = 'lose';
                     } else if (aScore < bScore) {
-                        hAlphaOutcome = 'win'; 
-                        hBetaOutcome = 'lose'; 
+                        hAlphaOutcome = 'win';
+                        hBetaOutcome = 'lose';
                     } else if (aScore === bScore) {
-                        hAlphaOutcome = 'draw'; 
+                        hAlphaOutcome = 'draw';
                         hBetaOutcome = 'draw';
-                    } 
-                    
+                    }
+
                     match.set({
                         hiveBetaOutcome: hBetaOutcome,
                         hiveAlphaOutcome: hAlphaOutcome,
@@ -100,15 +100,15 @@ define([
                     });
 
 
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
                     if (!userPrediction) {
                         return;
                     }
-                    
+
                     var uAlphaScore = userPrediction.alphaScore;
                     var uBetaScore = userPrediction.betaScore;
 
@@ -128,15 +128,15 @@ define([
                     var uAlphaOutcome;
                     var uBetaOutcome;
                     if (uAlphaScore > uBetaScore) {
-                       uAlphaOutcome = 'win'; 
-                       uBetaOutcome = 'lose'; 
+                       uAlphaOutcome = 'win';
+                       uBetaOutcome = 'lose';
                     } else if (uAlphaScore < uBetaScore) {
-                        uAlphaOutcome = 'win'; 
-                        uBetaOutcome = 'lose'; 
+                        uAlphaOutcome = 'win';
+                        uBetaOutcome = 'lose';
                     } else if (uAlphaScore === uBetaScore) {
-                        uAlphaOutcome = 'draw'; 
+                        uAlphaOutcome = 'draw';
                         uBetaOutcome = 'draw';
-                    } 
+                    }
 
                     // Hive mind prediction
                     if (match.get('stats')) {
@@ -148,7 +148,7 @@ define([
                     });
                     console.log(match);
                 });
-               
+
                 // Set user stats
                 this.set({
                     correctCount: correct,
