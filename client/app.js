@@ -72,8 +72,7 @@ define([
                     schedualCollection: scheduleCollection
                 });
 
-				// debugger;
-				$('.interactive_header').after(statisticsView.render().el);
+				$(view).prepend(statisticsView.render().el);
 				$(view).append(scheduleView.render().el);
 				$('.wcp-loading').remove();
 				appLoaded = true;

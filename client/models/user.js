@@ -31,7 +31,7 @@ define([
                var predictedCount = 0;
 
                data.schedualCollection.each(function(match) {
-                    console.log(match);
+                    // console.log(match);
                     var matchID = match.get('matchId');
                     var userPrediction = data.usersPredictions.get(matchID);
                     var alphaScore = match.get('alphaScore');
@@ -146,7 +146,7 @@ define([
                         userAlphaOutcome: uAlphaOutcome,
                         userBetaOutcome: uBetaOutcome
                     });
-                    console.log(match);
+                    // console.log(match);
                 });
 
                 // Set user stats

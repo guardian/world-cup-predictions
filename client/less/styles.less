@@ -75,10 +75,11 @@
 }
 
 .previousMatchView{
-	background:@guardianYellow;
+	// background:@guardianYellow;
 	width:100%;
 	font-family:EgyptianHeadline;
 	padding-bottom:50px;
+	margin-top:20px;
 	h2{
 		font-weight:200;
 		font-size:32px;
@@ -100,7 +101,6 @@
 	.previousMatchContent{
 		max-width:1100px;
 		margin:0 auto;
-		padding:0 10px;
 		position:relative;
 		ul{
 			margin:0;
@@ -288,6 +288,9 @@
 		display:block;
 		margin:0 auto;
 	}
+	.wcp-match-stat-tooltip{
+		display:none;
+	}
 	@media(min-width:26.25em){
 		.wcp-match-stat{
 			width:73%;
@@ -311,6 +314,8 @@
 			margin-right:1%;
 		}
 	}
+
+
 }
 
 
@@ -879,7 +884,6 @@ li.disabled .wcp-match-date {
 		padding:0 20px;
 	}
 	.previousMatchView .previousMatchContent{
-		padding:0 20px;
 	}
 	.wcp-team-name {
 		display:block;
@@ -962,7 +966,6 @@ li.disabled .wcp-match-date {
 		margin-bottom:0;
 	}
 	.previousMatchView .previousMatchContent h2, .previousMatchView .previousMatchContent ul{
-		margin-left:160px;
 	}
 
 }
@@ -983,7 +986,6 @@ li.disabled .wcp-match-date {
 		max-width:1260px;
 	}
 	.previousMatchView .previousMatchContent h2, .previousMatchView .previousMatchContent ul{
-		margin-left:240px;
 	}
 	.wcp-divider{
 		width: 220px;
