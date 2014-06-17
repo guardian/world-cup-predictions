@@ -100,6 +100,35 @@ define([
 
         },
 
+        renderSummaryExample: function() {
+            var container = $('<table class="summary"><tbody><tr></tr></tbody></table>');
+            var tr = $('tr', container);
+            this.collection.each(function(match) {
+                var td = $('<td>');
+                var aCode = match.get('alphaCode');
+                var bCode = match.get('betaCode');
+                td.append('<p>' + aCode + '-' + bCode + '</p>');
+
+                var expiredMatch = match.get('expiredMatch');
+                if (!expiredMatch) {
+                    tr.append(td);
+                    return;
+                }
+
+                console.log( match);
+
+               td.append('<p>hiveCorrectScore:' + match.get('hiveCorrectScore') + '</p>');
+               td.append('<p>hivePredictOutcome:' + match.get('hivePredictOutcome') + '</p>');
+               td.append('<p>userCorrectScore:' + match.get('userCorrectScore') + '</p>');
+               td.append('<p>userPredictOutcome:' + match.get('userPredictOutcome') + '</p>');
+
+
+                tr.append(td);
+            });
+
+            return container;
+        },
+
         render: function() {
             var finishedMatches = this.collection.where({expiredMatch: true});
             finishedMatches.reverse();
@@ -109,6 +138,8 @@ define([
             if(this.$('.wcp-match-stat').length <5){
                 this.$('.wcp-show-all-previous').hide();
             }
+
+            this.$el.append(this.renderSummaryExample());
             return this;
         }
     });

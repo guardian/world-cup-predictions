@@ -31,7 +31,7 @@ define([
                var predictedCount = 0;
 
                data.schedualCollection.each(function(match) {
-                    // console.log(match);
+
                     var matchID = match.get('matchId');
                     var userPrediction = data.usersPredictions.get(matchID);
                     var alphaScore = match.get('alphaScore');
@@ -66,17 +66,55 @@ define([
 
 
 
-
-
-
-
-                    if (!match.get('stats')) {
+                    var stats = match.get('stats');
+                    if (!stats) {
                         return;
                     }
 
-                    var stats = match.get('stats');
-                    var aScore = stats.topResult.split(':')[0];
-                    var bScore = stats.topResult.split(':')[1];
+                    var hiveAlphaWinCount = 0;
+                    var hiveDrawCount = 0;
+                    var hiveBetaWinCount = 0;
+
+                    var breakdown = {
+                        alphaWin:0,
+                        draw: 0,
+                        betaWin: 0
+                    };
+
+
+                    for (var result in stats.frequencyHistogram) {
+                        var a = parseInt(result.split(':')[0], 10);
+                        var b = parseInt(result.split(':')[1], 10);
+                        var count = stats.frequencyHistogram[result];
+                        if (a > b)  { breakdown.alphaWin += count; }
+                        if (a == b) { breakdown.draw += count; }
+                        if (a < b)  { breakdown.betaWin += count; }
+                    }
+
+                    var hivePredictWinner;
+                    var maxCount = 0;
+                    for (var key in breakdown) {
+                        var c = breakdown[key];
+                        if (c > maxCount) {
+                            maxCount = c;
+                            hivePredictWinner = key;
+                        }
+                    }
+
+                    var hivePredictOutcome = false;
+                    if (hivePredictWinner === 'alphaWin' && alphaOutcome == 'win') {
+                        hivePredictOutcome = true;
+                    }
+                    if (hivePredictWinner === 'draw' && alphaOutcome == 'draw') {
+                        hivePredictOutcome = true;
+                    }
+                    if (hivePredictWinner === 'betaWin' && alphaOutcome == 'lose') {
+                        hivePredictOutcome = true;
+                    }
+
+
+                    var aScore = parseInt(stats.topResult.split(':')[0], 10);
+                    var bScore = parseInt(stats.topResult.split(':')[1], 10);
                     var isCorrect = (aScore === alphaScore &&
                                      bScore === betaScore);
 
@@ -96,11 +134,10 @@ define([
                     match.set({
                         hiveBetaOutcome: hBetaOutcome,
                         hiveAlphaOutcome: hAlphaOutcome,
-                        hiveCorrectScore: isCorrect
+                        hiveCorrectScore: isCorrect,
+                        breakdown: breakdown,
+                        hivePredictOutcome: hivePredictOutcome
                     });
-
-
-
 
 
 
@@ -131,22 +168,25 @@ define([
                        uAlphaOutcome = 'win';
                        uBetaOutcome = 'lose';
                     } else if (uAlphaScore < uBetaScore) {
-                        uAlphaOutcome = 'win';
-                        uBetaOutcome = 'lose';
+                        uAlphaOutcome = 'lose';
+                        uBetaOutcome = 'win';
                     } else if (uAlphaScore === uBetaScore) {
                         uAlphaOutcome = 'draw';
                         uBetaOutcome = 'draw';
                     }
 
-                    // Hive mind prediction
-                    if (match.get('stats')) {
-                                            }
+                    var userPredictOutcome = false;
+                    console.log(uAlphaOutcome, alphaOutcome);
+                    if (uAlphaOutcome == alphaOutcome) {
+                        userPredictOutcome = true;
+                    }
 
                     match.set({
                         userAlphaOutcome: uAlphaOutcome,
-                        userBetaOutcome: uBetaOutcome
+                        userBetaOutcome: uBetaOutcome,
+                        userPredictOutcome: userPredictOutcome
                     });
-                    // console.log(match);
+
                 });
 
                 // Set user stats
