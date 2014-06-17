@@ -116,7 +116,7 @@ define([
                     var bScore = parseInt(stats.topResult.split(':')[1], 10);
                     var isCorrect = (aScore === alphaScore &&
                                      bScore === betaScore);
-                    console.log(aScore, alphaScore, bScore, betaScore);
+
                     var hAlphaOutcome;
                     var hBetaOutcome;
                     if (aScore > bScore) {
@@ -167,20 +167,23 @@ define([
                        uAlphaOutcome = 'win';
                        uBetaOutcome = 'lose';
                     } else if (uAlphaScore < uBetaScore) {
-                        uAlphaOutcome = 'win';
-                        uBetaOutcome = 'lose';
+                        uAlphaOutcome = 'lose';
+                        uBetaOutcome = 'win';
                     } else if (uAlphaScore === uBetaScore) {
                         uAlphaOutcome = 'draw';
                         uBetaOutcome = 'draw';
                     }
 
-                    // Hive mind prediction
-                    if (match.get('stats')) {
-                                            }
+                    var userPredictOutcome = false;
+                    console.log(uAlphaOutcome, alphaOutcome);
+                    if (uAlphaOutcome == alphaOutcome) {
+                        userPredictOutcome = true;
+                    }
 
                     match.set({
                         userAlphaOutcome: uAlphaOutcome,
-                        userBetaOutcome: uBetaOutcome
+                        userBetaOutcome: uBetaOutcome,
+                        userPredictOutcome: userPredictOutcome
                     });
                 });
 
