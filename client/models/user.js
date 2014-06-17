@@ -175,7 +175,6 @@ define([
                     }
 
                     var userPredictOutcome = false;
-                    console.log(uAlphaOutcome, alphaOutcome);
                     if (uAlphaOutcome == alphaOutcome) {
                         userPredictOutcome = true;
                     }
