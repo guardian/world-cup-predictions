@@ -13,7 +13,7 @@ var clean = require('gulp-clean');
 var runSequence = require('run-sequence');
 
 var urls = {
-    local: 'http://localhost:8000/',
+    local: 'http://chronos.theguardian.com:8000/',
     remote: 'http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/'
 };
 
