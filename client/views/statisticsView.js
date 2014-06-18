@@ -101,29 +101,37 @@ define([
         },
 
         renderSummaryExample: function() {
-            var container = $('<table class="summary"><tbody><tr></tr></tbody></table>');
-            var tr = $('tr', container);
+            var container = $('<ul class="wcp-match-history"></ul>');
+            
             this.collection.each(function(match) {
-                var td = $('<td>');
-                var aCode = match.get('alphaCode');
-                var bCode = match.get('betaCode');
-                td.append('<p>' + aCode + '-' + bCode + '</p>');
-
+                var predictionScore;
                 var expiredMatch = match.get('expiredMatch');
-                if (!expiredMatch) {
-                    tr.append(td);
+                
+                if(match.get('userCorrectScore')){
+                    predictionScore = "prediction-right-score";
+                }else if(match.get('userPredictOutcome')){
+                    predictionScore = "prediction-right-winner";
+                }else{
+                    predictionScore = "prediction-wrong";
+                }
+
+                var li = $('<li></li>');
+                var starRating = $('<div class="starRating"></div>')
+                $(starRating).addClass(predictionScore);
+                var matchStat = $('<div class="match-stat"></div>')
+                matchStat.append(match.get('alphaCode'), match.get('betaCode'))
+                console.log(match);
+
+
+                li.append(starRating, matchStat);
+                
+                if (expiredMatch) {
+                    container.append(li);
                     return;
                 }
 
-                console.log( match);
 
-               td.append('<p>hiveCorrectScore:' + match.get('hiveCorrectScore') + '</p>');
-               td.append('<p>hivePredictOutcome:' + match.get('hivePredictOutcome') + '</p>');
-               td.append('<p>userCorrectScore:' + match.get('userCorrectScore') + '</p>');
-               td.append('<p>userPredictOutcome:' + match.get('userPredictOutcome') + '</p>');
-
-
-                tr.append(td);
+               //  container.append(li);
             });
 
             return container;

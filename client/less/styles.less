@@ -74,6 +74,57 @@
 	}
 }
 
+.wcp .wcp-match-history{
+	li{
+		width:auto;
+		border:none;
+		padding:0;
+		margin:0 3px 0;
+		z-index:1;
+		position:relative;
+
+		.starRating{
+			width:27px;
+			height:27px;
+			background:#eee;
+			border-radius:50%;
+			border:2px solid #333;
+			&.prediction-right-score{
+				background:orange;
+			}
+			&.prediction-right-winner{
+				border:2px solid orange;
+			}
+		}
+
+		.match-stat{
+			width:200px;
+			height:100px;
+			background:#fff;
+			border:1px solid #333;
+			position:absolute;
+			left:12px;
+			margin-left:-100px;
+			display:none;
+			top:13px;
+			z-index:-1;
+			border-top:2px solid #333;
+
+		}
+
+		&:hover{
+			z-index:5;
+			.match-stat{
+				display:block;
+			}
+			.starRating{
+				z-index:6;
+			}
+		}
+
+	}
+}
+
 .previousMatchView{
 	// background:@guardianYellow;
 	width:100%;
@@ -914,7 +965,9 @@ li.disabled .wcp-match-date {
 		content: " ";
 		display: table;
 	}
-
+	.wcp ul{
+		padding-left:160px;
+	}
 
 	.wcp-yesterday-results{
 		width: 28%;
