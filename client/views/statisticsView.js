@@ -102,11 +102,11 @@ define([
 
         renderSummaryExample: function() {
             var container = $('<ul class="wcp-match-history"></ul>');
-            
+
             this.collection.each(function(match) {
                 var predictionScore;
                 var expiredMatch = match.get('expiredMatch');
-                
+
                 if(match.get('userCorrectScore')){
                     predictionScore = "prediction-right-score";
                 }else if(match.get('userPredictOutcome')){
@@ -124,7 +124,7 @@ define([
 
 
                 li.append(starRating, matchStat);
-                
+
                 if (expiredMatch) {
                     container.append(li);
                     return;
@@ -147,7 +147,7 @@ define([
                 this.$('.wcp-show-all-previous').hide();
             }
 
-            this.$el.append(this.renderSummaryExample());
+            // this.$el.append(this.renderSummaryExample());
             return this;
         }
     });
