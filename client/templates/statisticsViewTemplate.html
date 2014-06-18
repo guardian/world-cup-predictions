@@ -1,80 +1,8 @@
 <div class='previousMatchView'>
 	<div class="previousMatchContent">
-		<div class="wcp-divider">Yesterday's matches</div>
-		<ul>
-		<% _.each(matches, function(m,i) { %>
-			 <li class='wcp-match-stat <% if (i < 4){ %>primary-stat <%}else{%>secondary-stat<%}%>'>
-				<div class="wcp-real-result">
-					<div class="wcp-team-row">
-						
-						<img class="wcp-match-flag" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= m.alphaCode %>.png" />
-						<p class="wcp-result-team-code"><%= m.alphaCode %></p>
-					</div>
-					<div class="wcp-team-row">
-						<div class="wcp-match-score"><%= m.alphaScore %></div>
-						<div class="wcp-match-score"><%= m.betaScore %></div>
-					</div>
-					<div class="wcp-team-row">
-						<img class="wcp-match-flag" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= m.betaCode %>.png" />
-						<p class="wcp-result-team-code"><%= m.betaCode %></p>
-					</div>
-				</div>
-				<div class="wcp-predict-result">
-				<% if (m.matchInProgress) {%>
-					<span class="wcp-match-progress">Match in progress</span>
-				<% } else { %>
-					<div class="wcp-predict-user">
-					<% if(m.userAlphaScore){ %>
-						<h3>You said
-							<% if(parseInt(m.userAlphaScore) === parseInt(m.alphaScore) && parseInt(m.userBetaScore) === parseInt(m.betaScore)){ %>
-								<span class="wcp-winner-star"></span>
-							<% } %>
-						</h3>
-						<div class="wcp-match-score"><%= m.userAlphaScore %></div> <div class="wcp-match-score"><%= m.userBetaScore %></div>
-						<div class="wcp-score-percentage"><%= m.userScorePercentage %>% of users</div>
-					<% } else{%>
-						<h3>You said </h3>
-						<h3 class="wcp-predict-no-score">No prediction made</h3>
-					<% } %>
-					</div>
 
-					<div class="wcp-predict-user">
-						<h3>Most said
-							<% if(parseInt(m.hiveAlphaScore) === parseInt(m.alphaScore) && parseInt(m.hiveBetaScore) === parseInt(m.betaScore)){ %>
-								<span class="wcp-winner-star"></span>
-							<% } %>
-						</h3>
-						<div class="wcp-match-score"><%= m.hiveAlphaScore %></div> <div class="wcp-match-score"><%= m.hiveBetaScore %></div>
-						<div class="wcp-score-percentage"><%= m.hiveScorePercentage %>% of users</div>
-					</div>
-				</div>
-				<% } %>
-				<% if(m.predictionBreakdown){ %>
-				<div class="wcp-predict-breakdown clearfix">
-					<img class="wcp-match-flag wcp-breakdown-flag-alpha" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= m.alphaCode %>.png" width="" height="" />
-					<div class="wcp-breakdown-bar <%= m.matchResult %>">
-						<div class="wcp-breakdown-block wcp-breakdown-alpha" style="width:<%= (m.predictionBreakdown.alphaWin/m.totalPredictions)*100 %>%">
-							<span class="wcp-tooltip">
-								<%= Math.round((m.predictionBreakdown.alphaWin/m.totalPredictions)*1000)/10 + "% " + m.alphaTeam %> win
-							</span>
-							</div>
-						<div class="wcp-breakdown-block wcp-breakdown-draw" style="width:<%= (m.predictionBreakdown.draw/m.totalPredictions)*100 %>%">
-							<span class="wcp-tooltip">
-								<%= Math.round((m.predictionBreakdown.draw/m.totalPredictions)*1000)/10 + "% for a draw" %>
-							</span>
-						</div>
-						<div class="wcp-breakdown-block wcp-breakdown-beta" style="width:<%= (m.predictionBreakdown.betaWin/m.totalPredictions)*100 %>%">
-							<span class="wcp-tooltip">
-								<%= Math.round((m.predictionBreakdown.betaWin/m.totalPredictions)*1000)/10 + "% " + m.betaTeam %> win
-							</span>
-						</div>
-					</div>
-					<img class="wcp-match-flag wcp-breakdown-flag-beta" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= m.betaCode %>.png" width="" height="" />
-				</div>
-				<% } %>
-			</li> 
-		 <% }); %>
-		 <!-- <button class="wcp-show-all-previous">Show all previous results</button> -->
+		<div class="wcp-divider">Yesterday's matches</div>
+		<ul class="previousMatchContainer">
 		 </ul>
 
 
