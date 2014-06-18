@@ -21,6 +21,7 @@ define([
                var scheduleCollection = new ScheduleCollection();
                var usersPredictions;
                var appLoaded;
+               var user;
 
 		function setupHeader() {
 		var header = $('header.content__head');
@@ -66,8 +67,12 @@ define([
 					model: usersPredictions
 				});
 
-				// debugger;
-				$('.interactive_header').after(statisticsView.render().el);
+                user.calcResults({
+                    usersPredictions: usersPredictions,
+                    schedualCollection: scheduleCollection
+                });
+
+				$(view).prepend(statisticsView.render().el);
 				$(view).append(scheduleView.render().el);
 				$('.wcp-loading').remove();
 				appLoaded = true;
@@ -83,14 +88,14 @@ define([
 				$(this.el).addClass('wcp');
 				appLoaded = false;
 
-				var user = new UserModel();
+				user = new UserModel();
 
 				usersPredictions = new PredictionModel({
 					id: user.get('userId'),
 					rawResponse: user.get('rawResponse')
 				});
 
-               usersPredictions.fetch({success: function() {
+               usersPredictions.fetch({success: function(model) {
 					predictionsFetched = true;
 					renderMainView(this.el);
                }.bind(this), error: function(e) {

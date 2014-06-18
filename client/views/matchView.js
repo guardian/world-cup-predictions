@@ -5,6 +5,7 @@ define([
     ], function (Backbone, moment, MatchViewTemplate) {
     return Backbone.View.extend({
         tagName: 'li',
+
         template: _.template(MatchViewTemplate),
 
         events: {
@@ -98,7 +99,7 @@ define([
                 groupname: this.model.get('groupname'),
                 correctPrediction: correctPrediction
             }));
-            
+
             return this;
         }
     });

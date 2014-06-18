@@ -26,14 +26,14 @@ define([
                 betaWin: 0
             };
             if (breakdownData) {
-                
+
                 for(var key in breakdownData){
                     if(key.split(':')[0] > key.split(':')[1]){
-                        breakdown.alphaWin += breakdownData[key]; 
+                        breakdown.alphaWin += breakdownData[key];
                     }else if(key.split(':')[0] < key.split(':')[1]){
-                        breakdown.betaWin += breakdownData[key]; 
+                        breakdown.betaWin += breakdownData[key];
                     }else if(key.split(':')[0] === key.split(':')[1]){
-                        breakdown.draw += breakdownData[key]; 
+                        breakdown.draw += breakdownData[key];
                     }
                 }
                 return breakdown;
@@ -79,7 +79,7 @@ define([
                     var predictionBreakdown = this.calculateBreakDown(matchStats.frequencyHistogram);
                 }
 
-               
+
                 return {
                     alphaScore: match.get('alphaScore'),
                     alphaTeam: match.get('alphaTeam'),
@@ -100,17 +100,54 @@ define([
 
         },
 
+        renderSummaryExample: function() {
+            var container = $('<ul class="wcp-match-history"></ul>');
+
+            this.collection.each(function(match) {
+                var predictionScore;
+                var expiredMatch = match.get('expiredMatch');
+
+                if(match.get('userCorrectScore')){
+                    predictionScore = "prediction-right-score";
+                }else if(match.get('userPredictOutcome')){
+                    predictionScore = "prediction-right-winner";
+                }else{
+                    predictionScore = "prediction-wrong";
+                }
+
+                var li = $('<li></li>');
+                var starRating = $('<div class="starRating"></div>')
+                $(starRating).addClass(predictionScore);
+                var matchStat = $('<div class="match-stat"></div>')
+                matchStat.append(match.get('alphaCode'), match.get('betaCode'))
+                console.log(match);
+
+
+                li.append(starRating, matchStat);
+
+                if (expiredMatch) {
+                    container.append(li);
+                    return;
+                }
+
+
+               //  container.append(li);
+            });
+
+            return container;
+        },
+
         render: function() {
             var finishedMatches = this.collection.where({expiredMatch: true});
             finishedMatches.reverse();
             var matchTemplateData = finishedMatches.map(this.createMatchTemplateData.bind(this));
 
-            
-            
             this.$el.html(this.template({matches: matchTemplateData}));
             if(this.$('.wcp-match-stat').length <5){
                 this.$('.wcp-show-all-previous').hide();
             }
+
+            // this.$el.append(this.renderSummaryExample());
             return this;
         }
     });

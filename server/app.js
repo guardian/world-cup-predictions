@@ -7,6 +7,7 @@ var verifyGUCookie = require('./verifyGuardianCookie');
 var app = express();
 var whitelist = [
 	'http://chronos.theguardian.com',
+	'http://chronos.theguardian.com:8000',
 	'http://daan.theguardian.com',
 	'http://localhost:8000',
 	'http://interactive.guim.co.uk',

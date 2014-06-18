@@ -74,11 +74,63 @@
 	}
 }
 
+.wcp .wcp-match-history{
+	li{
+		width:auto;
+		border:none;
+		padding:0;
+		margin:0 3px 0;
+		z-index:1;
+		position:relative;
+
+		.starRating{
+			width:27px;
+			height:27px;
+			background:#eee;
+			border-radius:50%;
+			border:2px solid #333;
+			&.prediction-right-score{
+				background:orange;
+			}
+			&.prediction-right-winner{
+				border:2px solid orange;
+			}
+		}
+
+		.match-stat{
+			width:200px;
+			height:100px;
+			background:#fff;
+			border:1px solid #333;
+			position:absolute;
+			left:12px;
+			margin-left:-100px;
+			display:none;
+			top:13px;
+			z-index:-1;
+			border-top:2px solid #333;
+
+		}
+
+		&:hover{
+			z-index:5;
+			.match-stat{
+				display:block;
+			}
+			.starRating{
+				z-index:6;
+			}
+		}
+
+	}
+}
+
 .previousMatchView{
-	background:@guardianYellow;
+	// background:@guardianYellow;
 	width:100%;
 	font-family:EgyptianHeadline;
 	padding-bottom:50px;
+	margin-top:20px;
 	h2{
 		font-weight:200;
 		font-size:32px;
@@ -100,7 +152,6 @@
 	.previousMatchContent{
 		max-width:1100px;
 		margin:0 auto;
-		padding:0 10px;
 		position:relative;
 		ul{
 			margin:0;
@@ -161,7 +212,7 @@
 		border-top:1px solid #dfdfdf;
 		padding-top:10px;
 	}
-	
+
 	.wcp-predict-user{
 		width:50%;
 		text-align:center;
@@ -177,7 +228,7 @@
 			font-size:12px;
 			font-weight:normal;
 		}
-		
+
 		h3{
 			font-size:14px;
 			font-family:"TextSans", "AgateSans", Helvetica, Arial;
@@ -239,7 +290,7 @@
 		border-right:1px solid #fff;
 		position:relative;
 
-	
+
 		&:hover .wcp-tooltip{
 			opacity:1;
 		}
@@ -288,6 +339,9 @@
 		display:block;
 		margin:0 auto;
 	}
+	.wcp-match-stat-tooltip{
+		display:none;
+	}
 	@media(min-width:26.25em){
 		.wcp-match-stat{
 			width:73%;
@@ -311,6 +365,8 @@
 			margin-right:1%;
 		}
 	}
+
+
 }
 
 
@@ -363,7 +419,7 @@ figure.interactive{
 		}
 	}
 	h4{
-		
+
 	}
 }
 .wcp-coming-soon{
@@ -674,6 +730,9 @@ figure.interactive{
 			color: @guardianRed;
 			display:block;
 		}
+		.prediction-complete .deadlineMessage{
+			display:none;
+		}
 		.wcp-divider p{
 			font-family:"AgateSans", Helvetica, Arial;
 			font-size: 14px;
@@ -876,7 +935,6 @@ li.disabled .wcp-match-date {
 		padding:0 20px;
 	}
 	.previousMatchView .previousMatchContent{
-		padding:0 20px;
 	}
 	.wcp-team-name {
 		display:block;
@@ -907,7 +965,9 @@ li.disabled .wcp-match-date {
 		content: " ";
 		display: table;
 	}
-
+	.wcp ul{
+		padding-left:160px;
+	}
 
 	.wcp-yesterday-results{
 		width: 28%;
@@ -959,7 +1019,6 @@ li.disabled .wcp-match-date {
 		margin-bottom:0;
 	}
 	.previousMatchView .previousMatchContent h2, .previousMatchView .previousMatchContent ul{
-		margin-left:160px;
 	}
 
 }
@@ -980,7 +1039,6 @@ li.disabled .wcp-match-date {
 		max-width:1260px;
 	}
 	.previousMatchView .previousMatchContent h2, .previousMatchView .previousMatchContent ul{
-		margin-left:240px;
 	}
 	.wcp-divider{
 		width: 220px;
@@ -994,3 +1052,9 @@ li.disabled .wcp-match-date {
 	}
 }
 
+.summary td {
+	font-family: monospace;
+	font-size: 8px;
+	border: 1px solid rgb(0, 0, 0);
+	padding: 2px;
+}

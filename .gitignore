@@ -10,3 +10,7 @@ server/gu_client_drive_key.pem
 server/completedMatches.json
 build/
 aws.json
+dist/
+.awspublish-gdn-cdn
+.awspublish-gdn-stage
+app.js
