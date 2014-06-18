@@ -62,7 +62,10 @@ define([
 
 				var statisticsView = new StatisticsView({
 					collection: scheduleCollection,
-					model: usersPredictions
+					model: usersPredictions,
+					options: {
+						userModel: user
+					}
 				});
 
 				var historyView = new HistoryView({

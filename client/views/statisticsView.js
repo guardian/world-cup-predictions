@@ -24,9 +24,10 @@ function (
             'click .wcp-show-all-previous' : 'showAllPreviousMatches',
         },
 
-        initialize: function() {
-
+        initialize: function(obj) {
+            this.userModel = obj.options.userModel;
         },
+
         showAllPreviousMatches: function(){
             this.$('.secondary-stat').removeClass('secondary-stat');
             this.$('.wcp-show-all-previous').hide();
@@ -52,8 +53,6 @@ function (
                 $(starRating).addClass(predictionScore);
                 var matchStat = $('<div class="match-stat"></div>')
                 matchStat.append(match.get('alphaCode'), match.get('betaCode'))
-                console.log(match);
-
 
                 li.append(starRating, matchStat);
 
@@ -61,9 +60,6 @@ function (
                     container.append(li);
                     return;
                 }
-
-
-               //  container.append(li);
             });
 
             return container;
@@ -91,7 +87,11 @@ function (
 
 
         render: function() {
-            this.$el.html(this.template({}));
+            this.$el.html(this.template({
+                correctScore: this.userModel.get('correctCount'),
+                totalPredictions: this.userModel.get('predictionCount'),
+            }));
+
             this.$matchesContainer = this.$('.previousMatchContainer');
             this.addMatches();
             return this;
