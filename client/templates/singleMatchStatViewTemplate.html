@@ -1,0 +1,69 @@
+
+                <div class="wcp-real-result">
+                    <div class="wcp-team-row">
+
+                        <img class="wcp-match-flag" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= alphaCode %>.png" />
+                        <p class="wcp-result-team-code"><%= alphaCode %></p>
+                    </div>
+                    <div class="wcp-team-row">
+                        <div class="wcp-match-score"><%= alphaScore %></div>
+                        <div class="wcp-match-score"><%= betaScore %></div>
+                    </div>
+                    <div class="wcp-team-row">
+                        <img class="wcp-match-flag" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= betaCode %>.png" />
+                        <p class="wcp-result-team-code"><%= betaCode %></p>
+                    </div>
+                </div>
+                <div class="wcp-predict-result">
+                <% if (matchInProgress) {%>
+                    <span class="wcp-match-progress">Match in progress</span>
+                <% } else { %>
+                    <div class="wcp-predict-user">
+                    <% if(userAlphaScore){ %>
+                        <h3>You said
+                            <% if(parseInt(userAlphaScore) === parseInt(alphaScore) && parseInt(userBetaScore) === parseInt(betaScore)){ %>
+                                <span class="wcp-winner-star"></span>
+                            <% } %>
+                        </h3>
+                        <div class="wcp-match-score"><%= userAlphaScore %></div> <div class="wcp-match-score"><%= userBetaScore %></div>
+                        <div class="wcp-score-percentage"><%= userScorePercentage %>% of users</div>
+                    <% } else{%>
+                        <h3>You said </h3>
+                        <h3 class="wcp-predict-no-score">No prediction made</h3>
+                    <% } %>
+                    </div>
+
+                    <div class="wcp-predict-user">
+                        <h3>Most said
+                            <% if(parseInt(hiveAlphaScore) === parseInt(alphaScore) && parseInt(hiveBetaScore) === parseInt(betaScore)){ %>
+                                <span class="wcp-winner-star"></span>
+                            <% } %>
+                        </h3>
+                        <div class="wcp-match-score"><%= hiveAlphaScore %></div> <div class="wcp-match-score"><%= hiveBetaScore %></div>
+                        <div class="wcp-score-percentage"><%= hiveScorePercentage %>% of users</div>
+                    </div>
+                </div>
+                <% } %>
+                <% if(predictionBreakdown){ %>
+                <div class="wcp-predict-breakdown clearfix">
+                    <img class="wcp-match-flag wcp-breakdown-flag-alpha" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= alphaCode %>.png" width="" height="" />
+                    <div class="wcp-breakdown-bar <%= matchResult %>">
+                        <div class="wcp-breakdown-block wcp-breakdown-alpha" style="width:<%= (predictionBreakdown.alphaWin/totalPredictions)*100 %>%">
+                            <span class="wcp-tooltip">
+                                <%= Math.round((predictionBreakdown.alphaWin/totalPredictions)*1000)/10 + "% " + alphaTeam %> win
+                            </span>
+                            </div>
+                        <div class="wcp-breakdown-block wcp-breakdown-draw" style="width:<%= (predictionBreakdown.draw/totalPredictions)*100 %>%">
+                            <span class="wcp-tooltip">
+                                <%= Math.round((predictionBreakdown.draw/totalPredictions)*1000)/10 + "% for a draw" %>
+                            </span>
+                        </div>
+                        <div class="wcp-breakdown-block wcp-breakdown-beta" style="width:<%= (predictionBreakdown.betaWin/totalPredictions)*100 %>%">
+                            <span class="wcp-tooltip">
+                                <%= Math.round((predictionBreakdown.betaWin/totalPredictions)*1000)/10 + "% " + betaTeam %> win
+                            </span>
+                        </div>
+                    </div>
+                    <img class="wcp-match-flag wcp-breakdown-flag-beta" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= betaCode %>.png" width="" height="" />
+                </div>
+                <% } %>

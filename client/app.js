@@ -8,11 +8,12 @@ define([
 		'views/modalView',
 		'views/comingSoonView',
 		'views/statisticsView',
+		'views/historyView',
 		'collections/scheduleCollection',
 		'models/prediction',
 		'models/user',
 		'link!css/styles.css'
-	], function(backbone, $, Modal, StatusView, ScheduleView, TimeView, ModalView, ComingSoonView, StatisticsView, ScheduleCollection, PredictionModel, UserModel) {
+	], function(backbone, $, Modal, StatusView, ScheduleView, TimeView, ModalView, ComingSoonView, StatisticsView, HistoryView, ScheduleCollection, PredictionModel, UserModel) {
 
 		'use strict';
 
@@ -53,9 +54,6 @@ define([
 		}
 
 		function renderMainView(view) {
-
-			// debugger;
-
 			if (scheduleFetched && predictionsFetched) {
 				var scheduleView = new ScheduleView({
 					collection: scheduleCollection,
@@ -67,11 +65,17 @@ define([
 					model: usersPredictions
 				});
 
+				var historyView = new HistoryView({
+					collection: scheduleCollection,
+					model: usersPredictions
+				});
+
                 user.calcResults({
                     usersPredictions: usersPredictions,
                     schedualCollection: scheduleCollection
                 });
 
+				$(view).prepend(historyView.render().el);
 				$(view).prepend(statisticsView.render().el);
 				$(view).append(scheduleView.render().el);
 				$('.wcp-loading').remove();

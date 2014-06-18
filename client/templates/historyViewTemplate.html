@@ -1,0 +1,51 @@
+<div class="history_container"></div>
+
+<p>HISTORY</p>
+
+<ul class="history_list">
+
+	<% _.each(matches, function(match) { %>
+
+	<!--
+		match =
+			_id: "53984cc8fc7af3a6615ff3b9"
+			alphaCode: "ger"
+			alphaOutcome: "win"
+			alphaScore: 4
+			alphaTeam: "Germany"
+			betaCode: "por"
+			betaOutcome: "lose"
+			betaScore: 0
+			betaTeam: "Portugal"
+			breakdown: Object
+				alphaWin: 4243
+				betaWin: 645
+				draw: 2307
+
+			expiredMatch: true
+			groupname: "Group G"
+			hiveAlphaOutcome: "win"
+			hiveBetaOutcome: "lose"
+			hiveCorrectScore: false
+			hivePredictOutcome: true
+			matchId: 4669
+			stats: Object
+				frequencyHistogram: Object
+				topResult: "2:1"
+
+			timestamp: 1402934400
+			userAlphaOutcome: "draw"
+			userBetaOutcome: "draw"
+			userCorrectScore: false
+			userPredictOutcome: false
+		-->
+
+		<li data-matchid="<%= match.matchId %>" class="historyStar">
+			<%= match.alphaScore %>
+		</li>
+
+	<% }); %>
+
+
+</ul>
+
