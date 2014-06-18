@@ -19,7 +19,8 @@ function (
         className: 'history_block',
 
         events: {
-            'click .historyStar' : 'showMatch'
+            'click .historyStar' : 'showMatch',
+            'mouseover .historyStar' : 'showMatch'
         },
 
         initialize: function() {
@@ -50,7 +51,7 @@ function (
                 model: this.collection.at(0),
                 options: { userModel: this.model }
             });
-            this.$('.history_container').append(this.matchView.render().el);
+            this.$('.history_match_highlight').prepend(this.matchView.render().el);
 
             return this;
         }

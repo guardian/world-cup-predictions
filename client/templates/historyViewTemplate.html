@@ -1,12 +1,39 @@
-<div class="history_container"></div>
 
-<p>HISTORY</p>
-
-<ul class="history_list">
+<div class="wcp-divider">All the matches</div>
+<div class="history_container">
+	<div class="history_match_highlight"></div>
+	<ul class="history_list">
 
 	<% _.each(matches, function(match) { %>
+		<% var predictionScore;
 
-	<!--
+            if(match.userCorrectScore){
+                predictionScore = "prediction-right-score";
+            }else if(match.userPredictOutcome){
+                predictionScore = "prediction-right-winner";
+            }else{
+                predictionScore = "prediction-wrong";
+            }
+		%>
+		<% if(match.expiredMatch){ %>
+
+
+		<li data-matchid="<%= match.matchId %>" class="historyStar <%= predictionScore %>">
+			<div class="starIcon"></div>
+		</li>
+		<% } %>
+
+	<% }); %>
+
+
+</ul>
+</div>
+
+
+
+
+
+<!--
 		match =
 			_id: "53984cc8fc7af3a6615ff3b9"
 			alphaCode: "ger"
@@ -39,13 +66,3 @@
 			userCorrectScore: false
 			userPredictOutcome: false
 		-->
-
-		<li data-matchid="<%= match.matchId %>" class="historyStar">
-			<%= match.alphaScore %>
-		</li>
-
-	<% }); %>
-
-
-</ul>
-
