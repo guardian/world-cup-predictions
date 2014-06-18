@@ -154,10 +154,8 @@ define([
                     if (userPrediction.alphaScore === alphaScore &&
                         userPrediction.betaScore === betaScore)
                     {
-                        correct += 1;
                         match.set('userCorrectScore', true);
                     } else {
-                        wrong += 1;
                         match.set('userCorrectScore', false);
                     }
 
@@ -178,6 +176,9 @@ define([
                     var userPredictOutcome = false;
                     if (uAlphaOutcome == alphaOutcome) {
                         userPredictOutcome = true;
+                        correct += 1;
+                    } else {
+                        wrong += 1;
                     }
 
                     match.set({
