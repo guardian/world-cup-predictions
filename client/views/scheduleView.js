@@ -60,7 +60,6 @@ define([
 
                 });
 
-
                 _.each(validMatches, function(match, i) {
                     if (!match.get('expiredMatch')) {
                         var currentDay = new Date((match.get('timestamp')-18000) *1000);
