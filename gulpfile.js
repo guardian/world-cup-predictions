@@ -85,11 +85,11 @@ gulp.task('copy_fonts', ['clean'], function() {
 
 
 gulp.task('local_build', function(callback) {
-    return runSequence('copy', 'styles', 'copy_fonts', 'local_baseurl', callback);
+    return runSequence('copy', 'styles', 'local_baseurl', callback);
 });
 
 gulp.task('remote_build', function(callback) {
-    return runSequence('copy', 'styles', 'copy_fonts', 'remote_baseurl', callback);
+    return runSequence('copy', 'styles', 'remote_baseurl', callback);
 });
 
 
