@@ -75,6 +75,50 @@
 }
 
 
+.ratingStar{
+	width:36px;
+	height:36px;
+	border-radius:50%;
+	border:3px solid #333;
+	background:#eee;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	position:absolute;
+	top:-18px;
+	left:50%;
+	margin-left:-18px;
+	.starIcon{
+		background-image: url(../images/starSprite.png);
+		background-size:14px;
+		position:absolute;
+		top:8px;
+		left:8px;
+		height:14px;
+		width:14px;
+	}
+	&.prediction-right-score{
+		background:#FFBB00;
+		.starIcon{
+			background-position-y: 13px;
+		}
+	}
+	&.prediction-right-winner{
+		// border:2px solid #FFBB00;
+		.starIcon{
+			background-position-y: 26px;
+		}
+	}
+	&.prediction-none{
+		background:#fff;
+		// border:2px solid rgba(0,0,0,0.1);
+		box-shadow: none;
+		.starIcon{
+			display:none;
+
+		}
+	}
+	
+}
+
 .previousMatchView{
 	background:@guardianYellow;
 	width:100%;
@@ -90,7 +134,7 @@
 	}
 }
 .wcp .history_block{
-	overflow:hidden;
+	// overflow:hidden;
 }
 .wcp .history_container{
 	padding-left:0;
@@ -103,6 +147,8 @@
 	width:100%;
 	li.wcp-match-stat{
 		width:100%;
+		position:relative;
+		padding-top:25px;
 	}
 }
 .wcp .history_list{
@@ -1118,5 +1164,36 @@ li.disabled .wcp-match-date {
 .wcp-embed {
 	h1 {
 		font-family: Guardian Sans Headline;
+	}
+}
+.betaView{
+	.wcp-link-to-interactive{
+		font-size:14px;
+		font-family:"TextSans", "AgateSans";
+		font-weight:normal;
+	}
+	.wcp-match-stat{
+		width:100%;
+		max-width:400px;
+		margin-bottom:10px;
+	}
+	.wcp-match-flag{
+		display:inline-block;
+		vertical-align: middle;
+	}
+	.wcp-result-team-code{
+		display:inline-block;
+		vertical-align: middle;
+	}
+	.wcp-predict-user{
+		float:none;
+		margin:0 auto;
+
+	}
+	.wcp-team-row{
+		padding-top:5px;
+	}
+	.wcp-team-row.wcp-team-result-middle{
+		padding-top:0;
 	}
 }

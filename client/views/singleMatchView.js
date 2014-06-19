@@ -69,6 +69,7 @@ function (
             var hiveAlphaScore = null;
             var hiveBetaScore = null;
 
+
             if (matchStats) {
                 hiveAlphaScore = matchStats.topResult.split(':')[0];
                 hiveBetaScore = matchStats.topResult.split(':')[1];
@@ -99,12 +100,14 @@ function (
                 totalPredictions : totalPredictions,
                 predictionBreakdown : predictionBreakdown,
                 matchResult : matchResult,
-                matchInProgress: match.get('inProgress')
+                matchInProgress: match.get('inProgress'),
+                resultStats : this.model
             };
 
         },
 
         render: function() {
+
             var templateData = this.createMatchTemplateData();
             this.$el.html(this.template(templateData));
             return this;
