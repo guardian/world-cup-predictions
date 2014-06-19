@@ -58,6 +58,8 @@ function (
                  matchResult = "wcp-breakdown-draw-result";
             }
 
+
+
             if (userMatchPrediction) {
                 userAlphaScore = userMatchPrediction.alphaScore;
                 userBetaScore = userMatchPrediction.betaScore;
@@ -79,6 +81,7 @@ function (
                 var userResultPercentage = Math.round((userResultOccurence/totalPredictions)*1000)/10;
                 var predictionBreakdown = this.calculateBreakDown(matchStats.frequencyHistogram);
             }
+
 
             return {
                 alphaScore: match.get('alphaScore'),
