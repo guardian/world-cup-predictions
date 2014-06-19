@@ -59,5 +59,3 @@ if (!matchID) {
     matchID = parseInt(matchID.trim(), 10);
     fetchData();
 }
-
-
