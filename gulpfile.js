@@ -50,8 +50,8 @@ gulp.task('connect', function() {
 
 gulp.task('remote_baseurl', function(){
   return gulp.src(['client/boot.js'])
-    .pipe(replace(/@@baseURL/g, urls.remote))
-    .pipe(gulp.dest('dist/boot.js'));
+  .pipe(replace(/@@baseURL/ig, urls.remote))
+  .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('local_baseurl', function(){

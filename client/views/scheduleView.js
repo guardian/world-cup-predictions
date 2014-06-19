@@ -52,7 +52,15 @@ define([
                 var months = ["January", "February","March","April","May","June","July","August","September","October","November","December"];
                 var endText = "Congratulations, you've successfully made your predictions. Don't forget you can change them until 30 minutes before a match. Bookmark this page and check out your stats after each match finishes.";
                 var j = 0;
-                this.collection.each(function(match, i) {
+
+                var validMatches = this.collection.filter(function(m) {
+                    var alphaTeam = m.get('alphaTeam');
+                    var betaTeam = m.get('betaTeam');
+                    return ((alphaTeam !== null) && (betaTeam !== null));
+
+                });
+
+                _.each(validMatches, function(match, i) {
                     if (!match.get('expiredMatch')) {
                         var currentDay = new Date((match.get('timestamp')-18000) *1000);
                         var formattedDate = currentDay.getDate() + "-" + currentDay.getMonth();
