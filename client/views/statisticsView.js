@@ -87,7 +87,6 @@ function (
 
 
         render: function() {
-            console.log(this.userModel)
             $('.interactive_header').after(this.template({
                 isUserLoggedIn: this.userModel.get('isUserLoggedIn'),
                 correctScore: this.userModel.get('correctCount'),
