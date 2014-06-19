@@ -1,13 +1,14 @@
 
-<div class="wcp-divider">All the matches</div>
+<div class="wcp-divider">Previous matches</div>
 <div class="history_container">
 	<div class="history_match_highlight"></div>
 	<ul class="history_list">
 
 	<% _.each(matches, function(match) { %>
 		<% var predictionScore;
-
-            if(match.userCorrectScore){
+			if(match.userPredictOutcome === undefined){
+				predictionScore = "prediction-none";
+			}else if(match.userCorrectScore){
                 predictionScore = "prediction-right-score";
             }else if(match.userPredictOutcome){
                 predictionScore = "prediction-right-winner";

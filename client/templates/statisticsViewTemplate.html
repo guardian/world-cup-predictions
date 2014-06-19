@@ -1,15 +1,19 @@
 <div class='previousMatchView'>
 	<div class="previousMatchContent">
 
-		<div class="wcp-divider">Yesterday's matches</div>
-		<ul class="previousMatchContainer">
-		 </ul>
+		<!-- <div class="wcp-divider">Yesterday's matches</div> -->
+		<!-- <ul class="previousMatchContainer"> </ul> -->
 
          <div class="userSummary">
+          <% if (isUserLoggedIn) { %>
             You&rsquo;ve got
             <span class="scoreNum"><%= correctScore %></span>
             of your <span class="scoreNum"><%= totalPredictions %></span>
             predictions correct
+
+            <% } else { %>
+
+            <% } %>
          </div>
 
 	</div>

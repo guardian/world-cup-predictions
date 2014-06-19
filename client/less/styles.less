@@ -76,11 +76,12 @@
 
 
 .previousMatchView{
-	// background:@guardianYellow;
+	background:@guardianYellow;
 	width:100%;
 	font-family:EgyptianHeadline;
-	padding-bottom:50px;
-	margin-top:20px;
+	padding-bottom:40px;
+	margin-bottom:20px;
+	// margin-top:20px;
 	h2{
 		font-weight:200;
 		font-size:32px;
@@ -135,6 +136,15 @@
 				background-position-y: 26px;
 			}
 		}
+		&.prediction-none{
+			background:transparent;
+			border:2px solid rgba(0,0,0,0.1);
+			box-shadow: none;
+			.starIcon{
+				display:none;
+
+			}
+		}
 		&:hover{
 			border:2px solid rgba(0,0,0,0.2);
 		}
@@ -155,6 +165,7 @@
 		max-width:1100px;
 		margin:0 auto;
 		position:relative;
+		padding:0 10px;
 		ul{
 			margin:0;
 		}
@@ -202,7 +213,8 @@
 		font-size:20px;
 		font-weight:bold;
 		padding-top: 4px;
-	box-sizing: border-box;
+		box-sizing: border-box;
+		font-family:EgyptianHeadline, EgyptianText, serif;
 	}
 	.wcp-match-progress {
 		font-style: italic;
@@ -215,7 +227,7 @@
 		padding-top:10px;
 	}
 
-	.wcp-predict-user{
+	.wcp .wcp-predict-user{
 		width:50%;
 		text-align:center;
 		float:left;
@@ -952,7 +964,9 @@ li.disabled .wcp-match-date {
 	.interactive_header .interactive_header_content{
 		padding:0 20px;
 	}
+
 	.previousMatchView .previousMatchContent{
+		padding:0 20px;
 	}
 	.wcp-team-name {
 		display:block;
@@ -1039,7 +1053,8 @@ li.disabled .wcp-match-date {
 		top:0;
 		margin-bottom:0;
 	}
-	.previousMatchView .previousMatchContent h2, .previousMatchView .previousMatchContent ul{
+	.userSummary{
+		padding-left:160px;
 	}
 
 }
@@ -1047,6 +1062,9 @@ li.disabled .wcp-match-date {
 @media(min-width:81.25em){
 	.wcp header {
 		margin-left:240px;
+	}
+	.userSummary{
+		padding-left:240px;
 	}
 	.interactive_header .interactive_header_content{
 		padding:0 20px;
@@ -1084,16 +1102,13 @@ li.disabled .wcp-match-date {
 }
 
 .userSummary {
-	border: 1px solid #EEE;
-	padding: 10px;
-	text-align: center;
-
+	font-family:EgyptianHeadline;
+	font-weight:200;
+	line-height:60px;
 
 	.scoreNum {
-		font-size: 60px;
-		vertical-align: middle;
-		display: inline-block;
+		font-size: 30px;
+		display: inline;
 		padding: 0 5px;
-		line-height: 1em;
 	}
 }

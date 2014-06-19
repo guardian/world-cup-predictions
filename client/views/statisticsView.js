@@ -87,13 +87,19 @@ function (
 
 
         render: function() {
-            this.$el.html(this.template({
+            console.log(this.userModel)
+            $('.interactive_header').after(this.template({
+                isUserLoggedIn: this.userModel.get('isUserLoggedIn'),
                 correctScore: this.userModel.get('correctCount'),
                 totalPredictions: this.userModel.get('predictionCount'),
             }));
+            // this.$el.html(this.template({
+            //     correctScore: this.userModel.get('correctCount'),
+            //     totalPredictions: this.userModel.get('predictionCount'),
+            // }));
 
             this.$matchesContainer = this.$('.previousMatchContainer');
-            this.addMatches();
+            // this.addMatches();
             return this;
         }
     });
