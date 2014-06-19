@@ -6,10 +6,8 @@
 
          <div class="userSummary">
           <% if (isUserLoggedIn) { %>
-            You&rsquo;ve got
-            <span class="scoreNum"><%= correctScore %></span>
-            of your <span class="scoreNum"><%= totalPredictions %></span>
-            predictions correct
+            <%= username %>, <span class="scoreNum"><%= correctScore %></span> of your <span class="scoreNum"><%= totalPredictions %></span>
+            predictions so far are correct
 
             <% } else { %>
 

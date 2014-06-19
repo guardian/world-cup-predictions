@@ -92,6 +92,7 @@ function (
                 isUserLoggedIn: this.userModel.get('isUserLoggedIn'),
                 correctScore: this.userModel.get('correctCount'),
                 totalPredictions: this.userModel.get('predictionCount'),
+                username : this.userModel.get('username'),
             }));
             // this.$el.html(this.template({
             //     correctScore: this.userModel.get('correctCount'),
