@@ -25,6 +25,14 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('./dist/css/'));
 });
 
+gulp.task('styles', function() {
+    return gulp.src('./client/less/styles.less')
+        .pipe(less({
+            paths: ['./client/less/']
+        }))
+        .pipe(gulp.dest('./dist/css/'));
+});
+
 gulp.task('server', function() {
     nodemon({
         script: './server/app.js',
@@ -68,6 +76,11 @@ gulp.task('watch', function () {
 gulp.task('copy', ['clean'], function() {
     return gulp.src(['client/**/*.*', '!client/boot.js', '!client/less/**/*'], { base: '' })
         .pipe(gulp.dest('dist'));
+});
+
+gulp.task('copy_fonts', ['clean'], function() {
+    return gulp.src(['client/less/fonts.css'], { base: '' })
+        .pipe(gulp.dest('dist/css'));
 });
 
 

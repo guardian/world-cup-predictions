@@ -78,7 +78,7 @@ define([
                     schedualCollection: scheduleCollection
                 });
 
-				// $(view).prepend(historyView.render().el);
+				$(view).prepend(historyView.render().el);
 				$(view).prepend(statisticsView.render().el);
 				$(view).append(scheduleView.render().el);
 				$('.wcp-loading').remove();
