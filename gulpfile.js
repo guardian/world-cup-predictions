@@ -25,6 +25,14 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('./dist/css/'));
 });
 
+gulp.task('styles', function() {
+    return gulp.src('./client/less/styles.less')
+        .pipe(less({
+            paths: ['./client/less/']
+        }))
+        .pipe(gulp.dest('./dist/css/'));
+});
+
 gulp.task('server', function() {
     nodemon({
         script: './server/app.js',
@@ -70,13 +78,18 @@ gulp.task('copy', ['clean'], function() {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy_fonts', ['clean'], function() {
+    return gulp.src(['client/less/fonts.css'], { base: '' })
+        .pipe(gulp.dest('dist/css'));
+});
+
 
 gulp.task('local_build', function(callback) {
-    return runSequence('copy', 'styles', 'local_baseurl', callback);
+    return runSequence('copy', 'styles', 'copy_fonts', 'local_baseurl', callback);
 });
 
 gulp.task('remote_build', function(callback) {
-    return runSequence('copy', 'styles', 'remote_baseurl', callback);
+    return runSequence('copy', 'styles', 'copy_fonts', 'remote_baseurl', callback);
 });
 
 

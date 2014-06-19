@@ -19,7 +19,7 @@
                     <span class="wcp-match-progress">Match in progress</span>
                 <% } else { %>
                     <div class="wcp-predict-user">
-                    <% if(userAlphaScore){ %>
+                    <% if(userAlphaScore !== null){ %>
                         <h3>You said
                             <% if(parseInt(userAlphaScore) === parseInt(alphaScore) && parseInt(userBetaScore) === parseInt(betaScore)){ %>
                                 <span class="wcp-winner-star"></span>
