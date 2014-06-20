@@ -5,13 +5,20 @@
 		<!-- <ul class="previousMatchContainer"> </ul> -->
 
          <div class="userSummary">
+             <p>
           <% if (isUserLoggedIn) { %>
             <%= username %>, <span class="scoreNum"><%= correctScore %></span> of your <span class="scoreNum"><%= totalPredictions %></span>
-            predictions so far are correct
+            predictions so far are correct. Have you predicted today's matches yet?
 
             <% } else { %>
-
+                <p><a href='https://profile.theguardian.com/signin'>Sign in</a> to your Guardian account to start predicting and check your stats</p>
             <% } %>
+            </p>
+            <div class='wcp-sharing'>
+            <!-- <a href='http://facebook.com' class='wcp-facebook'><img class="wcp-share-icon" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/icons/facebook.svg"></a> -->
+            <a href='http://facebook.com' class='wcp-facebook'><img class="wcp-share-icon" src="../images/icons/facebook.svg"></a>
+            <a href='http://twitter.com' class='wcp-twitter'><img class="wcp-share-icon" src="../images/icons/twitter.svg"></a>
+        </div>
          </div>
 
 	</div>

@@ -28,6 +28,8 @@ function (
         },
 
         showMatch: function(e) {
+            $('.historyStar.onHover').removeClass('onHover');
+            $(e.currentTarget).addClass('onHover');
             var matchID = $(e.currentTarget).data('matchid');
             var matchModel = this.collection.findWhere({'matchId': matchID});
             this.matchView.model = matchModel;

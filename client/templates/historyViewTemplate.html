@@ -3,7 +3,7 @@
 <div class="history_container clearfix">
 	<div class="history_match_highlight"></div>
 	<ul class="history_list">
-
+	<% var j = 0; %>
 	<% _.each(matches, function(match) { %>
 		<% var predictionScore;
 			if(match.userPredictOutcome === undefined){
@@ -19,9 +19,10 @@
 		<% if(match.expiredMatch){ %>
 
 
-		<li data-matchid="<%= match.matchId %>" class="historyStar <%= predictionScore %>">
+		<li data-matchid="<%= match.matchId %>" class="historyStar <%= predictionScore %> <% if(j===0){ %>onHover <% } %>">
 			<div class="starIcon"></div>
 		</li>
+		<% j++ %>
 		<% } %>
 
 	<% }); %>

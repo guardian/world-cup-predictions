@@ -74,6 +74,9 @@
 	}
 }
 
+.wcp-intro{
+	margin-bottom:20px;
+}
 
 .ratingStar{
 	width:36px;
@@ -123,7 +126,7 @@
 	background:@guardianYellow;
 	width:100%;
 	font-family:EgyptianHeadline;
-	padding-bottom:40px;
+	padding-bottom:30px;
 	margin-bottom:20px;
 	// margin-top:20px;
 	h2{
@@ -191,8 +194,8 @@
 
 			}
 		}
-		&:hover{
-			border:2px solid rgba(0,0,0,0.2);
+		&.onHover{
+			border:2px solid rgba(0,0,0,0.4);
 		}
 	}
 }
@@ -417,18 +420,18 @@
 			margin-right:2%;
 		}
 		.history_match_highlight{
-			width:47%;
+			width:48%;
 			margin-right:2%;
 			float:left;
 		}
 	}
 	@media(min-width:40em){
 		.wcp .wcp-match-stat{
-			width:31%;
+			width:32%;
 			margin-right:1%;
 		}
 		.history_match_highlight{
-			width:31%;
+			width:32%;
 			margin-right:1%;
 		}
 	}
@@ -612,12 +615,7 @@ figure.interactive{
 	margin: 1em 0;
 }
 
-.wcp-sharing {
-	display: block;
-	width: 100px;
-	float: left;
-	margin-bottom:20px;
-}
+
 
 .wcp-sharing a {
 	display: inline-block;
@@ -1004,6 +1002,34 @@ li.disabled .wcp-match-date {
 	font-family:EgyptianHeadline, EgyptianText;
 }
 
+.userSummary {
+	font-family:EgyptianHeadline;
+	font-weight:200;
+	padding-top:10px;
+	p{
+		font-size:18px;
+		line-height:26px;
+	}
+
+	.scoreNum {
+		font-weight: bold;
+		background: #333;
+		border-radius: 3px;
+		display: inline-block;
+		width: 25px;
+		height: 32px;
+		color: #fff;
+		box-sizing: border-box;
+		padding: 4px 0 0;
+		text-align: center;
+	}
+}
+.wcp-sharing {
+	display: block;
+	width: 100px;
+	margin:10px 0 0;
+}
+
 @media(min-width:30em){
 	figure.interactive{
 		margin:0 -20px;
@@ -1020,6 +1046,21 @@ li.disabled .wcp-match-date {
 	}
 	.wcp-team-code {
 		display: none;
+	}
+	.userSummary {
+		position: relative;
+		p{
+			padding-right:120px;
+			font-size:18px;
+		}
+	}
+	.wcp-sharing {
+		display: block;
+		width: 80px;
+		margin:10px 0 0;
+		position: absolute;
+		top:5px;
+		right:0;
 	}
 }
 
@@ -1058,7 +1099,9 @@ li.disabled .wcp-match-date {
 	.wcp-your-score{
 		width: 70%;
 	}
-
+	.wcp header {
+		margin-left:160px;
+	}
 	.wcp-divider{
 		width: 140px;
 		text-align: left;
@@ -1088,7 +1131,6 @@ li.disabled .wcp-match-date {
 
 @media(min-width:66.25em){
 	.wcp header {
-		margin-left:160px;
 		margin-right:320px;
 	}
 	.interactive_header .interactive_standfirst{
@@ -1148,17 +1190,7 @@ li.disabled .wcp-match-date {
 	padding: 2px;
 }
 
-.userSummary {
-	font-family:EgyptianHeadline;
-	font-weight:200;
-	line-height:60px;
 
-	.scoreNum {
-		font-size: 30px;
-		display: inline;
-		padding: 0 5px;
-	}
-}
 
 
 .wcp-embed {
