@@ -78,7 +78,7 @@ function getHistogramData(data) {
 
         var aScore = parseInt(score.split(':')[0], 10);
         var bScore = parseInt(score.split(':')[1], 10);
-        var goalDif =  aScore - bScore;
+        var goalDif =  bScore - aScore;
 
         // Exclude silly predictions
         if (goalDif < -5 || goalDif > 5) {

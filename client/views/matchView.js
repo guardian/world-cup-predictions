@@ -18,6 +18,7 @@ define([
         initialize: function(options) {
             this.prediction = options.prediction;
             var matchPrediction = this.prediction.get(this.model.get('matchId'));
+            console.log(matchPrediction, '000', this.model.get('matchId'), this.prediction);
 
             if (matchPrediction) {
                 if (matchPrediction.hasOwnProperty('alphaScore')) {
