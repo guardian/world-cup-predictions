@@ -30,13 +30,18 @@ function handleJSON(data) {
         $el.html('<p>No match found with ID: ' + matchID + '</p>');
         return;
     }
+    match.totalPredictions = 0;
+    for(var key in match.stats.frequencyHistogram){
+        match.totalPredictions += match.stats.frequencyHistogram[key];
+    }
+    match.predictionBreakdown = calculateBreakDown(match.stats.frequencyHistogram);
 
     // Populate template data
     var templateData = {
         alphaTeam: 'bob'
     };
 
-    match.histogram = getHistogramData(match.stats.frequencyHistogram);
+    match.topScores = getHistogramData(match.stats.frequencyHistogram);
     console.log(JSON.stringify(match, null, '  '));
 
     // Render the template into the page
@@ -56,73 +61,60 @@ function fetchData() {
 
 function getHistogramData(data) {
     var totalCount = 0;
-    var histogramData = {
-        "-5": 0,
-        "-4": 0,
-        "-3": 0,
-        "-2": 0,
-        "-1": 0,
-        "0" : 0,
-        "1" : 0,
-        "2" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
-    };
-
-    for (var score in data) {
-        // Skip any erroneous properties
-        if (!data.hasOwnProperty(score) || score.indexOf(':') === -1) {
-           continue;
-        }
-
-        var aScore = parseInt(score.split(':')[0], 10);
-        var bScore = parseInt(score.split(':')[1], 10);
-        var goalDif =  bScore - aScore;
-
-        // Exclude silly predictions
-        if (goalDif < -5 || goalDif > 5) {
-            continue;
-        }
-
-        // Count up scores
-        if (goalDif in histogramData) {
-            histogramData[goalDif] += data[score];
-        } else {
-            histogramData[goalDif] = data[score];
-        }
-
-        totalCount += data[score];
-    }
-
-    // Sort and order goal diffs into an array
     var sortedData = [];
     var counts = [];
-    for (var result in histogramData) {
-        if (histogramData.hasOwnProperty(result)) {
-            var goals = parseInt(result, 10);
-            // var percentage = (histogramData[result] / totalCount) * 100;
-            counts.push(histogramData[result]);
-            sortedData.push([goals, histogramData[result]]);
+    var loopCount = 0;
+
+    for (var score in data) {
+        console.log(loopCount);
+        if(loopCount < 5){
+            
+            // Skip any erroneous properties
+            if (!data.hasOwnProperty(score) || score.indexOf(':') === -1) {
+               continue;
+            }
+            var count = parseInt(data[score], 10);
+            sortedData.push([score, count]);
+            counts.push(count);
+            totalCount += data[score];
+            loopCount++;
         }
     }
 
     sortedData.sort(function(a, b) {
-        return a[0] - b[0];
+        return a[1] - b[1];
     });
 
+    sortedData.reverse();
+    
     var maxCount = Math.max.apply(Math, counts);
     sortedData.forEach(function(result) {
         var percentage = (result[1] / maxCount) * 100;
         result.push(percentage);
     });
+    // console.log(sortedData);
+    return sortedData;
+}
 
-
-
-    return {
-        total: totalCount,
-        goalDif: sortedData
+function calculateBreakDown(breakdownData){
+    var breakdown = {
+        alphaWin:0,
+        draw: 0,
+        betaWin: 0
     };
+    if (breakdownData) {
+
+        for(var key in breakdownData){
+            if(key.split(':')[0] > key.split(':')[1]){
+                breakdown.alphaWin += breakdownData[key];
+            }else if(key.split(':')[0] < key.split(':')[1]){
+                breakdown.betaWin += breakdownData[key];
+            }else if(key.split(':')[0] === key.split(':')[1]){
+                breakdown.draw += breakdownData[key];
+            }
+        }
+        return breakdown;
+    }
 }
 
 
