@@ -172,12 +172,7 @@ figure{margin:0}figure img{display:block}figure.img{margin-top:16px;margin-top:1
                         <p class="wcp-result-team-code"><%= betaCode %></p>
                     </div>
                 </div>
-                <div class="wcp-predict-user">
-                	<h3>Most people said</h3>
-			        <div class="wcp-match-score"><%= stats.topResult.split(':')[0] %></div> <div class="wcp-match-score"><%= stats.topResult.split(':')[1] %></div>
-
-			    </div>
-<!--
+                <!--
                 <div class="wcp-predict-breakdown clearfix">
                     <img class="wcp-match-flag wcp-breakdown-flag-alpha" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= alphaCode %>.png" width="" height="">
                     <div class="wcp-breakdown-bar wcp-breakdown-beta-win">
@@ -207,14 +202,24 @@ figure{margin:0}figure img{display:block}figure.img{margin-top:16px;margin-top:1
 
                     <div class="stats wcp-divider">
                     <h2 class="wcp_heading">Statistics</h2>
+                    
+                    <div class="wcp-predict-user">
+                        <div class="wcp-match-score"><%= stats.topResult.split(':')[0] %></div> <div class="wcp-match-score"><%= stats.topResult.split(':')[1] %></div>
+                        <h3>Most people said</h3>
+                    </div>
+
                     <div class="histogram">
+
+                    <img class="wcp-match-flag wcp-breakdown-flag-alpha" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= alphaCode %>.png" width="" height="">
+                    <img class="wcp-match-flag wcp-match-flag-right wcp-breakdown-flag-beta" src="http://interactive.guim.co.uk/next-gen/football/ng-interactive/2014/jun/world-cup-predictions/images/<%= betaCode %>.png" width="" height="">
+
                         <% histogram.goalDif.forEach(function(result, i) { %>
                             <div class="bar" style="height: <%= result[2] %>%; left: <%= 9.09090909091 * i %>%;">
                                 <span class="goaldif"><%= Math.abs(result[0]) %></span>
                             </div>
                         <% }); %>
                         <p class="histogram_footer">
-                            Goal difference (<%= alphaCode.toUpperCase() %> - <%= betaCode.toUpperCase() %>)
+                            Goal difference
                         </p>
                     </div>
                     <div>

@@ -65,7 +65,7 @@ define([
                         var currentDay = new Date((match.get('timestamp')-18000) *1000);
                         var formattedDate = currentDay.getDate() + "-" + currentDay.getMonth();
                         var userScores = this.model.get(match.get('matchId'));
-                        var matchView = new MatchView({model: match, prediction: this.model});
+                        var matchView = new MatchView({model: match, prediction: this.model });
                         if(this.$('.' + formattedDate).length === 0){
                             if(j===0){
                                 this.$el.append('<div class="' + formattedDate + ' matchDay matchToday clearfix">');

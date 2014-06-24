@@ -1223,11 +1223,31 @@ li.disabled .wcp-match-date {
 		bottom: 0;
 	}
 
+    .stats .wcp-predict-user {
+        margin: 0;
+        float: left;
+    }
+
 	.histogram {
-		width: 150px;
+		width: 50%;
 		height: 50px;
 		position: relative;
 		margin-bottom: 1.7em;
+        float: left;
+
+        .wcp-match-flag {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48%;
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        .wcp-match-flag-right {
+            right: 0;
+            left: initial;
+        }
 	}
 
 	.goaldif {
@@ -1252,16 +1272,31 @@ li.disabled .wcp-match-date {
 		line-height: 0;
 	}
 
-	.primary-stat {
-		float: left;
-	}
-
 	.stats {
 		padding: 4px 8px 2px;
 		position: relative;
-		width: 50%;
+		width: 48%;
+        margin: 0 1%;
 		float: left;
+        
+        @media (max-width:440px) {
+            width: 100%;
+        }
+
 	}
+
+
+    .betaView .primary-stat {
+        margin: 0 1%;
+        width: 48%;
+        float: left;
+        
+        @media (max-width:440px) {
+            width: 100%;
+            margin: 0;
+        }
+
+    }
 
 	.wcp_heading {
 		font-size: 1em;
