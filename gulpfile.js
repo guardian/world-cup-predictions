@@ -139,7 +139,32 @@ gulp.task('publish', function() {
         .pipe(awspublish.reporter());
 });
 
+// S3 Deploy
+gulp.task('publish-embed', function() {
+    // Load aws credentials from a file. { key: '...',  secret: '...', bucket: '...' }
+    var aws = JSON.parse(fs.readFileSync('aws.json'));
+    var publisher = awspublish.create(aws);
+    var headers = {
+         'Cache-Control': 'max-age=180, public'
+    };
+
+    return gulp.src('./dist/**/*.*')
+        .pipe(rename(function (path) {
+            path.dirname = '/embed/2014/jun/world-cup-predictions/' + path.dirname;
+        }))
+        // publisher will add Content-Length, Content-Type and  headers specified above
+        // If not specified it will set x-amz-acl to public-read by default
+       .pipe(publisher.publish(headers))
+       .pipe(publisher.cache())
+        // print upload updates to console
+        .pipe(awspublish.reporter());
+});
+
 gulp.task('deploy', function(callback) {
     runSequence('remote_build', 'publish', callback);
+});
+
+gulp.task('deploy-embed', function(callback) {
+    runSequence('remote_build', 'publish-embed', callback);
 });
 
