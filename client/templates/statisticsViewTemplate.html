@@ -8,10 +8,10 @@
              <p>
           <% if (isUserLoggedIn) { %>
             <%= username %>, <span class="scoreNum"><%= correctScore %></span> of your <span class="scoreNum"><%= totalPredictions %></span>
-            predictions so far are correct. Have you predicted today's matches yet?
+            predictions were correct.
 
             <% } else { %>
-                <p><a href='https://profile.theguardian.com/signin'>Sign in</a> to your Guardian account to start predicting and check your stats</p>
+                <p><a href='https://profile.theguardian.com/signin'>Sign in</a> to your Guardian account to relive your predictions</p>
             <% } %>
             </p>
             <div class='wcp-sharing'>

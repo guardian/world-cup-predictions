@@ -50,7 +50,7 @@ define([
             render: function() {
                 var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
                 var months = ["January", "February","March","April","May","June","July","August","September","October","November","December"];
-                var endText = "Congratulations, you've successfully made your predictions. Don't forget you can change them until 30 minutes before a match. Bookmark this page and check out your stats after each match finishes.";
+                var endText = "";
                 var j = 0;
 
                 var validMatches = this.collection.filter(function(m) {

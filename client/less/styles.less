@@ -717,6 +717,7 @@ figure.interactive{
 	font-family:EgyptianHeadline,EgyptianText,serif;
 	position:relative;
 	line-height:1.1em;
+
 }
 
 .wcp-day-check{
@@ -805,6 +806,9 @@ figure.interactive{
 	&.matchToday{
 		.deadlineMessage{
 			color: @guardianRed;
+			display:none;
+		}
+		.wcp-divider p.deadlineMessage{
 			display:none;
 		}
 		.prediction-complete .deadlineMessage{
